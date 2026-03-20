@@ -1,0 +1,16 @@
+{
+  "name": "wolf-pack-executive-dashboard",
+  "version": "1.0.0",
+  "description": "Executive KPI Command Center for The Wolf Pack Group",
+  "private": true,
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "lucide-react": "^0.263.1",
+    "date-fns": "^2.29.3"
+  },
+  "scripts": {
+    "start": "python3 -m http.server 3001",
+    "build": "echo 'Static build - no compilation needed'"
+  }
+}

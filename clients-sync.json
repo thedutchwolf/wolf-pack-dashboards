@@ -1,0 +1,91 @@
+{
+  "lastUpdated": "2026-03-20T15:50:50.619Z",
+  "source": "Wolf Pack Admin API",
+  "totalClients": 21,
+  "clients": [
+    {
+      "id": 1,
+      "name": "Skyrix Consultancy"
+    },
+    {
+      "id": 2,
+      "name": "Wolf of Washington"
+    },
+    {
+      "id": 3,
+      "name": "SheCom"
+    },
+    {
+      "id": 4,
+      "name": "Abundance Academy"
+    },
+    {
+      "id": 5,
+      "name": "Ecomgoats"
+    },
+    {
+      "id": 6,
+      "name": "Elite Club"
+    },
+    {
+      "id": 7,
+      "name": "The Founderdownload"
+    },
+    {
+      "id": 8,
+      "name": "Barakah Arbitrage"
+    },
+    {
+      "id": 9,
+      "name": "JobMarketingNederland"
+    },
+    {
+      "id": 10,
+      "name": "Ecombase.community"
+    },
+    {
+      "id": 11,
+      "name": "Valori International"
+    },
+    {
+      "id": 12,
+      "name": "Jisk Hoogeboom"
+    },
+    {
+      "id": 13,
+      "name": "Agenty Society"
+    },
+    {
+      "id": 14,
+      "name": "No Sheeps Acedemy"
+    },
+    {
+      "id": 15,
+      "name": "Martine Posthuma"
+    },
+    {
+      "id": 16,
+      "name": "Anders Ecommerce"
+    },
+    {
+      "id": 17,
+      "name": "Social Recruitment Academy"
+    },
+    {
+      "id": 18,
+      "name": "Ecom Kaper"
+    },
+    {
+      "id": 19,
+      "name": "Volty Banks"
+    },
+    {
+      "id": 20,
+      "name": "Entreproneur"
+    },
+    {
+      "id": 21,
+      "name": "Agency UAE"
+    }
+  ]
+}

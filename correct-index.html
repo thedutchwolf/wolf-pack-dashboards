@@ -1,0 +1,2024 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐺 Wolf Pack Executive Command Center</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0E0E0F 0%, #131313 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .dashboard {
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        .header {
+            background: linear-gradient(90deg, #131313 0%, #0E0E0F 100%);
+            border-bottom: 3px solid #FDB80A;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(253, 184, 10, 0.2);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .wolf-text {
+            color: #FDB80A;
+            text-shadow: 0 0 15px rgba(253, 184, 10, 0.4);
+        }
+
+        .header-subtitle {
+            color: #E3E1DE;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .week-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(253, 184, 10, 0.1);
+            border-radius: 8px;
+            border: 1px solid #FDB80A;
+        }
+
+        .controls {
+            padding: 2rem;
+            background: #0E0E0F;
+            border-bottom: 1px solid #A29A65;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .control-btn {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(45deg, #FDB80A, #A29A65);
+            border: none;
+            color: #0E0E0F;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .control-btn:hover {
+            background: linear-gradient(45deg, #E5A609, #FDB80A);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(253, 184, 10, 0.4);
+        }
+
+        .week-btn {
+            padding: 0.5rem 1rem;
+            background: #A29A65;
+            border: none;
+            color: #0E0E0F;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .week-btn:hover {
+            background: #FDB80A;
+            transform: scale(1.05);
+        }
+
+        .growth-analysis {
+            background: linear-gradient(135deg, #0E0E0F 0%, #131313 100%);
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 0;
+            border: 1px solid #A29A65;
+            border-left: none;
+            border-right: none;
+        }
+
+        .growth-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .growth-table th,
+        .growth-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #A29A65;
+        }
+
+        .growth-table th {
+            background: #131313;
+            color: #FDB80A;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .growth-positive {
+            color: #00d4aa;
+        }
+
+        .growth-negative {
+            color: #ff4444;
+        }
+
+        .growth-neutral {
+            color: #FDB80A;
+        }
+
+        .charts-section {
+            background: linear-gradient(135deg, #0E0E0F 0%, #131313 100%);
+            margin: 1rem 0;
+            padding: 1.5rem;
+            border-radius: 0;
+            border: 1px solid #A29A65;
+            border-left: none;
+            border-right: none;
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .chart-container {
+            background: #131313;
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid #A29A65;
+            text-align: center;
+            max-height: 200px;
+        }
+
+        .chart-container h3 {
+            color: #FDB80A;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .chart-container canvas {
+            max-width: 100%;
+            height: 120px !important;
+            width: 100% !important;
+        }
+
+        @media (max-width: 1200px) {
+            .charts-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+            
+            .chart-container {
+                padding: 0.75rem;
+                max-height: 160px;
+            }
+            
+            .chart-container canvas {
+                height: 100px !important;
+            }
+        }
+
+        .company-overview {
+            background: linear-gradient(135deg, #131313 0%, #0E0E0F 100%);
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 0;
+            border: 1px solid #A29A65;
+            border-left: none;
+            border-right: none;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .company-overview h2 {
+            color: #FDB80A;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .overview-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            background: #0E0E0F;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #A29A65;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #E3E1DE;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Section Headers */
+        .section-header {
+            background: linear-gradient(135deg, #131313 0%, #0E0E0F 100%);
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-radius: 0;
+            border: 1px solid #A29A65;
+            border-left: none;
+            border-right: none;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            color: #FDB80A;
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            color: #E3E1DE;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        /* 2x2 GRID LAYOUT - FULL WIDTH */
+        .members-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 0 0 2rem 0;
+            width: 100%;
+            margin: 0;
+        }
+
+        .member-card {
+            background: linear-gradient(135deg, #131313 0%, #0E0E0F 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid #A29A65;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .executive-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FDB80A, #A29A65);
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #A29A65, #FDB80A);
+        }
+
+        .member-card:hover {
+            transform: translateY(-4px);
+            border-color: #FDB80A;
+            box-shadow: 0 12px 24px rgba(253, 184, 10, 0.2);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #A29A65;
+        }
+
+        .card-info h3 {
+            color: #FDB80A;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-card .card-info h3 {
+            color: #A29A65;
+        }
+
+        .card-role {
+            color: #E3E1DE;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-status {
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .status-excellent { 
+            color: #00d4aa; 
+            background: rgba(0, 212, 170, 0.1);
+            border: 1px solid #00d4aa;
+        }
+        .status-good { 
+            color: #FDB80A; 
+            background: rgba(253, 184, 10, 0.1);
+            border: 1px solid #FDB80A;
+        }
+        .status-needs-attention { 
+            color: #ff4444; 
+            background: rgba(255, 68, 68, 0.1);
+            border: 1px solid #ff4444;
+        }
+
+        /* ADAPTIVE KPI GRID - Smaller items when more KPIs */
+        .kpis-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        /* 3 KPIs = 3 columns */
+        .kpis-grid.kpis-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        /* 4 KPIs = 2x2 grid */
+        .kpis-grid.kpis-4 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        /* 5 KPIs = 5 small columns */
+        .kpis-grid.kpis-5 {
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        .kpi-item {
+            background: #0E0E0F;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid #A29A65;
+            transition: all 0.2s ease;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Smaller KPI items for 5-KPI layouts */
+        .kpis-5 .kpi-item {
+            padding: 0.75rem;
+            min-height: 180px;
+        }
+
+        .kpi-item:hover {
+            border-color: #FDB80A;
+            transform: scale(1.02);
+        }
+
+        .kpi-circle {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 0.75rem;
+            border-radius: 50%;
+            border: 5px solid #A29A65;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Smaller circles for 5-KPI layout */
+        .kpis-5 .kpi-circle {
+            width: 60px;
+            height: 60px;
+            border-width: 4px;
+        }
+
+        .circle-excellent {
+            border-color: #00d4aa;
+            box-shadow: 0 0 15px rgba(0, 212, 170, 0.3);
+        }
+
+        .circle-good {
+            border-color: #FDB80A;
+            box-shadow: 0 0 15px rgba(253, 184, 10, 0.3);
+        }
+
+        .circle-needs-attention {
+            border-color: #ff4444;
+            box-shadow: 0 0 15px rgba(255, 68, 68, 0.3);
+        }
+
+        .circle-value {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: white;
+        }
+
+        .kpis-5 .circle-value {
+            font-size: 0.75rem;
+        }
+
+        .kpi-name {
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            flex-grow: 1;
+        }
+
+        .kpis-5 .kpi-name {
+            font-size: 0.7rem;
+        }
+
+        .kpi-details {
+            font-size: 0.7rem;
+            color: #E3E1DE;
+            margin-bottom: 0.5rem;
+        }
+
+        .kpis-5 .kpi-details {
+            font-size: 0.65rem;
+        }
+
+        .kpi-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            margin-top: auto;
+        }
+
+        .kpi-input {
+            width: 100%;
+            padding: 0.5rem;
+            background: #0E0E0F;
+            border: 1px solid #A29A65;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            text-align: center;
+        }
+
+        .kpis-5 .kpi-input {
+            padding: 0.4rem;
+            font-size: 0.7rem;
+        }
+
+        .kpi-input:focus {
+            outline: none;
+            border-color: #FDB80A;
+            box-shadow: 0 0 0 2px rgba(253, 184, 10, 0.2);
+        }
+
+        .update-btn {
+            padding: 0.5rem;
+            background: #FDB80A;
+            border: none;
+            color: #0E0E0F;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .kpis-5 .update-btn {
+            padding: 0.4rem;
+            font-size: 0.6rem;
+        }
+
+        .update-btn:hover {
+            background: #E5A609;
+            transform: scale(1.05);
+        }
+
+        /* Status color updates with Wolf Pack colors */
+        .status-excellent .stat-value { color: #00d4aa; }
+        .status-good .stat-value { color: #FDB80A; }
+        .status-needs-attention .stat-value { color: #ff4444; }
+
+        @media (max-width: 1200px) {
+            .members-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0 0 1rem 0;
+            }
+            
+            .kpis-grid.kpis-5 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .card-header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .kpis-grid.kpis-3,
+            .kpis-grid.kpis-4,
+            .kpis-grid.kpis-5 {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+
+            .kpi-item {
+                min-height: 160px;
+                padding: 0.75rem;
+            }
+        }
+
+        /* Wolf Pack branded scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #131313;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #FDB80A;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #E5A609;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <header class="header">
+            <h1><span class="wolf-text">🐺 WOLF PACK</span> COMMAND CENTER</h1>
+            <div class="header-subtitle">Official Brand Colors • 9 Members • 35 KPIs • 2x2 Grid Performance Monitoring</div>
+            
+            <div class="week-info">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <button class="week-btn" onclick="changeWeek(1)">◀ Vorige</button>
+                    <select id="weekSelector" onchange="loadSelectedWeek()" style="padding: 0.5rem; background: #0E0E0F; color: #FDB80A; border: 1px solid #FDB80A; border-radius: 4px; font-weight: 600;">
+                        <option value="2026-W11">Week 11 • 10 Maart 2026</option>
+                        <option value="2026-W10">Week 10 • 3 Maart 2026</option>
+                        <option value="2026-W09">Week 9 • 24 Februari 2026</option>
+                        <option value="2026-W08">Week 8 • 17 Februari 2026</option>
+                    </select>
+                    <button class="week-btn" onclick="changeWeek(-1)">Volgende ▶</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="controls">
+            <button class="control-btn" onclick="resetWeek()">🔄 RESET WEEK</button>
+            <button class="control-btn" onclick="exportData()">📥 EXPORT DATA</button>
+            <button class="control-btn" onclick="debugData()">🔧 DEBUG DATA</button>
+            <button class="control-btn" onclick="showInstructions()">❓ HELP</button>
+        </div>
+
+        <div class="company-overview">
+            <h2>🏆 Wolf Pack Command Overview</h2>
+            <div class="overview-stats">
+                <div class="stat-item">
+                    <div class="stat-value status-good" id="healthScore">65%</div>
+                    <div class="stat-label">Company Health Score</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value status-excellent" id="excellentMembers">4</div>
+                    <div class="stat-label">Members Presteren</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value status-excellent" id="excellentKPIs">18</div>
+                    <div class="stat-label">KPIs Boven Target</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value status-needs-attention" id="redKPIs">17</div>
+                    <div class="stat-label">KPIs Aandacht Nodig</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="charts-section">
+            <h2 style="color: #FDB80A; text-align: center; margin-bottom: 2rem; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 2px;">📊 PERFORMANCE CHARTS</h2>
+            
+            <div class="charts-grid">
+                <div class="chart-container">
+                    <h3>Health Score Trend %</h3>
+                    <canvas id="healthChart" width="300" height="200"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Excellent Members %</h3>
+                    <canvas id="membersChart" width="300" height="200"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>KPIs Boven Target %</h3>
+                    <canvas id="kpisChart" width="300" height="200"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>KPIs Aandacht %</h3>
+                    <canvas id="attentionChart" width="300" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="growth-analysis">
+            <div class="growth-header" onclick="toggleGrowthAnalysis()" style="cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+                <h2 style="color: #FDB80A; text-align: center; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 2px; margin: 0;">📈 WEEK-OVER-WEEK GROWTH</h2>
+                <span id="growthToggle" style="color: #FDB80A; font-size: 1.2rem;">▼</span>
+            </div>
+            
+            <div id="growthContent" style="display: block;">
+                <p style="text-align: center; color: #E3E1DE; font-style: italic;">Loading growth analysis...</p>
+            </div>
+        </div>
+
+        <!-- EXECUTIVES SECTION -->
+        <div class="section-header">
+            <h2>🎯 EXECUTIVES</h2>
+            <div class="section-subtitle">Leadership Team • Strategic Decision Makers • 7 Members</div>
+        </div>
+
+        <div class="members-grid">
+            <!-- MELVIN LASSOOY -->
+            <div class="member-card executive-card" data-exec="melvin">
+                <div class="card-header">
+                    <div class="card-info">
+                        <h3>Melvin Lassooy</h3>
+                        <div class="card-role">CEO</div>
+                    </div>
+                    <div class="card-status status-needs-attention" id="melvin-status">🔴 NEEDS FOCUS</div>
+                </div>
+                <div class="kpis-grid kpis-3">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="melvin-reels-circle">
+                            <div class="circle-value" id="melvin-reels-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Post 3 reels per dag</div>
+                        <div class="kpi-details">Target: 21 reels/week</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="melvin-reels-input" placeholder="Aantal reels" data-target="21">
+                            <button class="update-btn" onclick="updateKPI('melvin', 'reels')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="melvin-followers-circle">
+                            <div class="circle-value" id="melvin-followers-value">0%</div>
+                        </div>
+                        <div class="kpi-name">1000 nieuwe volgers</div>
+                        <div class="kpi-details">Target: 1000 volgers</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="melvin-followers-input" placeholder="Aantal volgers" data-target="1000">
+                            <button class="update-btn" onclick="updateKPI('melvin', 'followers')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="melvin-check-circle">
+                            <div class="circle-value" id="melvin-check-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Executive KPI Check</div>
+                        <div class="kpi-details">Target: 1 check/week</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="melvin-check-input" placeholder="0 of 1" data-target="1" min="0" max="1">
+                            <button class="update-btn" onclick="updateKPI('melvin', 'check')">UPDATE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MAURICE VISSER -->
+            <div class="member-card executive-card" data-exec="maurice">
+                <div class="card-header">
+                    <div class="card-info">
+                        <h3>Maurice Visser</h3>
+                        <div class="card-role">Sales Manager</div>
+                    </div>
+                    <div class="card-status status-needs-attention" id="maurice-status">🔴 NEEDS FOCUS</div>
+                </div>
+                <div class="kpis-grid kpis-3">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="maurice-closing-circle">
+                            <div class="circle-value" id="maurice-closing-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Team Closing Rate</div>
+                        <div class="kpi-details">Target: 20%</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="maurice-closing-input" placeholder="Percentage" data-target="20" step="0.1">
+                            <button class="update-btn" onclick="updateKPI('maurice', 'closing')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="maurice-cash-circle">
+                            <div class="circle-value" id="maurice-cash-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Cash per booked call</div>
+                        <div class="kpi-details">Target: €750</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="maurice-cash-input" placeholder="Euro bedrag" data-target="750">
+                            <button class="update-btn" onclick="updateKPI('maurice', 'cash')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="maurice-check-circle">
+                            <div class="circle-value" id="maurice-check-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Executive Check</div>
+                        <div class="kpi-details">Target: 1 weekly</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="maurice-check-input" placeholder="0 of 1" data-target="1" min="0" max="1">
+                            <button class="update-btn" onclick="updateKPI('maurice', 'check')">UPDATE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THIERRY MULDER - 5 KPIs -->
+            <div class="member-card executive-card" data-exec="thierry">
+                <div class="card-header">
+                    <div class="card-info">
+                        <h3>Thierry Mulder</h3>
+                        <div class="card-role">Setter Manager</div>
+                    </div>
+                    <div class="card-status status-needs-attention" id="thierry-status">🔴 NEEDS FOCUS</div>
+                </div>
+                <div class="kpis-grid kpis-5">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="thierry-conversion-circle">
+                            <div class="circle-value" id="thierry-conversion-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Followers naar calls</div>
+                        <div class="kpi-details">Target: 15%</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="thierry-conversion-input" placeholder="%" data-target="15" step="0.1">
+                            <button class="update-btn" onclick="updateKPI('thierry', 'conversion')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="thierry-closing-circle">
+                            <div class="circle-value" id="thierry-closing-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Team closing impact</div>
+                        <div class="kpi-details">Target: 20%</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="thierry-closing-input" placeholder="%" data-target="20" step="0.1">
+                            <button class="update-btn" onclick="updateKPI('thierry', 'closing')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="thierry-showup-circle">
+                            <div class="circle-value" id="thierry-showup-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Show up rate</div>
+                        <div class="kpi-details">Target: 70%</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="thierry-showup-input" placeholder="%" data-target="70" step="0.1">
+                            <button class="update-btn" onclick="updateKPI('thierry', 'showup')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="thierry-followups-circle">
+                            <div class="circle-value" id="thierry-followups-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Follow-ups</div>
+                        <div class="kpi-details">Target: 700/week</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="thierry-followups-input" placeholder="Aantal" data-target="700">
+                            <button class="update-btn" onclick="updateKPI('thierry', 'followups')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="thierry-outbound-circle">
+                            <div class="circle-value" id="thierry-outbound-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Daily outbounds</div>
+                        <div class="kpi-details">Target: 7 dagen</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="thierry-outbound-input" placeholder="Dagen" data-target="7" max="7">
+                            <button class="update-btn" onclick="updateKPI('thierry', 'outbound')">UPDATE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LORENZO KLEIJN -->
+            <div class="member-card executive-card" data-exec="lorenzo">
+                <div class="card-header">
+                    <div class="card-info">
+                        <h3>Lorenzo Kleijn</h3>
+                        <div class="card-role">Head of Delivery</div>
+                    </div>
+                    <div class="card-status status-needs-attention" id="lorenzo-status">🔴 NEEDS FOCUS</div>
+                </div>
+                <div class="kpis-grid kpis-3">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="lorenzo-coaching-circle">
+                            <div class="circle-value" id="lorenzo-coaching-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Coaching Reviews</div>
+                        <div class="kpi-details">Target: 7 dagen</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="lorenzo-coaching-input" placeholder="Dagen" data-target="7" max="7">
+                            <button class="update-btn" onclick="updateKPI('lorenzo', 'coaching')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="lorenzo-trustpilot-circle">
+                            <div class="circle-value" id="lorenzo-trustpilot-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Trustpilot Reviews</div>
+                        <div class="kpi-details">Target: 7/week</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="lorenzo-trustpilot-input" placeholder="Aantal" data-target="7">
+                            <button class="update-btn" onclick="updateKPI('lorenzo', 'trustpilot')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="lorenzo-score-circle">
+                            <div class="circle-value" id="lorenzo-score-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Review Score</div>
+                        <div class="kpi-details">Target: 4.5 sterren</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="lorenzo-score-input" placeholder="Sterren" data-target="4.5" step="0.1" min="0" max="5">
+                            <button class="update-btn" onclick="updateKPI('lorenzo', 'score')">UPDATE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NOVUM MEDIA - 5 KPIs -->
+            <div class="member-card executive-card" data-exec="novum">
+                <div class="card-header">
+                    <div class="card-info">
+                        <h3>NOVUM MEDIA</h3>
+                        <div class="card-role">Consultant</div>
+                    </div>
+                    <div class="card-status status-needs-attention" id="novum-status">🔴 NEEDS FOCUS</div>
+                </div>
+                <div class="kpis-grid kpis-5">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="novum-closerate-circle">
+                            <div class="circle-value" id="novum-closerate-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Close Rate</div>
+                        <div class="kpi-details">Target: 20%</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="novum-closerate-input" placeholder="%" data-target="20" step="0.1">
+                            <button class="update-btn" onclick="updateKPI('novum', 'closerate')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="novum-cost-circle">
+                            <div class="circle-value" id="novum-cost-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Cost per Call</div>
+                        <div class="kpi-details">Target: €100 (lager=beter)</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="novum-cost-input" placeholder="Euro" data-target="100">
+                            <button class="update-btn" onclick="updateKPI('novum', 'cost')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="novum-showup-circle">
+                            <div class="circle-value" id="novum-showup-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Show-up Rate</div>
+                        <div class="kpi-details">Target: 70%</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="novum-showup-input" placeholder="%" data-target="70" step="0.1">
+                            <button class="update-btn" onclick="updateKPI('novum', 'showup')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="novum-revenue-circle">
+                            <div class="circle-value" id="novum-revenue-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Revenue per Lead</div>
+                        <div class="kpi-details">Target: €500</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="novum-revenue-input" placeholder="Euro" data-target="500">
+                            <button class="update-btn" onclick="updateKPI('novum', 'revenue')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="novum-margin-circle">
+                            <div class="circle-value" id="novum-margin-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Net Profit Margin</div>
+                        <div class="kpi-details">Target: 40%</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="novum-margin-input" placeholder="%" data-target="40" step="0.1">
+                            <button class="update-btn" onclick="updateKPI('novum', 'margin')">UPDATE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NANCE VAN DER LEM -->
+            <div class="member-card executive-card" data-exec="nance">
+                <div class="card-header">
+                    <div class="card-info">
+                        <h3>Nance van der Lem</h3>
+                        <div class="card-role">Personal Assistant</div>
+                    </div>
+                    <div class="card-status status-needs-attention" id="nance-status">🔴 NEEDS FOCUS</div>
+                </div>
+                <div class="kpis-grid kpis-3">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="nance-financial-circle">
+                            <div class="circle-value" id="nance-financial-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Financial Update</div>
+                        <div class="kpi-details">Target: 1 weekly</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="nance-financial-input" placeholder="0 of 1" data-target="1" min="0" max="1">
+                            <button class="update-btn" onclick="updateKPI('nance', 'financial')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="nance-response-circle">
+                            <div class="circle-value" id="nance-response-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Response Time</div>
+                        <div class="kpi-details">Target: <1 uur (60 min)</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="nance-response-input" placeholder="Minuten" data-target="60">
+                            <button class="update-btn" onclick="updateKPI('nance', 'response')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="nance-project-circle">
+                            <div class="circle-value" id="nance-project-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Project Management</div>
+                        <div class="kpi-details">Target: 1 weekly</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="nance-project-input" placeholder="0 of 1" data-target="1" min="0" max="1">
+                            <button class="update-btn" onclick="updateKPI('nance', 'project')">UPDATE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BRENT/VINCENT - 4 KPIs -->
+            <div class="member-card executive-card" data-exec="creative">
+                <div class="card-header">
+                    <div class="card-info">
+                        <h3>Brent/Vincent</h3>
+                        <div class="card-role">Creative Directors</div>
+                    </div>
+                    <div class="card-status status-needs-attention" id="creative-status">🔴 NEEDS FOCUS</div>
+                </div>
+                <div class="kpis-grid kpis-4">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="creative-growth-circle">
+                            <div class="circle-value" id="creative-growth-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Follower Growth</div>
+                        <div class="kpi-details">Target: 1000/week</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="creative-growth-input" placeholder="Aantal" data-target="1000">
+                            <button class="update-btn" onclick="updateKPI('creative', 'growth')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="creative-reels-circle">
+                            <div class="circle-value" id="creative-reels-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Daily Reels</div>
+                        <div class="kpi-details">Target: 21/week</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="creative-reels-input" placeholder="Aantal" data-target="21">
+                            <button class="update-btn" onclick="updateKPI('creative', 'reels')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="creative-youtube-circle">
+                            <div class="circle-value" id="creative-youtube-value">0%</div>
+                        </div>
+                        <div class="kpi-name">YouTube Video</div>
+                        <div class="kpi-details">Target: 1/week</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="creative-youtube-input" placeholder="0 of 1" data-target="1" min="0" max="1">
+                            <button class="update-btn" onclick="updateKPI('creative', 'youtube')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="creative-trial-circle">
+                            <div class="circle-value" id="creative-trial-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Trial Reels</div>
+                        <div class="kpi-details">Target: 35/week</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="creative-trial-input" placeholder="Aantal" data-target="35">
+                            <button class="update-btn" onclick="updateKPI('creative', 'trial')">UPDATE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEAM SECTION -->
+        <div class="section-header">
+            <h2>👥 TEAM</h2>
+            <div class="section-subtitle">Front-line Performance • Sales & Operations • 2 Members</div>
+        </div>
+
+        <div class="members-grid">
+            <!-- MATTHIJS GROENEVELT - 4 KPIs -->
+            <div class="member-card team-card" data-exec="matthijs">
+                <div class="card-header">
+                    <div class="card-info">
+                        <h3>Matthijs Groenevelt</h3>
+                        <div class="card-role">Closer (B2C)</div>
+                    </div>
+                    <div class="card-status status-needs-attention" id="matthijs-status">🔴 NEEDS FOCUS</div>
+                </div>
+                <div class="kpis-grid kpis-4">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="matthijs-closingrate-circle">
+                            <div class="circle-value" id="matthijs-closingrate-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Closing Rate</div>
+                        <div class="kpi-details">Target: 20%</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="matthijs-closingrate-input" placeholder="Percentage" data-target="20" step="0.1">
+                            <button class="update-btn" onclick="updateKPI('matthijs', 'closingrate')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="matthijs-cashpercall-circle">
+                            <div class="circle-value" id="matthijs-cashpercall-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Cash per booked call</div>
+                        <div class="kpi-details">Target: €750</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="matthijs-cashpercall-input" placeholder="Euro" data-target="750">
+                            <button class="update-btn" onclick="updateKPI('matthijs', 'cashpercall')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="matthijs-dailycalls-circle">
+                            <div class="circle-value" id="matthijs-dailycalls-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Daily Sales Calls</div>
+                        <div class="kpi-details">Target: 35/week (5 daily)</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="matthijs-dailycalls-input" placeholder="Aantal calls" data-target="35">
+                            <button class="update-btn" onclick="updateKPI('matthijs', 'dailycalls')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="matthijs-followups-circle">
+                            <div class="circle-value" id="matthijs-followups-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Follow-ups</div>
+                        <div class="kpi-details">Target: 140/week (20 daily)</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="matthijs-followups-input" placeholder="Aantal" data-target="140">
+                            <button class="update-btn" onclick="updateKPI('matthijs', 'followups')">UPDATE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ZINAH MATHEEUWSEN - 5 KPIs -->
+            <div class="member-card team-card" data-exec="zinah">
+                <div class="card-header">
+                    <div class="card-info">
+                        <h3>Zinah Matheeuwsen</h3>
+                        <div class="card-role">Setter</div>
+                    </div>
+                    <div class="card-status status-needs-attention" id="zinah-status">🔴 NEEDS FOCUS</div>
+                </div>
+                <div class="kpis-grid kpis-5">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="zinah-conversion-circle">
+                            <div class="circle-value" id="zinah-conversion-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Followers naar calls</div>
+                        <div class="kpi-details">Target: 15%</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="zinah-conversion-input" placeholder="%" data-target="15" step="0.1">
+                            <button class="update-btn" onclick="updateKPI('zinah', 'conversion')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="zinah-closing-circle">
+                            <div class="circle-value" id="zinah-closing-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Closing Impact</div>
+                        <div class="kpi-details">Target: 20%</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="zinah-closing-input" placeholder="%" data-target="20" step="0.1">
+                            <button class="update-btn" onclick="updateKPI('zinah', 'closing')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="zinah-showup-circle">
+                            <div class="circle-value" id="zinah-showup-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Show up rate</div>
+                        <div class="kpi-details">Target: 70%</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="zinah-showup-input" placeholder="%" data-target="70" step="0.1">
+                            <button class="update-btn" onclick="updateKPI('zinah', 'showup')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="zinah-followups-circle">
+                            <div class="circle-value" id="zinah-followups-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Follow-ups</div>
+                        <div class="kpi-details">Target: 700/week</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="zinah-followups-input" placeholder="Aantal" data-target="700">
+                            <button class="update-btn" onclick="updateKPI('zinah', 'followups')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="zinah-outbound-circle">
+                            <div class="circle-value" id="zinah-outbound-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Daily outbounds</div>
+                        <div class="kpi-details">Target: 7 dagen</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="zinah-outbound-input" placeholder="Dagen" data-target="7" max="7">
+                            <button class="update-btn" onclick="updateKPI('zinah', 'outbound')">UPDATE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // MULTI-WEEK DATA STORAGE
+        let currentWeek = '2026-W11';
+
+        function saveKPIData(exec, kpi, actual, target, percentage) {
+            try {
+                // Get all weeks data
+                const allWeeksData = JSON.parse(localStorage.getItem('wolfPackWeeksData') || '{}');
+                
+                // Initialize current week if not exists
+                if (!allWeeksData[currentWeek]) {
+                    allWeeksData[currentWeek] = {};
+                }
+                
+                // Save KPI data for current week
+                if (!allWeeksData[currentWeek][exec]) allWeeksData[currentWeek][exec] = {};
+                allWeeksData[currentWeek][exec][kpi] = {
+                    actual: actual,
+                    target: target,
+                    percentage: percentage,
+                    timestamp: Date.now()
+                };
+                
+                // Save all weeks data
+                localStorage.setItem('wolfPackWeeksData', JSON.stringify(allWeeksData));
+                
+                // Also save current week to old format for compatibility
+                const currentWeekData = allWeeksData[currentWeek];
+                localStorage.setItem('wolfPackKPIs', JSON.stringify(currentWeekData));
+                sessionStorage.setItem('wolfPackKPIs_backup', JSON.stringify(currentWeekData));
+                
+                console.log('Data saved for week:', currentWeek, exec, kpi, actual, percentage + '%');
+                
+                // Update growth analysis
+                updateGrowthAnalysis();
+                
+            } catch (error) {
+                console.error('Error saving data:', error);
+                alert('⚠️ Data opslaan mislukt! Browser storage probleem.');
+            }
+        }
+
+        function loadWeekData(weekId) {
+            try {
+                const allWeeksData = JSON.parse(localStorage.getItem('wolfPackWeeksData') || '{}');
+                return allWeeksData[weekId] || {};
+            } catch (error) {
+                console.error('Error loading week data:', error);
+                return {};
+            }
+        }
+
+        // Data recovery function
+        function recoverData() {
+            try {
+                const backupData = sessionStorage.getItem('wolfPackKPIs_backup');
+                if (backupData) {
+                    localStorage.setItem('wolfPackKPIs', backupData);
+                    console.log('Data recovered from backup');
+                    return true;
+                }
+            } catch (error) {
+                console.error('Recovery failed:', error);
+            }
+            return false;
+        }
+
+        function loadKPIData(weekId = currentWeek) {
+            try {
+                let kpiData = loadWeekData(weekId);
+                
+                // Clear all inputs first
+                const allInputs = document.querySelectorAll('.kpi-input');
+                allInputs.forEach(input => input.value = '');
+                
+                // Reset all circles
+                const allCircles = document.querySelectorAll('.kpi-circle');
+                allCircles.forEach(circle => {
+                    circle.classList.remove('circle-excellent', 'circle-good', 'circle-needs-attention');
+                    circle.classList.add('circle-needs-attention');
+                    const valueElement = circle.querySelector('.circle-value');
+                    if (valueElement) valueElement.textContent = '0%';
+                });
+                
+                let dataLoaded = false;
+                for (const [exec, kpis] of Object.entries(kpiData)) {
+                    for (const [kpi, data] of Object.entries(kpis)) {
+                        const inputId = `${exec}-${kpi}-input`;
+                        const circleId = `${exec}-${kpi}-circle`;
+                        const valueId = `${exec}-${kpi}-value`;
+                        
+                        const inputElement = document.getElementById(inputId);
+                        const circleElement = document.getElementById(circleId);
+                        const valueElement = document.getElementById(valueId);
+                        
+                        if (inputElement && circleElement && valueElement) {
+                            inputElement.value = data.actual;
+                            valueElement.textContent = `${Math.round(data.percentage)}%`;
+                            
+                            circleElement.classList.remove('circle-excellent', 'circle-good', 'circle-needs-attention');
+                            if (data.percentage >= 110) {
+                                circleElement.classList.add('circle-excellent');
+                            } else if (data.percentage >= 90) {
+                                circleElement.classList.add('circle-good');
+                            } else {
+                                circleElement.classList.add('circle-needs-attention');
+                            }
+                            dataLoaded = true;
+                        }
+                    }
+                    updateMemberStatus(exec);
+                }
+                
+                if (!dataLoaded) {
+                    console.log('No KPI data loaded for week', weekId);
+                }
+                
+                updateCompanyOverview();
+                updateGrowthAnalysis();
+                
+            } catch (error) {
+                console.error('Error loading data:', error);
+                console.log('Starting with fresh data');
+            }
+        }
+
+        function changeWeek(direction) {
+            const selector = document.getElementById('weekSelector');
+            const currentIndex = selector.selectedIndex;
+            const newIndex = currentIndex + direction;
+            
+            if (newIndex >= 0 && newIndex < selector.options.length) {
+                selector.selectedIndex = newIndex;
+                loadSelectedWeek();
+            }
+        }
+
+        function loadSelectedWeek() {
+            const selector = document.getElementById('weekSelector');
+            currentWeek = selector.value;
+            console.log('Loading week:', currentWeek);
+            loadKPIData(currentWeek);
+        }
+
+        // Initialize with default data if no data exists
+        function initializeDefaultData() {
+            const kpiData = JSON.parse(localStorage.getItem('wolfPackKPIs') || '{}');
+            if (Object.keys(kpiData).length === 0) {
+                // Set some example data so dashboard isn't empty
+                const defaultData = {
+                    'melvin': {
+                        'reels': { actual: 0, target: 21, percentage: 0, timestamp: Date.now() }
+                    }
+                };
+                localStorage.setItem('wolfPackKPIs', JSON.stringify(defaultData));
+            }
+        }
+
+        // Clear any existing data for clean start
+        function clearAllData() {
+            localStorage.removeItem('wolfPackWeeksData');
+            localStorage.removeItem('wolfPackKPIs');
+            sessionStorage.removeItem('wolfPackKPIs_backup');
+            console.log('🗑️ All data cleared for clean start');
+        }
+
+        // Load data on page load
+        window.addEventListener('load', () => {
+            clearAllData(); // Start with clean slate
+            initializeDefaultData();
+            initializeCharts();
+            loadKPIData();
+            updateCompanyOverview();
+            updateGrowthAnalysis();
+        });
+
+        function updateKPI(exec, kpi) {
+            const inputId = `${exec}-${kpi}-input`;
+            const circleId = `${exec}-${kpi}-circle`;
+            const valueId = `${exec}-${kpi}-value`;
+            
+            const inputElement = document.getElementById(inputId);
+            const circleElement = document.getElementById(circleId);
+            const valueElement = document.getElementById(valueId);
+            
+            if (!inputElement || !circleElement || !valueElement) {
+                console.error('Elements not found:', {inputId, circleId, valueId});
+                return;
+            }
+            
+            const actual = parseFloat(inputElement.value) || 0;
+            const target = parseFloat(inputElement.dataset.target) || 1;
+            
+            let percentage;
+            
+            if (kpi === 'cost') {
+                percentage = actual <= target ? ((target - actual) / target * 100) + 100 : (target / actual) * 100;
+            } else if (kpi === 'response') {
+                percentage = actual <= target ? ((target - actual) / target * 100) + 100 : (target / actual) * 100;
+            } else {
+                percentage = (actual / target) * 100;
+            }
+            
+            const displayPercentage = Math.min(Math.round(percentage), 150);
+            valueElement.textContent = `${displayPercentage}%`;
+            
+            circleElement.classList.remove('circle-excellent', 'circle-good', 'circle-needs-attention');
+            
+            if (percentage >= 110) {
+                circleElement.classList.add('circle-excellent');
+            } else if (percentage >= 90) {
+                circleElement.classList.add('circle-good');
+            } else {
+                circleElement.classList.add('circle-needs-attention');
+            }
+            
+            // Save data to shared storage
+            saveKPIData(exec, kpi, actual, target, percentage);
+            
+            updateMemberStatus(exec);
+            alert(`✅ KPI Updated: ${actual} / ${target} = ${displayPercentage}%`);
+        }
+        
+        function updateMemberStatus(exec) {
+            const statusElement = document.getElementById(`${exec}-status`);
+            const memberCard = document.querySelector(`[data-exec="${exec}"]`);
+            
+            if (!memberCard || !statusElement) return;
+            
+            const kpiItems = memberCard.querySelectorAll('.kpi-item');
+            let excellentCount = 0;
+            let needsAttentionCount = 0;
+            let totalCount = kpiItems.length;
+            
+            kpiItems.forEach(item => {
+                const circle = item.querySelector('.kpi-circle');
+                if (circle.classList.contains('circle-excellent')) excellentCount++;
+                if (circle.classList.contains('circle-needs-attention')) needsAttentionCount++;
+            });
+            
+            statusElement.classList.remove('status-excellent', 'status-good', 'status-needs-attention');
+            
+            if (excellentCount >= totalCount * 0.7) {
+                statusElement.textContent = '🟢 CRUSHING IT';
+                statusElement.classList.add('status-excellent');
+            } else if (needsAttentionCount >= totalCount * 0.3) {
+                statusElement.textContent = '🔴 NEEDS FOCUS';
+                statusElement.classList.add('status-needs-attention');
+            } else {
+                statusElement.textContent = '🟠 ON TRACK';
+                statusElement.classList.add('status-good');
+            }
+            
+            // Update company overview after member status change
+            updateCompanyOverview();
+        }
+
+        function updateCompanyOverview() {
+            // Count all KPI circles and member statuses
+            const allCircles = document.querySelectorAll('.kpi-circle');
+            const allMembers = document.querySelectorAll('.member-card');
+            
+            let excellentKPIs = 0;
+            let goodKPIs = 0;
+            let needsAttentionKPIs = 0;
+            
+            let excellentMembers = 0;
+            let goodMembers = 0;
+            let needsAttentionMembers = 0;
+            
+            // Count KPI performance
+            allCircles.forEach(circle => {
+                if (circle.classList.contains('circle-excellent')) excellentKPIs++;
+                else if (circle.classList.contains('circle-good')) goodKPIs++;
+                else if (circle.classList.contains('circle-needs-attention')) needsAttentionKPIs++;
+            });
+            
+            // Count member performance
+            allMembers.forEach(member => {
+                const status = member.querySelector('.card-status');
+                if (status.classList.contains('status-excellent')) excellentMembers++;
+                else if (status.classList.contains('status-good')) goodMembers++;
+                else if (status.classList.contains('status-needs-attention')) needsAttentionMembers++;
+            });
+            
+            // Calculate health score
+            const totalKPIs = excellentKPIs + goodKPIs + needsAttentionKPIs;
+            const healthScore = totalKPIs > 0 ? Math.round(((excellentKPIs * 100) + (goodKPIs * 75)) / totalKPIs) : 0;
+            
+            // Update overview elements
+            const healthElement = document.getElementById('healthScore');
+            const excellentMembersElement = document.getElementById('excellentMembers');
+            const excellentKPIsElement = document.getElementById('excellentKPIs');
+            const redKPIsElement = document.getElementById('redKPIs');
+            
+            if (healthElement) {
+                healthElement.textContent = `${healthScore}%`;
+                healthElement.classList.remove('status-excellent', 'status-good', 'status-needs-attention');
+                if (healthScore >= 85) healthElement.classList.add('status-excellent');
+                else if (healthScore >= 70) healthElement.classList.add('status-good');
+                else healthElement.classList.add('status-needs-attention');
+            }
+            
+            if (excellentMembersElement) {
+                excellentMembersElement.textContent = excellentMembers;
+                excellentMembersElement.classList.remove('status-excellent', 'status-good', 'status-needs-attention');
+                if (excellentMembers >= 6) excellentMembersElement.classList.add('status-excellent');
+                else if (excellentMembers >= 3) excellentMembersElement.classList.add('status-good');
+                else excellentMembersElement.classList.add('status-needs-attention');
+            }
+            
+            if (excellentKPIsElement) {
+                excellentKPIsElement.textContent = excellentKPIs;
+                excellentKPIsElement.classList.remove('status-excellent', 'status-good', 'status-needs-attention');
+                if (excellentKPIs >= 25) excellentKPIsElement.classList.add('status-excellent');
+                else if (excellentKPIs >= 15) excellentKPIsElement.classList.add('status-good');
+                else excellentKPIsElement.classList.add('status-needs-attention');
+            }
+            
+            if (redKPIsElement) {
+                redKPIsElement.textContent = needsAttentionKPIs;
+                redKPIsElement.classList.remove('status-excellent', 'status-good', 'status-needs-attention');
+                if (needsAttentionKPIs <= 5) redKPIsElement.classList.add('status-excellent');
+                else if (needsAttentionKPIs <= 15) redKPIsElement.classList.add('status-good');
+                else redKPIsElement.classList.add('status-needs-attention');
+            }
+            
+            // Update charts after overview calculation
+            updateCharts();
+        }
+
+        // PERFORMANCE CHARTS SYSTEM
+        let healthChart, membersChart, kpisChart, attentionChart;
+
+        function initializeCharts() {
+            const chartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: '#A29A65',
+                            lineWidth: 1
+                        },
+                        ticks: {
+                            color: '#E3E1DE',
+                            font: {
+                                size: 10
+                            }
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: '#A29A65',
+                            lineWidth: 1
+                        },
+                        ticks: {
+                            color: '#E3E1DE',
+                            font: {
+                                size: 10
+                            }
+                        }
+                    }
+                }
+            };
+
+            // Health Score Chart (will be recreated as line chart in updateCharts)
+            const healthCtx = document.getElementById('healthChart').getContext('2d');
+            healthChart = new Chart(healthCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                    datasets: [{
+                        label: 'Health Score %',
+                        data: [0, 0, 0, 0],
+                        borderColor: '#FDB80A',
+                        backgroundColor: 'rgba(253, 184, 10, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: chartOptions
+            });
+
+            // Members Chart  
+            const membersCtx = document.getElementById('membersChart').getContext('2d');
+            membersChart = new Chart(membersCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                    datasets: [{
+                        label: 'Excellent Members %',
+                        data: [0, 0, 0, 0],
+                        borderColor: '#00d4aa',
+                        backgroundColor: 'rgba(0, 212, 170, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: chartOptions
+            });
+
+            // KPIs Target Chart
+            const kpisCtx = document.getElementById('kpisChart').getContext('2d');
+            kpisChart = new Chart(kpisCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                    datasets: [{
+                        label: 'KPIs Boven Target',
+                        data: [0, 0, 0, 0],
+                        borderColor: '#00d4aa',
+                        backgroundColor: 'rgba(0, 212, 170, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: chartOptions
+            });
+
+            // Attention Chart
+            const attentionCtx = document.getElementById('attentionChart').getContext('2d');
+            attentionChart = new Chart(attentionCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                    datasets: [{
+                        label: 'KPIs Aandacht Nodig',
+                        data: [0, 0, 0, 0],
+                        borderColor: '#ff4444',
+                        backgroundColor: 'rgba(255, 68, 68, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: chartOptions
+            });
+        }
+
+        function updateCharts() {
+            if (!healthChart) return;
+
+            // Get historical data for ALL weeks
+            const allWeeksData = JSON.parse(localStorage.getItem('wolfPackWeeksData') || '{}');
+            const weeks = Object.keys(allWeeksData).sort();
+            
+            if (weeks.length === 0) return;
+
+            const weekLabels = weeks;
+            const healthHistory = [];
+            const excellentMembersHistory = [];
+            const kpisAboveTargetHistory = [];
+            const kpisAttentionHistory = [];
+
+            // Calculate metrics for each week
+            weekLabels.forEach(week => {
+                const weekData = allWeeksData[week] || {};
+                let totalKPIs = 0;
+                let excellentKPIs = 0;
+                let goodKPIs = 0;
+                let attentionKPIs = 0;
+                let excellentMembers = 0;
+                let totalMembers = 0;
+
+                // Count per member
+                for (const exec of Object.keys(weekData)) {
+                    totalMembers++;
+                    let memberExcellent = 0;
+                    let memberGood = 0;
+                    let memberAttention = 0;
+                    let memberTotal = 0;
+
+                    for (const kpi of Object.keys(weekData[exec])) {
+                        const percentage = weekData[exec][kpi].percentage || 0;
+                        memberTotal++;
+                        totalKPIs++;
+
+                        if (percentage >= 110) {
+                            excellentKPIs++;
+                            memberExcellent++;
+                        } else if (percentage >= 90) {
+                            goodKPIs++;
+                            memberGood++;
+                        } else {
+                            attentionKPIs++;
+                            memberAttention++;
+                        }
+                    }
+
+                    // Determine member status
+                    if (memberTotal > 0) {
+                        const memberScore = ((memberExcellent * 100) + (memberGood * 75)) / memberTotal;
+                        if (memberScore >= 85) excellentMembers++;
+                    }
+                }
+
+                // Calculate percentages
+                const healthScore = totalKPIs > 0 ? Math.round(((excellentKPIs * 100) + (goodKPIs * 75)) / totalKPIs) : 0;
+                const excellentMembersPerc = totalMembers > 0 ? Math.round((excellentMembers / totalMembers) * 100) : 0;
+                const kpisAboveTargetPerc = totalKPIs > 0 ? Math.round((excellentKPIs / totalKPIs) * 100) : 0;
+                const kpisAttentionPerc = totalKPIs > 0 ? Math.round((attentionKPIs / totalKPIs) * 100) : 0;
+
+                healthHistory.push(healthScore);
+                excellentMembersHistory.push(excellentMembersPerc);
+                kpisAboveTargetHistory.push(kpisAboveTargetPerc);
+                kpisAttentionHistory.push(kpisAttentionPerc);
+            });
+
+            // Update Health Score Chart (line chart now)
+            healthChart.destroy();
+            const healthCtx = document.getElementById('healthChart').getContext('2d');
+            healthChart = new Chart(healthCtx, {
+                type: 'line',
+                data: {
+                    labels: weekLabels,
+                    datasets: [{
+                        label: 'Health Score %',
+                        data: healthHistory,
+                        borderColor: '#FDB80A',
+                        backgroundColor: 'rgba(253, 184, 10, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            grid: { color: '#A29A65', lineWidth: 1 },
+                            ticks: { color: '#E3E1DE', font: { size: 10 } }
+                        },
+                        x: {
+                            grid: { color: '#A29A65', lineWidth: 1 },
+                            ticks: { color: '#E3E1DE', font: { size: 10 } }
+                        }
+                    }
+                }
+            });
+
+            // Update Members Chart (line chart for percentage)
+            membersChart.data.labels = weekLabels;
+            membersChart.data.datasets[0].data = excellentMembersHistory;
+            membersChart.data.datasets[0].borderColor = '#00d4aa';
+            membersChart.data.datasets[0].backgroundColor = 'rgba(0, 212, 170, 0.1)';
+            membersChart.config.type = 'line';
+            membersChart.update();
+
+            // Update KPIs Target Chart
+            kpisChart.data.labels = weekLabels;
+            kpisChart.data.datasets[0].data = kpisAboveTargetHistory;
+            kpisChart.update();
+
+            // Update Attention Chart  
+            attentionChart.data.labels = weekLabels;
+            attentionChart.data.datasets[0].data = kpisAttentionHistory;
+            attentionChart.update();
+        }
+        
+        function updateGrowthAnalysis() {
+            try {
+                const allWeeksData = JSON.parse(localStorage.getItem('wolfPackWeeksData') || '{}');
+                const availableWeeks = Object.keys(allWeeksData).sort().reverse(); // Newest first
+                
+                if (availableWeeks.length < 2) {
+                    document.getElementById('growthContent').innerHTML = 
+                        '<p style="text-align: center; color: #E3E1DE; font-style: italic;">Minimaal 2 weken data nodig voor growth analysis</p>';
+                    return;
+                }
+                
+                // Compare current week with previous week
+                const currentWeekIndex = availableWeeks.indexOf(currentWeek);
+                const previousWeek = currentWeekIndex < availableWeeks.length - 1 ? 
+                    availableWeeks[currentWeekIndex + 1] : availableWeeks[1];
+                
+                const currentData = allWeeksData[currentWeek] || {};
+                const previousData = allWeeksData[previousWeek] || {};
+                
+                let growthHtml = `
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                        <h3 style="color: #FDB80A;">📊 ${currentWeek} vs ${previousWeek}</h3>
+                        <div style="font-size: 0.9rem; color: #E3E1DE;">
+                            <span style="color: #00d4aa;">🔺 Verbeterd</span> • 
+                            <span style="color: #FDB80A;">➡️ Gelijk</span> • 
+                            <span style="color: #ff4444;">🔻 Verslechterd</span>
+                        </div>
+                    </div>
+                    <table class="growth-table">
+                        <thead>
+                            <tr>
+                                <th>Member</th>
+                                <th>KPI</th>
+                                <th>${previousWeek}</th>
+                                <th>${currentWeek}</th>
+                                <th>Growth</th>
+                                <th>Trend</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+                
+                for (const exec of Object.keys({...currentData, ...previousData})) {
+                    const currentExecData = currentData[exec] || {};
+                    const previousExecData = previousData[exec] || {};
+                    
+                    for (const kpi of Object.keys({...currentExecData, ...previousExecData})) {
+                        const currentKpiData = currentExecData[kpi];
+                        const previousKpiData = previousExecData[kpi];
+                        
+                        if (currentKpiData || previousKpiData) {
+                            const currentValue = currentKpiData ? currentKpiData.percentage : 0;
+                            const previousValue = previousKpiData ? previousKpiData.percentage : 0;
+                            const growth = currentValue - previousValue;
+                            
+                            let growthClass = 'growth-neutral';
+                            let trendIcon = '➡️';
+                            
+                            if (growth > 5) {
+                                growthClass = 'growth-positive';
+                                trendIcon = '🔺';
+                            } else if (growth < -5) {
+                                growthClass = 'growth-negative'; 
+                                trendIcon = '🔻';
+                            }
+                            
+                            growthHtml += `
+                                <tr>
+                                    <td style="color: #FDB80A; font-weight: 600;">${exec.charAt(0).toUpperCase() + exec.slice(1)}</td>
+                                    <td>${kpi}</td>
+                                    <td>${previousValue.toFixed(1)}%</td>
+                                    <td>${currentValue.toFixed(1)}%</td>
+                                    <td class="${growthClass}">${growth > 0 ? '+' : ''}${growth.toFixed(1)}%</td>
+                                    <td>${trendIcon}</td>
+                                </tr>
+                            `;
+                        }
+                    }
+                }
+                
+                growthHtml += '</tbody></table>';
+                document.getElementById('growthContent').innerHTML = growthHtml;
+                
+            } catch (error) {
+                console.error('Error updating growth analysis:', error);
+                document.getElementById('growthContent').innerHTML = 
+                    '<p style="text-align: center; color: #ff4444;">Error loading growth data</p>';
+            }
+        }
+
+        function resetWeek() {
+            if (confirm(`🔄 Alle KPI data resetten voor ${currentWeek}?\n\nDit verwijdert ALLEEN data van de huidige week.\nAndere weken blijven behouden.`)) {
+                try {
+                    const allWeeksData = JSON.parse(localStorage.getItem('wolfPackWeeksData') || '{}');
+                    
+                    // Delete current week data
+                    delete allWeeksData[currentWeek];
+                    localStorage.setItem('wolfPackWeeksData', JSON.stringify(allWeeksData));
+                    
+                    // Clear legacy storage
+                    localStorage.removeItem('wolfPackKPIs');
+                    sessionStorage.removeItem('wolfPackKPIs_backup');
+                    
+                    // Clear current display
+                    loadKPIData(currentWeek);
+                    
+                    alert(`✅ Week ${currentWeek} data gereset! Andere weken ongewijzigd.`);
+                    
+                } catch (error) {
+                    console.error('Error resetting week:', error);
+                    alert('❌ Error bij resetten van week data');
+                }
+            }
+        }
+        
+        function exportData() {
+            let data = '🐺 WOLF PACK BRANDED DASHBOARD - Week 11\n=============================================\n\n';
+            
+            const allMembers = document.querySelectorAll('.member-card');
+            allMembers.forEach((member, index) => {
+                const name = member.querySelector('h3').textContent;
+                const role = member.querySelector('.card-role').textContent;
+                const status = member.querySelector('.card-status').textContent;
+                const isTeam = member.classList.contains('team-card');
+                
+                data += `${index + 1}. ${name} (${role})${isTeam ? ' [TEAM]' : ' [EXECUTIVE]'}\n`;
+                data += `Status: ${status}\n-------------------\n`;
+                
+                const kpis = member.querySelectorAll('.kpi-item');
+                kpis.forEach(kpi => {
+                    const kpiName = kpi.querySelector('.kpi-name').textContent;
+                    const percentage = kpi.querySelector('.circle-value').textContent;
+                    const target = kpi.querySelector('.kpi-details').textContent;
+                    const input = kpi.querySelector('.kpi-input');
+                    const actualValue = input.value || '0';
+                    
+                    data += `• ${kpiName}: ${actualValue} (${percentage}) - ${target}\n`;
+                });
+                data += '\n';
+            });
+            
+            data += '\nWolf Pack Brand Colors Used:\n';
+            data += '- Primary Gold: #FDB80A\n';
+            data += '- Secondary Gold: #A29A65\n';
+            data += '- Wolf Dark: #0E0E0F\n';
+            data += '- Wolf Light: #E3E1DE\n';
+            data += '\nGeëxporteerd op: ' + new Date().toLocaleDateString('nl-NL');
+            
+            const blob = new Blob([data], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'wolfpack-branded-dashboard-week11.txt';
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            alert('📥 Wolf Pack Branded Dashboard data geëxporteerd!');
+        }
+        
+        function debugData() {
+            const localStorage_data = localStorage.getItem('wolfPackKPIs');
+            const sessionStorage_data = sessionStorage.getItem('wolfPackKPIs_backup');
+            
+            let message = '🔧 DATA DEBUG INFO\n\n';
+            
+            if (localStorage_data) {
+                const data = JSON.parse(localStorage_data);
+                message += `✅ LocalStorage: ${Object.keys(data).length} members\n`;
+                let totalKPIs = 0;
+                for (const [exec, kpis] of Object.entries(data)) {
+                    totalKPIs += Object.keys(kpis).length;
+                }
+                message += `📊 Total KPIs: ${totalKPIs}\n\n`;
+            } else {
+                message += '❌ LocalStorage: LEEG\n\n';
+            }
+            
+            if (sessionStorage_data) {
+                message += '💾 Backup available in SessionStorage\n';
+            } else {
+                message += '⚠️ No backup data found\n';
+            }
+            
+            message += '\n🔧 OPTIES:\n';
+            message += '• OK = Sluit debug\n';
+            message += '• Wil je data recoveren from backup?';
+            
+            if (confirm(message + '\n\nKlik OK om data te recoveren, Cancel om te sluiten.')) {
+                if (recoverData()) {
+                    loadKPIData();
+                    alert('✅ Data recovered! Refresh de pagina als er nog problemen zijn.');
+                } else {
+                    alert('❌ Recovery failed. Geen backup data gevonden.');
+                }
+            }
+        }
+
+
+
+        function toggleGrowthAnalysis() {
+            const content = document.getElementById('growthContent');
+            const toggle = document.getElementById('growthToggle');
+            
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                toggle.textContent = '▼';
+            } else {
+                content.style.display = 'none';
+                toggle.textContent = '▶';
+            }
+        }
+
+        function showInstructions() {
+            alert(`🎯 WOLF PACK BRANDED COMMAND CENTER
+
+🎨 OFFICIËLE MERKKLEUREN:
+• Primary Gold: #FDB80A (van thewolfpackgroup.com)
+• Secondary Gold: #A29A65 (accent kleur)  
+• Wolf Dark: #0E0E0F (achtergrond)
+• Wolf Light: #E3E1DE (tekst accenten)
+
+📋 LAYOUT:
+• 2 kaarten naast elkaar (2-kolom grid)
+• KPIs automatisch verkleind bij 5 items
+• Executives eerst, dan Team members
+
+🔢 ADAPTIVE KPI SIZING:
+• 3 KPIs = 3 kolommen (normaal formaat)
+• 4 KPIs = 2x2 grid (normaal formaat)  
+• 5 KPIs = 5 kleine kolommen (verkleind)
+
+🎨 KLEUREN SYSTEEM:
+🟢 Groen = ≥110% van target (CRUSHING IT)
+🟨 Goud = 90-109% van target (ON TRACK)  
+🔴 Rood = <90% van target (NEEDS FOCUS)
+
+📊 TOTAAL: 9 Members • 35 KPIs • Officiële Wolf Pack Branding!
+
+🐺 thewolfpackgroup.com • Wolf Pack Strong!`);
+        }
+    </script>
+</body>
+</html>

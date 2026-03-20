@@ -1,0 +1,31 @@
+# Wolf Pack Dashboard Backup
+# Created: 2026-03-20 by Donnie for Melvin
+
+# Logs
+*.log
+ngrok.log
+server.log
+
+# Temporary files
+*.tmp
+*.temp
+*_temp.json
+
+# Local environment
+.env
+*.env
+
+# Node modules (if any)
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.backup
+*.bak
+
+# Sensitive data
+*.key
+*.pem

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📈 KPI Dashboard - Wolf Pack</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0E0E0F 0%, #1A1A1B 100%);
+            color: #E3E1DE;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .icon {
+            font-size: 120px;
+            margin-bottom: 30px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #FDB80A;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #888;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .back-btn {
+            display: inline-block;
+            background: #FDB80A;
+            color: #0E0E0F;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #FFD700;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(253, 184, 10, 0.4);
+        }
+
+        .coming-soon {
+            display: inline-block;
+            background: rgba(34, 197, 94, 0.15);
+            color: #22c55e;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">📈</div>
+        <h1>KPI Dashboard</h1>
+        <p>
+            Performance metrics, conversion rates, revenue tracking, en team analytics komen hier beschikbaar.
+            <br><br>
+            Dit dashboard wordt binnenkort gebouwd met real-time data uit GoHighLevel en Airtable.
+        </p>
+        <div class="coming-soon">🚀 Coming Soon</div>
+        <br><br>
+        <a href="/" class="back-btn">⬅️ Terug naar Control Room</a>
+    </div>
+</body>
+</html>

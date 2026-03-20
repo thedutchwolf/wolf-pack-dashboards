@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐺 Wolf Pack Executive Command Center</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .dashboard {
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        .header {
+            background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-bottom: 3px solid #ff6b35;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .wolf-text {
+            color: #ff6b35;
+            text-shadow: 0 0 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .header-subtitle {
+            color: #cccccc;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .week-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 8px;
+            border: 1px solid #ff6b35;
+        }
+
+        .controls {
+            padding: 2rem;
+            background: #1e1e1e;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .control-btn {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(45deg, #ff6b35, #ff8555);
+            border: none;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .control-btn:hover {
+            background: linear-gradient(45deg, #e55a2b, #ff6b35);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+        }
+
+        .company-overview {
+            background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
+            margin: 2rem;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #333;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .company-overview h2 {
+            color: #ff6b35;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .overview-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            background: #2a2a2a;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #ccc;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Section Headers */
+        .section-header {
+            background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%);
+            margin: 2rem;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #444;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            color: #ff6b35;
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            color: #cccccc;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        /* VERTICAL LAYOUT - Everything under each other */
+        .members-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding: 0 2rem 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .member-card {
+            background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid #333;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .executive-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b35, #00d4aa);
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #00d4aa, #ffaa00);
+        }
+
+        .member-card:hover {
+            transform: translateY(-4px);
+            border-color: #ff6b35;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .card-info h3 {
+            color: #ff6b35;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-card .card-info h3 {
+            color: #00d4aa;
+        }
+
+        .card-role {
+            color: #cccccc;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-status {
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 0.75rem 1.25rem;
+            border-radius: 25px;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .status-excellent { 
+            color: #00d4aa; 
+            background: rgba(0, 212, 170, 0.15);
+            border: 1px solid #00d4aa;
+        }
+        .status-good { 
+            color: #ffaa00; 
+            background: rgba(255, 170, 0, 0.15);
+            border: 1px solid #ffaa00;
+        }
+        .status-needs-attention { 
+            color: #ff4444; 
+            background: rgba(255, 68, 68, 0.15);
+            border: 1px solid #ff4444;
+        }
+
+        .kpis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .kpi-item {
+            background: #2a2a2a;
+            border-radius: 8px;
+            padding: 1.25rem;
+            text-align: center;
+            border: 1px solid #333;
+            transition: all 0.2s ease;
+        }
+
+        .kpi-item:hover {
+            border-color: #ff6b35;
+            transform: scale(1.02);
+        }
+
+        .kpi-circle {
+            position: relative;
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            border: 6px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .circle-excellent {
+            border-color: #00d4aa;
+            box-shadow: 0 0 15px rgba(0, 212, 170, 0.3);
+        }
+
+        .circle-good {
+            border-color: #ffaa00;
+            box-shadow: 0 0 15px rgba(255, 170, 0, 0.3);
+        }
+
+        .circle-needs-attention {
+            border-color: #ff4444;
+            box-shadow: 0 0 15px rgba(255, 68, 68, 0.3);
+        }
+
+        .circle-value {
+            font-weight: 700;
+            font-size: 1rem;
+            color: white;
+        }
+
+        .kpi-name {
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .kpi-details {
+            font-size: 0.75rem;
+            color: #999;
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .kpi-input {
+            width: 100%;
+            padding: 0.6rem;
+            background: #333;
+            border: 1px solid #555;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        .kpi-input:focus {
+            outline: none;
+            border-color: #ff6b35;
+            box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2);
+        }
+
+        .update-btn {
+            padding: 0.6rem;
+            background: #ff6b35;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .update-btn:hover {
+            background: #e55a2b;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .members-container {
+                padding: 1rem;
+            }
+            
+            .kpis-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 1rem;
+            }
+            
+            .header {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .card-header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <header class="header">
+            <h1><span class="wolf-text">🐺 WOLF PACK</span> COMMAND CENTER</h1>
+            <div class="header-subtitle">9 Members • 35 KPIs • Vertical Performance Monitoring</div>
+            
+            <div class="week-info">
+                <strong>Week 11 • 10 Maart 2026</strong>
+            </div>
+        </header>
+
+        <div class="controls">
+            <button class="control-btn" onclick="resetWeek()">🔄 RESET WEEK</button>
+            <button class="control-btn" onclick="exportData()">📥 EXPORT DATA</button>
+            <button class="control-btn" onclick="showInstructions()">❓ HELP</button>
+        </div>
+
+        <div class="company-overview">
+            <h2>🏆 Wolf Pack Command Overview</h2>
+            <div class="overview-stats">
+                <div class="stat-item">
+                    <div class="stat-value status-good" id="healthScore">65%</div>
+                    <div class="stat-label">Company Health Score</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value status-excellent" id="excellentMembers">4</div>
+                    <div class="stat-label">Members Presteren</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value status-excellent" id="excellentKPIs">18</div>
+                    <div class="stat-label">KPIs Boven Target</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value status-needs-attention" id="redKPIs">17</div>
+                    <div class="stat-label">KPIs Aandacht Nodig</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXECUTIVES SECTION -->
+        <div class="section-header">
+            <h2>🎯 EXECUTIVES</h2>
+            <div class="section-subtitle">Leadership Team • Strategic Decision Makers • 7 Members</div>
+        </div>
+
+        <div class="members-container">
+            <!-- MELVIN LASSOOY -->
+            <div class="member-card executive-card" data-exec="melvin">
+                <div class="card-header">
+                    <div class="card-info">
+                        <h3>Melvin Lassooy</h3>
+                        <div class="card-role">CEO</div>
+                    </div>
+                    <div class="card-status status-needs-attention" id="melvin-status">🔴 NEEDS FOCUS</div>
+                </div>
+                <div class="kpis-grid">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="melvin-reels-circle">
+                            <div class="circle-value" id="melvin-reels-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Post 3 reels per dag</div>
+                        <div class="kpi-details">Target: 21 reels/week</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="melvin-reels-input" placeholder="Aantal reels" data-target="21">
+                            <button class="update-btn" onclick="updateKPI('melvin', 'reels')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="melvin-followers-circle">
+                            <div class="circle-value" id="melvin-followers-value">0%</div>
+                        </div>
+                        <div class="kpi-name">1000 nieuwe volgers</div>
+                        <div class="kpi-details">Target: 1000 volgers</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="melvin-followers-input" placeholder="Aantal volgers" data-target="1000">
+                            <button class="update-btn" onclick="updateKPI('melvin', 'followers')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="melvin-check-circle">
+                            <div class="circle-value" id="melvin-check-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Executive KPI Check</div>
+                        <div class="kpi-details">Target: 1 check/week</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="melvin-check-input" placeholder="0 of 1" data-target="1" min="0" max="1">
+                            <button class="update-btn" onclick="updateKPI('melvin', 'check')">UPDATE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MAURICE VISSER -->
+            <div class="member-card executive-card" data-exec="maurice">
+                <div class="card-header">
+                    <div class="card-info">
+                        <h3>Maurice Visser</h3>
+                        <div class="card-role">Sales Manager</div>
+                    </div>
+                    <div class="card-status status-needs-attention" id="maurice-status">🔴 NEEDS FOCUS</div>
+                </div>
+                <div class="kpis-grid">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="maurice-closing-circle">
+                            <div class="circle-value" id="maurice-closing-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Team Closing Rate</div>
+                        <div class="kpi-details">Target: 20%</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="maurice-closing-input" placeholder="Percentage" data-target="20" step="0.1">
+                            <button class="update-btn" onclick="updateKPI('maurice', 'closing')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="maurice-cash-circle">
+                            <div class="circle-value" id="maurice-cash-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Cash per call</div>
+                        <div class="kpi-details">Target: €750</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="maurice-cash-input" placeholder="Euro bedrag" data-target="750">
+                            <button class="update-btn" onclick="updateKPI('maurice', 'cash')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="maurice-check-circle">
+                            <div class="circle-value" id="maurice-check-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Executive Check</div>
+                        <div class="kpi-details">Target: 1 weekly</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="maurice-check-input" placeholder="0 of 1" data-target="1" min="0" max="1">
+                            <button class="update-btn" onclick="updateKPI('maurice', 'check')">UPDATE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- THIERRY MULDER -->
+            <div class="member-card executive-card" data-exec="thierry">
+                <div class="card-header">
+                    <div class="card-info">
+                        <h3>Thierry Mulder</h3>
+                        <div class="card-role">Setter Manager</div>
+                    </div>
+                    <div class="card-status status-needs-attention" id="thierry-status">🔴 NEEDS FOCUS</div>
+                </div>
+                <div class="kpis-grid">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="thierry-conversion-circle">
+                            <div class="circle-value" id="thierry-conversion-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Followers naar calls</div>
+                        <div class="kpi-details">Target: 15%</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="thierry-conversion-input" placeholder="Percentage" data-target="15" step="0.1">
+                            <button class="update-btn" onclick="updateKPI('thierry', 'conversion')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="thierry-closing-circle">
+                            <div class="circle-value" id="thierry-closing-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Team closing impact</div>
+                        <div class="kpi-details">Target: 20%</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="thierry-closing-input" placeholder="Percentage" data-target="20" step="0.1">
+                            <button class="update-btn" onclick="updateKPI('thierry', 'closing')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="thierry-showup-circle">
+                            <div class="circle-value" id="thierry-showup-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Show up rate</div>
+                        <div class="kpi-details">Target: 70%</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="thierry-showup-input" placeholder="Percentage" data-target="70" step="0.1">
+                            <button class="update-btn" onclick="updateKPI('thierry', 'showup')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="thierry-followups-circle">
+                            <div class="circle-value" id="thierry-followups-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Follow-ups</div>
+                        <div class="kpi-details">Target: 700/week</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="thierry-followups-input" placeholder="Aantal" data-target="700">
+                            <button class="update-btn" onclick="updateKPI('thierry', 'followups')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="thierry-outbound-circle">
+                            <div class="circle-value" id="thierry-outbound-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Daily outbounds</div>
+                        <div class="kpi-details">Target: 7 dagen</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="thierry-outbound-input" placeholder="Dagen" data-target="7" max="7">
+                            <button class="update-btn" onclick="updateKPI('thierry', 'outbound')">UPDATE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LORENZO KLEIJN -->
+            <div class="member-card executive-card" data-exec="lorenzo">
+                <div class="card-header">
+                    <div class="card-info">
+                        <h3>Lorenzo Kleijn</h3>
+                        <div class="card-role">Head of Delivery</div>
+                    </div>
+                    <div class="card-status status-needs-attention" id="lorenzo-status">🔴 NEEDS FOCUS</div>
+                </div>
+                <div class="kpis-grid">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="lorenzo-coaching-circle">
+                            <div class="circle-value" id="lorenzo-coaching-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Coaching Reviews</div>
+                        <div class="kpi-details">Target: 7 dagen</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="lorenzo-coaching-input" placeholder="Dagen" data-target="7" max="7">
+                            <button class="update-btn" onclick="updateKPI('lorenzo', 'coaching')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="lorenzo-trustpilot-circle">
+                            <div class="circle-value" id="lorenzo-trustpilot-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Trustpilot Reviews</div>
+                        <div class="kpi-details">Target: 7/week</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="lorenzo-trustpilot-input" placeholder="Aantal" data-target="7">
+                            <button class="update-btn" onclick="updateKPI('lorenzo', 'trustpilot')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="lorenzo-score-circle">
+                            <div class="circle-value" id="lorenzo-score-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Review Score</div>
+                        <div class="kpi-details">Target: 4.5 sterren</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="lorenzo-score-input" placeholder="Sterren" data-target="4.5" step="0.1" min="0" max="5">
+                            <button class="update-btn" onclick="updateKPI('lorenzo', 'score')">UPDATE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NOVUM MEDIA -->
+            <div class="member-card executive-card" data-exec="novum">
+                <div class="card-header">
+                    <div class="card-info">
+                        <h3>NOVUM MEDIA</h3>
+                        <div class="card-role">Consultant</div>
+                    </div>
+                    <div class="card-status status-needs-attention" id="novum-status">🔴 NEEDS FOCUS</div>
+                </div>
+                <div class="kpis-grid">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="novum-closerate-circle">
+                            <div class="circle-value" id="novum-closerate-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Close Rate</div>
+                        <div class="kpi-details">Target: 20%</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="novum-closerate-input" placeholder="Percentage" data-target="20" step="0.1">
+                            <button class="update-btn" onclick="updateKPI('novum', 'closerate')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="novum-cost-circle">
+                            <div class="circle-value" id="novum-cost-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Cost per Call</div>
+                        <div class="kpi-details">Target: €100 (lager=beter)</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="novum-cost-input" placeholder="Euro" data-target="100">
+                            <button class="update-btn" onclick="updateKPI('novum', 'cost')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="novum-showup-circle">
+                            <div class="circle-value" id="novum-showup-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Show-up Rate</div>
+                        <div class="kpi-details">Target: 70%</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="novum-showup-input" placeholder="Percentage" data-target="70" step="0.1">
+                            <button class="update-btn" onclick="updateKPI('novum', 'showup')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="novum-revenue-circle">
+                            <div class="circle-value" id="novum-revenue-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Revenue per Lead</div>
+                        <div class="kpi-details">Target: €500</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="novum-revenue-input" placeholder="Euro" data-target="500">
+                            <button class="update-btn" onclick="updateKPI('novum', 'revenue')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="novum-margin-circle">
+                            <div class="circle-value" id="novum-margin-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Net Profit Margin</div>
+                        <div class="kpi-details">Target: 40%</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="novum-margin-input" placeholder="Percentage" data-target="40" step="0.1">
+                            <button class="update-btn" onclick="updateKPI('novum', 'margin')">UPDATE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NANCE VAN DER LEM -->
+            <div class="member-card executive-card" data-exec="nance">
+                <div class="card-header">
+                    <div class="card-info">
+                        <h3>Nance van der Lem</h3>
+                        <div class="card-role">Personal Assistant</div>
+                    </div>
+                    <div class="card-status status-needs-attention" id="nance-status">🔴 NEEDS FOCUS</div>
+                </div>
+                <div class="kpis-grid">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="nance-financial-circle">
+                            <div class="circle-value" id="nance-financial-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Financial Update</div>
+                        <div class="kpi-details">Target: 1 weekly</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="nance-financial-input" placeholder="0 of 1" data-target="1" min="0" max="1">
+                            <button class="update-btn" onclick="updateKPI('nance', 'financial')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="nance-response-circle">
+                            <div class="circle-value" id="nance-response-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Response Time</div>
+                        <div class="kpi-details">Target: <1 uur (60 min)</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="nance-response-input" placeholder="Minuten" data-target="60">
+                            <button class="update-btn" onclick="updateKPI('nance', 'response')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="nance-project-circle">
+                            <div class="circle-value" id="nance-project-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Project Management</div>
+                        <div class="kpi-details">Target: 1 weekly</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="nance-project-input" placeholder="0 of 1" data-target="1" min="0" max="1">
+                            <button class="update-btn" onclick="updateKPI('nance', 'project')">UPDATE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BRENT/VINCENT -->
+            <div class="member-card executive-card" data-exec="creative">
+                <div class="card-header">
+                    <div class="card-info">
+                        <h3>Brent/Vincent</h3>
+                        <div class="card-role">Creative Directors</div>
+                    </div>
+                    <div class="card-status status-needs-attention" id="creative-status">🔴 NEEDS FOCUS</div>
+                </div>
+                <div class="kpis-grid">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="creative-growth-circle">
+                            <div class="circle-value" id="creative-growth-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Follower Growth</div>
+                        <div class="kpi-details">Target: 1000/week</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="creative-growth-input" placeholder="Aantal" data-target="1000">
+                            <button class="update-btn" onclick="updateKPI('creative', 'growth')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="creative-reels-circle">
+                            <div class="circle-value" id="creative-reels-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Daily Reels</div>
+                        <div class="kpi-details">Target: 21/week</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="creative-reels-input" placeholder="Aantal" data-target="21">
+                            <button class="update-btn" onclick="updateKPI('creative', 'reels')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="creative-youtube-circle">
+                            <div class="circle-value" id="creative-youtube-value">0%</div>
+                        </div>
+                        <div class="kpi-name">YouTube Video</div>
+                        <div class="kpi-details">Target: 1/week</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="creative-youtube-input" placeholder="0 of 1" data-target="1" min="0" max="1">
+                            <button class="update-btn" onclick="updateKPI('creative', 'youtube')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="creative-trial-circle">
+                            <div class="circle-value" id="creative-trial-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Trial Reels</div>
+                        <div class="kpi-details">Target: 35/week</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="creative-trial-input" placeholder="Aantal" data-target="35">
+                            <button class="update-btn" onclick="updateKPI('creative', 'trial')">UPDATE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEAM SECTION -->
+        <div class="section-header">
+            <h2>👥 TEAM</h2>
+            <div class="section-subtitle">Front-line Performance • Sales & Operations • 2 Members</div>
+        </div>
+
+        <div class="members-container">
+            <!-- MATTHIJS GROENEVELT -->
+            <div class="member-card team-card" data-exec="matthijs">
+                <div class="card-header">
+                    <div class="card-info">
+                        <h3>Matthijs Groenevelt</h3>
+                        <div class="card-role">Closer (B2C)</div>
+                    </div>
+                    <div class="card-status status-needs-attention" id="matthijs-status">🔴 NEEDS FOCUS</div>
+                </div>
+                <div class="kpis-grid">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="matthijs-closingrate-circle">
+                            <div class="circle-value" id="matthijs-closingrate-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Closing Rate</div>
+                        <div class="kpi-details">Target: 20%</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="matthijs-closingrate-input" placeholder="Percentage" data-target="20" step="0.1">
+                            <button class="update-btn" onclick="updateKPI('matthijs', 'closingrate')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="matthijs-cashpercall-circle">
+                            <div class="circle-value" id="matthijs-cashpercall-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Cash per Call</div>
+                        <div class="kpi-details">Target: €750</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="matthijs-cashpercall-input" placeholder="Euro" data-target="750">
+                            <button class="update-btn" onclick="updateKPI('matthijs', 'cashpercall')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="matthijs-dailycalls-circle">
+                            <div class="circle-value" id="matthijs-dailycalls-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Daily Sales Calls</div>
+                        <div class="kpi-details">Target: 35/week (5 daily)</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="matthijs-dailycalls-input" placeholder="Aantal calls" data-target="35">
+                            <button class="update-btn" onclick="updateKPI('matthijs', 'dailycalls')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="matthijs-followups-circle">
+                            <div class="circle-value" id="matthijs-followups-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Follow-ups</div>
+                        <div class="kpi-details">Target: 140/week (20 daily)</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="matthijs-followups-input" placeholder="Aantal" data-target="140">
+                            <button class="update-btn" onclick="updateKPI('matthijs', 'followups')">UPDATE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ZINAH MATHEEUWSEN -->
+            <div class="member-card team-card" data-exec="zinah">
+                <div class="card-header">
+                    <div class="card-info">
+                        <h3>Zinah Matheeuwsen</h3>
+                        <div class="card-role">Setter</div>
+                    </div>
+                    <div class="card-status status-needs-attention" id="zinah-status">🔴 NEEDS FOCUS</div>
+                </div>
+                <div class="kpis-grid">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="zinah-conversion-circle">
+                            <div class="circle-value" id="zinah-conversion-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Followers naar calls</div>
+                        <div class="kpi-details">Target: 15%</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="zinah-conversion-input" placeholder="Percentage" data-target="15" step="0.1">
+                            <button class="update-btn" onclick="updateKPI('zinah', 'conversion')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="zinah-closing-circle">
+                            <div class="circle-value" id="zinah-closing-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Closing Impact</div>
+                        <div class="kpi-details">Target: 20%</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="zinah-closing-input" placeholder="Percentage" data-target="20" step="0.1">
+                            <button class="update-btn" onclick="updateKPI('zinah', 'closing')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="zinah-showup-circle">
+                            <div class="circle-value" id="zinah-showup-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Show up rate</div>
+                        <div class="kpi-details">Target: 70%</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="zinah-showup-input" placeholder="Percentage" data-target="70" step="0.1">
+                            <button class="update-btn" onclick="updateKPI('zinah', 'showup')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="zinah-followups-circle">
+                            <div class="circle-value" id="zinah-followups-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Follow-ups</div>
+                        <div class="kpi-details">Target: 700/week</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="zinah-followups-input" placeholder="Aantal" data-target="700">
+                            <button class="update-btn" onclick="updateKPI('zinah', 'followups')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention" id="zinah-outbound-circle">
+                            <div class="circle-value" id="zinah-outbound-value">0%</div>
+                        </div>
+                        <div class="kpi-name">Daily outbounds</div>
+                        <div class="kpi-details">Target: 7 dagen</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="zinah-outbound-input" placeholder="Dagen" data-target="7" max="7">
+                            <button class="update-btn" onclick="updateKPI('zinah', 'outbound')">UPDATE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // KPI Update Function
+        function updateKPI(exec, kpi) {
+            const inputId = `${exec}-${kpi}-input`;
+            const circleId = `${exec}-${kpi}-circle`;
+            const valueId = `${exec}-${kpi}-value`;
+            
+            const inputElement = document.getElementById(inputId);
+            const circleElement = document.getElementById(circleId);
+            const valueElement = document.getElementById(valueId);
+            
+            if (!inputElement || !circleElement || !valueElement) {
+                console.error('Elements not found:', {inputId, circleId, valueId});
+                return;
+            }
+            
+            const actual = parseFloat(inputElement.value) || 0;
+            const target = parseFloat(inputElement.dataset.target) || 1;
+            
+            let percentage;
+            
+            // Special logic for cost per call (lower is better)
+            if (kpi === 'cost') {
+                percentage = actual <= target ? ((target - actual) / target * 100) + 100 : (target / actual) * 100;
+            } 
+            // Special logic for response time (lower is better)
+            else if (kpi === 'response') {
+                percentage = actual <= target ? ((target - actual) / target * 100) + 100 : (target / actual) * 100;
+            }
+            // Regular logic (higher is better)
+            else {
+                percentage = (actual / target) * 100;
+            }
+            
+            // Cap percentage at reasonable display value
+            const displayPercentage = Math.min(Math.round(percentage), 150);
+            
+            // Update percentage display
+            valueElement.textContent = `${displayPercentage}%`;
+            
+            // Update circle color based on percentage
+            circleElement.classList.remove('circle-excellent', 'circle-good', 'circle-needs-attention');
+            
+            if (percentage >= 110) {
+                circleElement.classList.add('circle-excellent');
+            } else if (percentage >= 90) {
+                circleElement.classList.add('circle-good');
+            } else {
+                circleElement.classList.add('circle-needs-attention');
+            }
+            
+            // Update member status
+            updateMemberStatus(exec);
+            
+            // Show success message
+            alert(`✅ KPI Updated: ${actual} / ${target} = ${displayPercentage}%`);
+        }
+        
+        function updateMemberStatus(exec) {
+            const statusElement = document.getElementById(`${exec}-status`);
+            const memberCard = document.querySelector(`[data-exec="${exec}"]`);
+            
+            if (!memberCard || !statusElement) return;
+            
+            const kpiItems = memberCard.querySelectorAll('.kpi-item');
+            let excellentCount = 0;
+            let needsAttentionCount = 0;
+            let totalCount = kpiItems.length;
+            
+            kpiItems.forEach(item => {
+                const circle = item.querySelector('.kpi-circle');
+                if (circle.classList.contains('circle-excellent')) excellentCount++;
+                if (circle.classList.contains('circle-needs-attention')) needsAttentionCount++;
+            });
+            
+            statusElement.classList.remove('status-excellent', 'status-good', 'status-needs-attention');
+            
+            if (excellentCount >= totalCount * 0.7) {
+                statusElement.textContent = '🟢 CRUSHING IT';
+                statusElement.classList.add('status-excellent');
+            } else if (needsAttentionCount >= totalCount * 0.3) {
+                statusElement.textContent = '🔴 NEEDS FOCUS';
+                statusElement.classList.add('status-needs-attention');
+            } else {
+                statusElement.textContent = '🟠 ON TRACK';
+                statusElement.classList.add('status-good');
+            }
+        }
+        
+        function resetWeek() {
+            if (confirm('🔄 Alle KPI data resetten voor nieuwe week? Deze actie kan niet ongedaan gemaakt worden.')) {
+                const inputs = document.querySelectorAll('.kpi-input');
+                inputs.forEach(input => {
+                    input.value = '';
+                });
+                
+                // Reset all circles to default
+                const circles = document.querySelectorAll('.kpi-circle');
+                circles.forEach(circle => {
+                    circle.classList.remove('circle-excellent', 'circle-good', 'circle-needs-attention');
+                    circle.classList.add('circle-needs-attention');
+                    const valueElement = circle.querySelector('.circle-value');
+                    if (valueElement) valueElement.textContent = '0%';
+                });
+                
+                // Reset all statuses
+                const statuses = document.querySelectorAll('.card-status');
+                statuses.forEach(status => {
+                    status.textContent = '🔴 NEEDS FOCUS';
+                    status.classList.remove('status-excellent', 'status-good');
+                    status.classList.add('status-needs-attention');
+                });
+                
+                alert('✅ Week data gereset! Klaar voor nieuwe week tracking.');
+            }
+        }
+        
+        function exportData() {
+            let data = '🐺 WOLF PACK COMMAND CENTER EXPORT - Week 11\n';
+            data += '=============================================\n\n';
+            
+            // All members in order
+            const allMembers = document.querySelectorAll('.member-card');
+            allMembers.forEach((member, index) => {
+                const name = member.querySelector('h3').textContent;
+                const role = member.querySelector('.card-role').textContent;
+                const status = member.querySelector('.card-status').textContent;
+                const isTeam = member.classList.contains('team-card');
+                
+                data += `${index + 1}. ${name} (${role})${isTeam ? ' [TEAM]' : ' [EXECUTIVE]'}\n`;
+                data += `Status: ${status}\n`;
+                data += '-------------------\n';
+                
+                const kpis = member.querySelectorAll('.kpi-item');
+                kpis.forEach(kpi => {
+                    const kpiName = kpi.querySelector('.kpi-name').textContent;
+                    const percentage = kpi.querySelector('.circle-value').textContent;
+                    const target = kpi.querySelector('.kpi-details').textContent;
+                    const input = kpi.querySelector('.kpi-input');
+                    const actualValue = input.value || '0';
+                    
+                    data += `• ${kpiName}: ${actualValue} (${percentage}) - ${target}\n`;
+                });
+                data += '\n';
+            });
+            
+            data += '\nGeëxporteerd op: ' + new Date().toLocaleDateString('nl-NL');
+            
+            // Create and download file
+            const blob = new Blob([data], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'wolfpack-vertical-dashboard-week11.txt';
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            alert('📥 Complete Wolf Pack data geëxporteerd!');
+        }
+        
+        function showInstructions() {
+            alert(`🎯 WOLF PACK VERTICAL COMMAND CENTER
+
+📋 LAYOUT:
+• Alle members onder elkaar (verticaal)
+• Executives eerst, dan Team members
+• Grotere kaarten, meer overzicht per persoon
+
+🔢 DATA INVOEREN:
+1. Typ cijfer in input veld
+2. Klik UPDATE button
+3. Cirkel kleurt automatisch
+
+🎨 KLEUREN SYSTEEM:
+🟢 Groen = ≥110% van target (CRUSHING IT)
+🟠 Oranje = 90-109% van target (ON TRACK)  
+🔴 Rood = <90% van target (NEEDS FOCUS)
+
+👥 STATUS SYSTEEM:
+🟢 CRUSHING IT = 70%+ KPIs excellent
+🟠 ON TRACK = Gemengde performance
+🔴 NEEDS FOCUS = 30%+ KPIs need attention
+
+📅 MAANDAG ROUTINE:
+• Scroll door alle members van top naar bottom
+• Check status badge van elke persoon
+• Identificeer rode KPIs per member
+• Reset voor nieuwe week
+
+📊 TOTAAL: 9 Members • 35 KPIs tracked!`);
+        }
+    </script>
+</body>
+</html>

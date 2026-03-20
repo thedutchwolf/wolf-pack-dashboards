@@ -1,0 +1,411 @@
+// GoHighLevel Notes - Direct API Sync
+// Generated: 2026-03-20T13:24:31.870Z
+// Students: 28
+// Total Notes: 32
+
+window.WOLF_PACK_NOTES = {
+  "John Akkerman": [
+    {
+      "id": "ghl_dzjxtm0UYiGkMyL3r1qU_0",
+      "body": "Join The Wolf pack x Strategy call (NL) booked :white_check_mark:\n\n*Name:* John Akkerman\n*Email:* <mailto:john.akkerman82@outlook.com|john.akkerman82@outlook.com>\n*Phone:* +31 6 52650582\n*Closer:* Matthijs Groenevelt\nScheduled for: 2026-03-13T10:30:00.000000Z\n\nWat is je telefoon nummer waar we je op kunnen bereiken? : +31 6 52650582\nWaar sta je nu op dit moment in je leven of carrière?: In mijn leven op een kruispunt, gaan we links of gaan we rechts. Zaak verkocht en nieuw bedrijf aan het opstarten. \nWat hoop je voor jezelf te creëren of te veranderen de komende 6-12 maanden?: Ik hou van sales maar ik heb structuur nodig om zo goed te worden als de mannen van the Wolf Pack!\nWaarom is dat belangrijk voor je, juist nu?: Ik heb nu even tijd over en ga niet stil zitten! Altijd hongerig naar meer! \nHeb je in het verleden al iets geprobeerd om dit op te lossen?: Heb niet echt wat op te lossen! We moeten gewoon door!\nWat houdt je nu tegen om voor je dromen te gaan?: Niks\nAls je dit écht zou doorbreken… hoe zou je leven er dan uitzien?: Zou graag op een dag locatie onafhankelijk willen kunnen werken. \nHoeveel tijd kun je de komende weken investeren om dit serieus aan te pakken?: Zeker 4 a 5 dagen in de week. \nOp een schaal van 1 tot 10, hoe bereid ben je om in jezelf te investeren als je voelt dat onze coaching goed bij je past?\n: 10\nAls je zou voelen dat dit precies is wat je nodig hebt om echt door te breken… wat voor investering zou dan realistisch voor je zijn?: €2000 - €3000\n\n\n_No Typeform response found — Calendly data only_\n\n_Automated with this <https://n8n.srv1371827.hstgr.cloud/workflow/UutRN7FIMRsDmSBNHimsX?utm_source=n8n-internal&amp;utm_medium=powered_by&amp;utm_campaign=n8n-nodes-base.slack_43ad1f0c86c208ba7747e9f88d470762beb77a55a85138a67f42a174b93a13d0|n8n workflow>_",
+      "bodyText": "Join The Wolf pack x Strategy call (NL) booked :white_check_mark:\n\n*Name:* John Akkerman\n*Email:* \n*Phone:* +31 6 52650582\n*Closer:* Matthijs Groenevelt\nScheduled for: 2026-03-13T10:30:00.000000Z\n\nWat is je telefoon nummer waar we je op kunnen bereiken? : +31 6 52650582\nWaar sta je nu op dit moment in je leven of carrière?: In mijn leven op een kruispunt, gaan we links of gaan we rechts. Zaak verkocht en nieuw bedrijf aan het opstarten. \nWat hoop je voor jezelf te creëren of te veranderen de komende 6-12 maanden?: Ik hou van sales maar ik heb structuur nodig om zo goed te worden als de mannen van the Wolf Pack!\nWaarom is dat belangrijk voor je, juist nu?: Ik heb nu even tijd over en ga niet stil zitten! Altijd hongerig naar meer! \nHeb je in het verleden al iets geprobeerd om dit op te lossen?: Heb niet echt wat op te lossen! We moeten gewoon door!\nWat houdt je nu tegen om voor je dromen te gaan?: Niks\nAls je dit écht zou doorbreken… hoe zou je leven er dan uitzien?: Zou graag op een dag locatie onafhankelijk willen kunnen werken. \nHoeveel tijd kun je de komende weken investeren om dit serieus aan te pakken?: Zeker 4 a 5 dagen in de week. \nOp een schaal van 1 tot 10, hoe bereid ben je om in jezelf te investeren als je voelt dat onze coaching goed bij je past?\n: 10\nAls je zou voelen dat dit precies is wat je nodig hebt om echt door te breken… wat voor investering zou dan realistisch voor je zijn?: €2000 - €3000\n\n\n_No Typeform response found — Calendly data only_\n\n_Automated with this _",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-03-19T12:36:09.053Z",
+      "contactId": "hvVL6zUYC2Bi5l2nW5hH",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Yassir Douhou": [
+    {
+      "id": "ghl_y6L4FXvJISfEVHnvHFOC_0",
+      "body": "Join The Wolf pack x Strategy call (NL) booked :white_check_mark:\n\n*Name:* Yassir Douhou\n*Email:* <mailto:yassirdouhou@hotmail.com|yassirdouhou@hotmail.com>\n*Phone:* +31 6 87226757\n*Closer:* Maurice Visser, The Wolfpack Group\n\nWat is je telefoon nummer waar we je op kunnen bereiken? : +31 6 87226757\nWaar sta je nu op dit moment in je leven of carrière?: Ik zit nog op school tot juli 2027, heel hard aan het grind met d2d sales en mijn volledige potentie uit mezelf aan het halen.\nWat hoop je voor jezelf te creëren of te veranderen de komende 6-12 maanden?: Een eigen miljoenen ecom brand en heel misschien een online sales bureau\nWaarom is dat belangrijk voor je, juist nu?: Ik wil niet afhankelijk zijn van iemand en financieel vrij worden zodat ik kan doen wat ik wil waar ik wil en hoe ik het wil zonder dat iemand er wat over te zeggen heeft, ook uiteindelijk als ik het heb bereikt, mensen ook helpen en laten groeien.\nHeb je in het verleden al iets geprobeerd om dit op te lossen?: Ja, Meerdere dingen\nWat houdt je nu tegen om voor je dromen te gaan?: Het geld om ermee te beginnen, maar daar ben ik nu al hard mee bezig en ik denk dat dit mij er ook bij gaat helpen\nAls je dit écht zou doorbreken… hoe zou je leven er dan uitzien?: Ik denk dat er niet veel zou veranderen, maar wel dat ik alles kan doen wat ik wil, en in ieder geval niet in nederland.\nHoeveel tijd kun je de komende weken investeren om dit serieus aan te pakken?: Zoveel mogelijk, elke stukje wat open is vul ik in\nOp een schaal van 1 tot 10, hoe bereid ben je om in jezelf te investeren als je voelt dat onze coaching goed bij je past?\n: 11\nAls je zou voelen dat dit precies is wat je nodig hebt om echt door te breken… wat voor investering zou dan realistisch voor je zijn?: €1000 - €2000\n\n\n_No Typeform response found — Calendly data only_\n\n_Automated with this <https://n8n.srv1371827.hstgr.cloud/workflow/UutRN7FIMRsDmSBNHimsX?utm_source=n8n-internal&amp;utm_medium=powered_by&amp;utm_campaign=n8n-nodes-base.slack_43ad1f0c86c208ba7747e9f88d470762beb77a55a85138a67f42a174b93a13d0|n8n workflow>_",
+      "bodyText": "Join The Wolf pack x Strategy call (NL) booked :white_check_mark:\n\n*Name:* Yassir Douhou\n*Email:* \n*Phone:* +31 6 87226757\n*Closer:* Maurice Visser, The Wolfpack Group\n\nWat is je telefoon nummer waar we je op kunnen bereiken? : +31 6 87226757\nWaar sta je nu op dit moment in je leven of carrière?: Ik zit nog op school tot juli 2027, heel hard aan het grind met d2d sales en mijn volledige potentie uit mezelf aan het halen.\nWat hoop je voor jezelf te creëren of te veranderen de komende 6-12 maanden?: Een eigen miljoenen ecom brand en heel misschien een online sales bureau\nWaarom is dat belangrijk voor je, juist nu?: Ik wil niet afhankelijk zijn van iemand en financieel vrij worden zodat ik kan doen wat ik wil waar ik wil en hoe ik het wil zonder dat iemand er wat over te zeggen heeft, ook uiteindelijk als ik het heb bereikt, mensen ook helpen en laten groeien.\nHeb je in het verleden al iets geprobeerd om dit op te lossen?: Ja, Meerdere dingen\nWat houdt je nu tegen om voor je dromen te gaan?: Het geld om ermee te beginnen, maar daar ben ik nu al hard mee bezig en ik denk dat dit mij er ook bij gaat helpen\nAls je dit écht zou doorbreken… hoe zou je leven er dan uitzien?: Ik denk dat er niet veel zou veranderen, maar wel dat ik alles kan doen wat ik wil, en in ieder geval niet in nederland.\nHoeveel tijd kun je de komende weken investeren om dit serieus aan te pakken?: Zoveel mogelijk, elke stukje wat open is vul ik in\nOp een schaal van 1 tot 10, hoe bereid ben je om in jezelf te investeren als je voelt dat onze coaching goed bij je past?\n: 11\nAls je zou voelen dat dit precies is wat je nodig hebt om echt door te breken… wat voor investering zou dan realistisch voor je zijn?: €1000 - €2000\n\n\n_No Typeform response found — Calendly data only_\n\n_Automated with this _",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-03-19T10:42:18.080Z",
+      "contactId": "krUqnTQJCuOeGWup7aSI",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Dee Nyambura": [
+    {
+      "id": "ghl_XEEnpvBy2WLCBy9TyO7E_0",
+      "body": "Join The Wolf pack x Strategy call (NL) booked :white_check_mark:\n\n*Name:* Dee Nyambura\n*Email:* <mailto:nyamburamaina007@icloud.com|nyamburamaina007@icloud.com>\n*Phone:* +254 703 865816\n*Closer:* Maurice Visser, The Wolfpack Group\n\nWat is je telefoon nummer waar we je op kunnen bereiken? : +254 703 865816\nWaar sta je nu op dit moment in je leven of carrière?: Self employed\nWat hoop je voor jezelf te creëren of te veranderen de komende 6-12 maanden?: Achieving financial freedom\nWaarom is dat belangrijk voor je, juist nu?: This way im able to expand my spa, get my mum a house support my loved ones and be able to buy whatever i want and travel worldwide.\nHeb je in het verleden al iets geprobeerd om dit op te lossen?: Self employment and employment\nWat houdt je nu tegen om voor je dromen te gaan?: Im not generating enough cahs flow\nAls je dit écht zou doorbreken… hoe zou je leven er dan uitzien?: able to expand my spa, get my mum a house support my loved ones and be able to buy whatever i want and travel worldwide\nHoeveel tijd kun je de komende weken investeren om dit serieus aan te pakken?: I’ll create the time needed to make it possible\nOp een schaal van 1 tot 10, hoe bereid ben je om in jezelf te investeren als je voelt dat onze coaching goed bij je past?\n: 10\nAls je zou voelen dat dit precies is wat je nodig hebt om echt door te breken… wat voor investering zou dan realistisch voor je zijn?: €2000 - €3000\n\n\n_No Typeform response found — Calendly data only_\n\n_Automated with this <https://n8n.srv1371827.hstgr.cloud/workflow/UutRN7FIMRsDmSBNHimsX?utm_source=n8n-internal&amp;utm_medium=powered_by&amp;utm_campaign=n8n-nodes-base.slack_43ad1f0c86c208ba7747e9f88d470762beb77a55a85138a67f42a174b93a13d0|n8n workflow>_",
+      "bodyText": "Join The Wolf pack x Strategy call (NL) booked :white_check_mark:\n\n*Name:* Dee Nyambura\n*Email:* \n*Phone:* +254 703 865816\n*Closer:* Maurice Visser, The Wolfpack Group\n\nWat is je telefoon nummer waar we je op kunnen bereiken? : +254 703 865816\nWaar sta je nu op dit moment in je leven of carrière?: Self employed\nWat hoop je voor jezelf te creëren of te veranderen de komende 6-12 maanden?: Achieving financial freedom\nWaarom is dat belangrijk voor je, juist nu?: This way im able to expand my spa, get my mum a house support my loved ones and be able to buy whatever i want and travel worldwide.\nHeb je in het verleden al iets geprobeerd om dit op te lossen?: Self employment and employment\nWat houdt je nu tegen om voor je dromen te gaan?: Im not generating enough cahs flow\nAls je dit écht zou doorbreken… hoe zou je leven er dan uitzien?: able to expand my spa, get my mum a house support my loved ones and be able to buy whatever i want and travel worldwide\nHoeveel tijd kun je de komende weken investeren om dit serieus aan te pakken?: I’ll create the time needed to make it possible\nOp een schaal van 1 tot 10, hoe bereid ben je om in jezelf te investeren als je voelt dat onze coaching goed bij je past?\n: 10\nAls je zou voelen dat dit precies is wat je nodig hebt om echt door te breken… wat voor investering zou dan realistisch voor je zijn?: €2000 - €3000\n\n\n_No Typeform response found — Calendly data only_\n\n_Automated with this _",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-03-08T14:08:46.362Z",
+      "contactId": "WXpYyCQjsFxKLOIa1XEH",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Wilco Mikic": [
+    {
+      "id": "ghl_NauLjEIC8wxzV47xLLJG_0",
+      "body": "Name: Wilco Mikic\nEmail: wilco@de-duurzame-jongens.nl\nPhone: +31 6 59812299\nWhen: 2026-01-22T15:00:00.000000Z\nCloser: matthijs@thewolfpackgroup.com\n\nQuestion: Wat doe je op dit moment? Answer: Ik werk als sales agent of accountmanager.\n\nQuestion: Wat is de grootste uitdaging die je op dit moment tegenhoudt om je doelen te bereiken? Answer: Ik heb te weinig tijd.\n\nQuestion: Waar wil je de komende maanden naartoe groeien? Answer: Werken met betere leads en afspraken.\n\nQuestion: Hoeveel uur per week zou je hierin kunnen investeren? Answer: Meer dan 10 uur.\n\nQuestion: Op een schaal van 1 tot 10. Hoe serieus ben je om dit nu aan te pakken? Answer: 8.\n\nQuestion: Om dit doel te bereiken, is een investering in jezelf nodig. De investering voor dit traject ligt tussen de €3.000 en €15.000. Ben je je hiervan bewust? Answer: Ja, ik ben me ervan bewust.\n\n",
+      "bodyText": "Name: Wilco Mikic\nEmail: wilco@de-duurzame-jongens.nl\nPhone: +31 6 59812299\nWhen: 2026-01-22T15:00:00.000000Z\nCloser: matthijs@thewolfpackgroup.com\n\nQuestion: Wat doe je op dit moment? Answer: Ik werk als sales agent of accountmanager.\n\nQuestion: Wat is de grootste uitdaging die je op dit moment tegenhoudt om je doelen te bereiken? Answer: Ik heb te weinig tijd.\n\nQuestion: Waar wil je de komende maanden naartoe groeien? Answer: Werken met betere leads en afspraken.\n\nQuestion: Hoeveel uur per week zou je hierin kunnen investeren? Answer: Meer dan 10 uur.\n\nQuestion: Op een schaal van 1 tot 10. Hoe serieus ben je om dit nu aan te pakken? Answer: 8.\n\nQuestion: Om dit doel te bereiken, is een investering in jezelf nodig. De investering voor dit traject ligt tussen de €3.000 en €15.000. Ben je je hiervan bewust? Answer: Ja, ik ben me ervan bewust.\n\n",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-02-27T11:37:38.311Z",
+      "contactId": "UipYi0Da0lCR2hEOWKfc",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Laura Van Kesteren": [
+    {
+      "id": "ghl_hX7omxkOQMaebUUKERk3_0",
+      "body": "Question: Wat is je telefoon nummer waar we je op kunnen bereiken? Answer: +31 6 34001211\nQuestion: Waar sta je nu op dit moment in je leven of carri\u0016re? Answer: Mijn huidige job heeft mij geleerd om mentaal sterk te zijn, mensen goed te lezen, vertrouwen op te bouwen en effectief te communiceren met verschillende persoonlijkheden en nationaliteiten. Wat ik enorm waardeer aan mijn huidige functie is de verantwoordelijkheid en het werken in een veeleisende omgeving. Tegelijk is het een rol waarin succes nauwelijks direct meetbaar is en strikt onder een baas.\nQuestion: Wat hoop je voor jezelf te cre\u0016ren of te veranderen de komende 6-12 maanden? Answer: Tijdens een vrijblijvend eerste gesprek (met Maurice Visser, lees ik? :) ) hoop ik dat we wederzijds kunnen beoordelen of mijn profiel een sterke match is. Indien dat het geval is, is mijn doel om het salesproces, de psychologie achter closing en de metho.\nQuestion: Waarom is dat belangrijk voor je, juist nu? Answer: Mijn prioriteiten zijn gaande weg duidelijker geworden. Ik wil meer onafhankelijkheid, duidelijke doelen en het gevoel dat ik echt iets aan het opbouwen ben op lange termijn.\nQuestion: Heb je in het verleden al iets geprobeerd om dit op te lossen? Answer: Nee, dit is de eerste keer.\nQuestion: Wat houdt je nu tegen om voor je dromen te gaan? Answer: Zodra ik ervan overtuigd ben en jullie ook dat dit de juiste omgeving en ik de stap samen met jullie zet, zie ik geen echte obstakels die mij zouden tegenhouden.\nQuestion: Als je dit \u0016cht zou doorbreken… hoe zou je leven er dan uitzien? Answer: Ik hoop meer vrijheid in combinatie met performance, resultaten en discipline. Verantwoordelijkheid over eigen agenda.\nQuestion: Hoeveel tijd kun je de komende weken investeren om dit serieus aan te pakken? Answer: Afhankelijk van het eerste gesprek, zal dat een verschillende hoeveelheid uren per week kunnen zijn, maar minimaal en in het slechtste geval 10u per week.\nQuestion: Op een schaal van 1 tot 10, hoe bereid ben je om in jezelf te investeren als je voelt dat onze coaching goed bij je past? Answer: 10 en onderstaande heb ik op dit moment geen idee wat realistich is.\nQuestion: Als je zou voelen dat dit precies is wat je nodig hebt om echt door te breken… wat voor investering zou dan realistisch voor je zijn? Answer: €2000 - €3000",
+      "bodyText": "Question: Wat is je telefoon nummer waar we je op kunnen bereiken? Answer: +31 6 34001211\nQuestion: Waar sta je nu op dit moment in je leven of carri\u0016re? Answer: Mijn huidige job heeft mij geleerd om mentaal sterk te zijn, mensen goed te lezen, vertrouwen op te bouwen en effectief te communiceren met verschillende persoonlijkheden en nationaliteiten. Wat ik enorm waardeer aan mijn huidige functie is de verantwoordelijkheid en het werken in een veeleisende omgeving. Tegelijk is het een rol waarin succes nauwelijks direct meetbaar is en strikt onder een baas.\nQuestion: Wat hoop je voor jezelf te cre\u0016ren of te veranderen de komende 6-12 maanden? Answer: Tijdens een vrijblijvend eerste gesprek (met Maurice Visser, lees ik? :) ) hoop ik dat we wederzijds kunnen beoordelen of mijn profiel een sterke match is. Indien dat het geval is, is mijn doel om het salesproces, de psychologie achter closing en de metho.\nQuestion: Waarom is dat belangrijk voor je, juist nu? Answer: Mijn prioriteiten zijn gaande weg duidelijker geworden. Ik wil meer onafhankelijkheid, duidelijke doelen en het gevoel dat ik echt iets aan het opbouwen ben op lange termijn.\nQuestion: Heb je in het verleden al iets geprobeerd om dit op te lossen? Answer: Nee, dit is de eerste keer.\nQuestion: Wat houdt je nu tegen om voor je dromen te gaan? Answer: Zodra ik ervan overtuigd ben en jullie ook dat dit de juiste omgeving en ik de stap samen met jullie zet, zie ik geen echte obstakels die mij zouden tegenhouden.\nQuestion: Als je dit \u0016cht zou doorbreken… hoe zou je leven er dan uitzien? Answer: Ik hoop meer vrijheid in combinatie met performance, resultaten en discipline. Verantwoordelijkheid over eigen agenda.\nQuestion: Hoeveel tijd kun je de komende weken investeren om dit serieus aan te pakken? Answer: Afhankelijk van het eerste gesprek, zal dat een verschillende hoeveelheid uren per week kunnen zijn, maar minimaal en in het slechtste geval 10u per week.\nQuestion: Op een schaal van 1 tot 10, hoe bereid ben je om in jezelf te investeren als je voelt dat onze coaching goed bij je past? Answer: 10 en onderstaande heb ik op dit moment geen idee wat realistich is.\nQuestion: Als je zou voelen dat dit precies is wat je nodig hebt om echt door te breken… wat voor investering zou dan realistisch voor je zijn? Answer: €2000 - €3000",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-03-13T15:59:23.429Z",
+      "contactId": "CfoLljYxWFZdJqSwHOhF",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Jim@launchmyagents.ai Koning": [
+    {
+      "id": "ghl_uCM9xfikW22huACiK3zc_0",
+      "body": "Name: Jim Koning\nEmail: jim@launchmyagents.ai\nPhone: +31 6 57464508\nWhen: 2026-01-28T13:00:00.000000Z\nCloser: matthijs@thewolfpackgroup.com\n\nWat is je telefoon nummer waar we je op kunnen bereiken? : +31 6 57464508\n\nWaar sta je nu op dit moment in je leven of carrière?: Recent de overgang gemaakt van loondienst naar Ondernemer. \n\nWat hoop je voor jezelf te creëren of te veranderen de komende 6-12 maanden?: Heel veel gas geven met ondernemen, om zowel financieel, prive, als zakelijk al mijn targets van dit jaar te behalen\n\nWaarom is dat belangrijk voor je, juist nu?: Omdat ik niet meer terug wil naar mijn oude baan, en ik nu keihard moet gaan met de bv. Om daarvan te kunnen leven en uit te graan breiden.\n\nHeb je in het verleden al iets geprobeerd om dit op te lossen?: Ja, Meerdere dingen\n\nWat houdt je nu tegen om voor je dromen te gaan?: Niet genoeg klanten en omzet.\n\nAls je dit écht zou doorbreken… hoe zou je leven er dan uitzien?: Locatie onafhankelijk kunnen werken, en gaan leven zonder de zorg van geld.\n\nHoeveel tijd kun je de komende weken investeren om dit serieus aan te pakken?: Los van me bv aandacht, kan ik geschat 10-15u per week investeren in me sales skills \n\nOp een schaal van 1 tot 10, hoe bereid ben je om in jezelf te investeren als je voelt dat onze coaching goed bij je past?\n: 10, ik heb nog een studie/opleidingsbudget van me ouder werkgever van €2400.-. Deze wil ik hiervoor gebruiken",
+      "bodyText": "Name: Jim Koning\nEmail: jim@launchmyagents.ai\nPhone: +31 6 57464508\nWhen: 2026-01-28T13:00:00.000000Z\nCloser: matthijs@thewolfpackgroup.com\n\nWat is je telefoon nummer waar we je op kunnen bereiken? : +31 6 57464508\n\nWaar sta je nu op dit moment in je leven of carrière?: Recent de overgang gemaakt van loondienst naar Ondernemer. \n\nWat hoop je voor jezelf te creëren of te veranderen de komende 6-12 maanden?: Heel veel gas geven met ondernemen, om zowel financieel, prive, als zakelijk al mijn targets van dit jaar te behalen\n\nWaarom is dat belangrijk voor je, juist nu?: Omdat ik niet meer terug wil naar mijn oude baan, en ik nu keihard moet gaan met de bv. Om daarvan te kunnen leven en uit te graan breiden.\n\nHeb je in het verleden al iets geprobeerd om dit op te lossen?: Ja, Meerdere dingen\n\nWat houdt je nu tegen om voor je dromen te gaan?: Niet genoeg klanten en omzet.\n\nAls je dit écht zou doorbreken… hoe zou je leven er dan uitzien?: Locatie onafhankelijk kunnen werken, en gaan leven zonder de zorg van geld.\n\nHoeveel tijd kun je de komende weken investeren om dit serieus aan te pakken?: Los van me bv aandacht, kan ik geschat 10-15u per week investeren in me sales skills \n\nOp een schaal van 1 tot 10, hoe bereid ben je om in jezelf te investeren als je voelt dat onze coaching goed bij je past?\n: 10, ik heb nog een studie/opleidingsbudget van me ouder werkgever van €2400.-. Deze wil ik hiervoor gebruiken",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-03-13T15:59:19.004Z",
+      "contactId": "Be2mNSuSq6mi3hC3f1Tf",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Tim Otten": [
+    {
+      "id": "ghl_CFKAeyfHliDsPwFQWlOt_1",
+      "body": "Name: Tim Otten\nEmail: timotten2311@gmail.com\nPhone: +31 6 12959282\nWhen: 2026-01-06T10:30:00.000000Z\nCloser: matthijs@thewolfpackgroup.com",
+      "bodyText": "Name: Tim Otten\nEmail: timotten2311@gmail.com\nPhone: +31 6 12959282\nWhen: 2026-01-06T10:30:00.000000Z\nCloser: matthijs@thewolfpackgroup.com",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-03-16T14:03:59.026Z",
+      "contactId": "0AY8CRkm0Hvaw07oRtSo",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Rose Chidlow": [
+    {
+      "id": "ghl_VhB8KbPGtsqpvYWEubwA_0",
+      "body": "Name: Rose Chidlow\nEmail: rose.chidlow.sessions@gmail.com\nPhone: rosechidlow\nWhen: 2026-02-08T14:00:00.000000Z\nCloser: nora@thewolfpackgroup.com",
+      "bodyText": "Name: Rose Chidlow\nEmail: rose.chidlow.sessions@gmail.com\nPhone: rosechidlow\nWhen: 2026-02-08T14:00:00.000000Z\nCloser: nora@thewolfpackgroup.com",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-03-09T14:59:21.949Z",
+      "contactId": "4x1zv7S4ssDE4s15Mwnh",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    },
+    {
+      "id": "ghl_VhB8KbPGtsqpvYWEubwA_4",
+      "body": "Rose Chidlow - February 08\nVIEW RECORDING: https://fathom.video/share/SxjYREMscYdtFLxztFrTcZyVGkHeV2xD\nMeeting Purpose\n\nQualify Rose Chi for high-ticket sales coaching and close the sale.\n\nKey Takeaways\n\n  - Problem: Rose Chi (19, UK) is burned out on low-paying jobs (£800-£1k/mo) and seeks a structured path to a remote career with location freedom (e.g., Paris).\n  - Solution: Nora Elmas pitched \"The Female Pack,\" a 90-day 1-on-1 coaching program teaching a \"feminine way of selling\" with a guaranteed job placement.\n  - Outcome: Rose committed to the program, paying a £1,200 deposit to secure a spot and gain early access to materials.\n  - Terms: The total investment is £7,500, paid in four installments: £1,200 (deposit), then three monthly payments of £1,900.\n\nTopics\n\nRose's Situation & Motivation\n\n  - Background: 19-year-old from the UK, working two part-time jobs for £800-£1k/month.\n  - Past Sales Experience:\n      - Appointment setting ~1 year ago.\n      - Failure Point: Lacked structure, guidance, and passion for the offers.\n  - Primary Motivation: Escape burnout and a limiting environment.\n      - Inspired by a supervisor working 6 AM–10 PM, Rose realized she doesn't want that life.\n      - Wants to leave her hometown, which she feels reminds her of the past and limits growth.\n  - Desired Future: A life of freedom and accomplishment.\n      - Location: Travel and live abroad (e.g., Paris, Bali).\n      - Career: Build a solid, transferable skill (sales) and be part of a supportive team.\n      - Personal: Gain confidence, overcome self-doubt, and feel proud of her achievements.\n\nThe Female Pack Coaching Program\n\n  - Goal: Teach a \"feminine way of selling\" focused on psychology and intuition, not aggressive scripts.\n  - Structure: 90-day 1-on-1 coaching program.\n      - Pace: Flexible within the 90-day window (can finish sooner).\n      - Accountability: Bi-weekly 1-on-1 calls with Nora and a dedicated Slack channel.\n  - Curriculum:\n    1.  Mindset: Overcome limiting beliefs.\n    2.  Dutch Wolf Blueprint: 6-step sales framework.\n    3.  Objection Handling: Understand psychology, not just scripts.\n    4.  Practice: Role-plays with Nora and the community.\n    5.  Graduation Exam: Final role-play to assess readiness.\n    6.  Offer Acquisition: Guaranteed placement on a vetted offer.\n\nInvestment & Payment Plan\n\n  - Full Price: €10,000.\n  - Negotiated Discount: £7,500 total investment.\n  - Payment Plan: Four installments.\n    1.  Deposit: £1,200 (paid on call) → secures spot & provides early access to materials.\n    2.  Installment 1: ~£700 (end of Feb) → initiates 1-on-1 coaching.\n    3.  Installment 2: ~£1,900 (end of March).\n    4.  Installment 3: ~£1,900 (end of April).\n\nNext Steps\n\n  - Rose Chi:\n      - Text Nora via WhatsApp to confirm the exact end-of-February payday.\n      - Book the next call for that date to pay the second installment and begin coaching.\n  - Nora Elmas:\n      - Send Rose a book recommendation to get a head start.\n      - Work with Nance to set up Rose's onboarding checklist.\nAction Items\n  - Check Bali visa requirements for May trip - WATCH (5 secs): https://fathom.video/share/SxjYREMscYdtFLxztFrTcZyVGkHeV2xD?timestamp=6169.9999\n  - Send Rose WhatsApp number; then Rose WhatsApp Nora re: Feb 25 follow-up - WATCH (5 secs): https://fathom.video/share/SxjYREMscYdtFLxztFrTcZyVGkHeV2xD?timestamp=6960.9999\n  - Send Rose recommended sales book title/link - WATCH (5 secs): https://fathom.video/share/SxjYREMscYdtFLxztFrTcZyVGkHeV2xD?timestamp=7294.9999\n",
+      "bodyText": "Rose Chidlow - February 08\nVIEW RECORDING: https://fathom.video/share/SxjYREMscYdtFLxztFrTcZyVGkHeV2xD\nMeeting Purpose\n\nQualify Rose Chi for high-ticket sales coaching and close the sale.\n\nKey Takeaways\n\n  - Problem: Rose Chi (19, UK) is burned out on low-paying jobs (£800-£1k/mo) and seeks a structured path to a remote career with location freedom (e.g., Paris).\n  - Solution: Nora Elmas pitched \"The Female Pack,\" a 90-day 1-on-1 coaching program teaching a \"feminine way of selling\" with a guaranteed job placement.\n  - Outcome: Rose committed to the program, paying a £1,200 deposit to secure a spot and gain early access to materials.\n  - Terms: The total investment is £7,500, paid in four installments: £1,200 (deposit), then three monthly payments of £1,900.\n\nTopics\n\nRose's Situation & Motivation\n\n  - Background: 19-year-old from the UK, working two part-time jobs for £800-£1k/month.\n  - Past Sales Experience:\n      - Appointment setting ~1 year ago.\n      - Failure Point: Lacked structure, guidance, and passion for the offers.\n  - Primary Motivation: Escape burnout and a limiting environment.\n      - Inspired by a supervisor working 6 AM–10 PM, Rose realized she doesn't want that life.\n      - Wants to leave her hometown, which she feels reminds her of the past and limits growth.\n  - Desired Future: A life of freedom and accomplishment.\n      - Location: Travel and live abroad (e.g., Paris, Bali).\n      - Career: Build a solid, transferable skill (sales) and be part of a supportive team.\n      - Personal: Gain confidence, overcome self-doubt, and feel proud of her achievements.\n\nThe Female Pack Coaching Program\n\n  - Goal: Teach a \"feminine way of selling\" focused on psychology and intuition, not aggressive scripts.\n  - Structure: 90-day 1-on-1 coaching program.\n      - Pace: Flexible within the 90-day window (can finish sooner).\n      - Accountability: Bi-weekly 1-on-1 calls with Nora and a dedicated Slack channel.\n  - Curriculum:\n    1.  Mindset: Overcome limiting beliefs.\n    2.  Dutch Wolf Blueprint: 6-step sales framework.\n    3.  Objection Handling: Understand psychology, not just scripts.\n    4.  Practice: Role-plays with Nora and the community.\n    5.  Graduation Exam: Final role-play to assess readiness.\n    6.  Offer Acquisition: Guaranteed placement on a vetted offer.\n\nInvestment & Payment Plan\n\n  - Full Price: €10,000.\n  - Negotiated Discount: £7,500 total investment.\n  - Payment Plan: Four installments.\n    1.  Deposit: £1,200 (paid on call) → secures spot & provides early access to materials.\n    2.  Installment 1: ~£700 (end of Feb) → initiates 1-on-1 coaching.\n    3.  Installment 2: ~£1,900 (end of March).\n    4.  Installment 3: ~£1,900 (end of April).\n\nNext Steps\n\n  - Rose Chi:\n      - Text Nora via WhatsApp to confirm the exact end-of-February payday.\n      - Book the next call for that date to pay the second installment and begin coaching.\n  - Nora Elmas:\n      - Send Rose a book recommendation to get a head start.\n      - Work with Nance to set up Rose's onboarding checklist.\nAction Items\n  - Check Bali visa requirements for May trip - WATCH (5 secs): https://fathom.video/share/SxjYREMscYdtFLxztFrTcZyVGkHeV2xD?timestamp=6169.9999\n  - Send Rose WhatsApp number; then Rose WhatsApp Nora re: Feb 25 follow-up - WATCH (5 secs): https://fathom.video/share/SxjYREMscYdtFLxztFrTcZyVGkHeV2xD?timestamp=6960.9999\n  - Send Rose recommended sales book title/link - WATCH (5 secs): https://fathom.video/share/SxjYREMscYdtFLxztFrTcZyVGkHeV2xD?timestamp=7294.9999\n",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-03-09T14:59:21.949Z",
+      "contactId": "4x1zv7S4ssDE4s15Mwnh",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Brian Onuoha": [
+    {
+      "id": "ghl_WM4JNy2GIbQldZdZR4D6_1",
+      "body": "Where are you currently at in your life or career? Work a 9-5 job.",
+      "bodyText": "Where are you currently at in your life or career? Work a 9-5 job.",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-03-08T15:11:33.445Z",
+      "contactId": "De3AwQ2Dy08pIfWBF6ll",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Raayshree Kaulesar Sukul": [
+    {
+      "id": "ghl_UgK8C1skVeilGD7Me5Td_1",
+      "body": "Name: Raayshree\nEmail: raayshreeks@hotmail.com\nPhone: Ik wil praten over de voorgang en het proces.\nVerder is het volgend de roadmap tijd voor een gesprek\nWhen: 2026-01-21T06:30:00.000000Z\nCloser: nora@thewolfpackgroup.com",
+      "bodyText": "Name: Raayshree\nEmail: raayshreeks@hotmail.com\nPhone: Ik wil praten over de voorgang en het proces.\nVerder is het volgend de roadmap tijd voor een gesprek\nWhen: 2026-01-21T06:30:00.000000Z\nCloser: nora@thewolfpackgroup.com",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-03-16T14:06:03.170Z",
+      "contactId": "KHGWdpJR81u24TO5XVGA",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Thijs Bouchaut": [
+    {
+      "id": "ghl_VthZXJqVhVhUeOcfnupZ_1",
+      "body": "Name: Thijs Bouchaut\nEmail: thijsbouchaut@gmail.com\nPhone: +31 6 86665398\nWhen: 2026-01-03T09:30:00.000000Z\nCloser: maurice@thewolfpackgroup.com\n\nWat is je telefoon nummer waar we je op kunnen bereiken? : +31 6 86665398\n\nWaar sta je nu op dit moment in je leven of carrière?: Ik heb nu ongeveer een jaar ervaring in de sales. Ik begon met D2D verduurzaming en heb dat ongeveer 6 maanden gedaan, 13 uur lange dagen. Ik werk nu sinds augustus in een callcenter waar ik telecom en energiecontracten verkoop. Ik draai ongeveer 60 uur per week in cold callen.\n\nWat hoop je voor jezelf te creëren of te veranderen de komende 6-12 maanden?: Ik wil veel leren en richting mijn maximale potentie gaan wat betreft sales skills. Ik ben ook bereid daarvoor in mezelf te investeren zodat ik over 6-12 maanden een veel betere saler/closer ben en ik daardoor meer geld verdien.\n\nWaarom is dat belangrijk voor je, juist nu?: Ik ben heel erg gedreven en heb grote ambities wat betreft sales en groei. Het is voor mij nu belangrijk omdat ik al veel uren draai en moeite erin stop en ik wil die tijd en moeite op een effectievere manier besteden dan elke dag de hele dag koud bellen.\n\nHeb je in het verleden al iets geprobeerd om dit op te lossen?: Niet wat betreft sales, wel geinvesteerd in ecom coaching\n\nWat houdt je nu tegen om voor je dromen te gaan?: Skills en kapitaal, mijn doel voor de komende jaren is om een zo goed mogelijke saler/closer te worden en daar heel veel kapitaal mee op te bouwen om uiteindelijk te gaan ondernemen en investeren\n\nAls je dit écht zou doorbreken… hoe zou je leven er dan uitzien?: Kwa uren dat ik werk relatief hetzelfde. Het stukje van meer vrijheid hebben lijkt mij heel mooi meegenomen maar het feit dat ik meer ga verdienen en meer vrijheid heb betekent juist dat ik meer ga werken. Wellicht dat ik dan wel zou closen buiten NL \n\nHoeveel tijd kun je de komende weken investeren om dit serieus aan te pakken?: Is deels afhankelijk van wanneer ik geplaatst zou worden. Naast mijn normale sales baan zou ik ongeveer 30 uur per week erin kunnen stoppen. Zodra ik geplaatst word minimaal 60-80 uur per week\n\nOp een schaal van 1 tot 10, hoe bereid ben je om in jezelf te investeren als je voelt dat onze coaching goed bij je past?\n: 10",
+      "bodyText": "Name: Thijs Bouchaut\nEmail: thijsbouchaut@gmail.com\nPhone: +31 6 86665398\nWhen: 2026-01-03T09:30:00.000000Z\nCloser: maurice@thewolfpackgroup.com\n\nWat is je telefoon nummer waar we je op kunnen bereiken? : +31 6 86665398\n\nWaar sta je nu op dit moment in je leven of carrière?: Ik heb nu ongeveer een jaar ervaring in de sales. Ik begon met D2D verduurzaming en heb dat ongeveer 6 maanden gedaan, 13 uur lange dagen. Ik werk nu sinds augustus in een callcenter waar ik telecom en energiecontracten verkoop. Ik draai ongeveer 60 uur per week in cold callen.\n\nWat hoop je voor jezelf te creëren of te veranderen de komende 6-12 maanden?: Ik wil veel leren en richting mijn maximale potentie gaan wat betreft sales skills. Ik ben ook bereid daarvoor in mezelf te investeren zodat ik over 6-12 maanden een veel betere saler/closer ben en ik daardoor meer geld verdien.\n\nWaarom is dat belangrijk voor je, juist nu?: Ik ben heel erg gedreven en heb grote ambities wat betreft sales en groei. Het is voor mij nu belangrijk omdat ik al veel uren draai en moeite erin stop en ik wil die tijd en moeite op een effectievere manier besteden dan elke dag de hele dag koud bellen.\n\nHeb je in het verleden al iets geprobeerd om dit op te lossen?: Niet wat betreft sales, wel geinvesteerd in ecom coaching\n\nWat houdt je nu tegen om voor je dromen te gaan?: Skills en kapitaal, mijn doel voor de komende jaren is om een zo goed mogelijke saler/closer te worden en daar heel veel kapitaal mee op te bouwen om uiteindelijk te gaan ondernemen en investeren\n\nAls je dit écht zou doorbreken… hoe zou je leven er dan uitzien?: Kwa uren dat ik werk relatief hetzelfde. Het stukje van meer vrijheid hebben lijkt mij heel mooi meegenomen maar het feit dat ik meer ga verdienen en meer vrijheid heb betekent juist dat ik meer ga werken. Wellicht dat ik dan wel zou closen buiten NL \n\nHoeveel tijd kun je de komende weken investeren om dit serieus aan te pakken?: Is deels afhankelijk van wanneer ik geplaatst zou worden. Naast mijn normale sales baan zou ik ongeveer 30 uur per week erin kunnen stoppen. Zodra ik geplaatst word minimaal 60-80 uur per week\n\nOp een schaal van 1 tot 10, hoe bereid ben je om in jezelf te investeren als je voelt dat onze coaching goed bij je past?\n: 10",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-03-09T11:28:13.634Z",
+      "contactId": "mkmnoyepZBsM4LBbcLH6",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Dylan Autar": [
+    {
+      "id": "ghl_vMIeIACkkI15f9nTq66I_0",
+      "body": "Name: Dylan Autar\nEmail: dyla-autar@hotmail.com\nPhone: +31 6 40755132\nWhen: 2025-12-29T09:30:00.000000Z\nCloser: maurice@thewolfpackgroup.com\n\nWat is je telefoon nummer waar we je op kunnen bereiken? : +31 6 40755132\n\nWaar sta je nu op dit moment in je leven of carrière?: Werk voor mediamarkt als verkoper \n\nWat hoop je voor jezelf te creëren of te veranderen de komende 6-12 maanden?: Skill te leren waardoor ik waardevol wordt en geld kan verdienen om mijzelf en mijn moeder rust te geven \n\nWaarom is dat belangrijk voor je, juist nu?: Mijn moeder en ik wonen in het huis van een familie lid en dat wordt nu verkocht. De huizenmarkt is gestegen en ik moet nu kijken naar andere opties\n\nHeb je in het verleden al iets geprobeerd om dit op te lossen?: Ja, Meerdere dingen\n\nWat houdt je nu tegen om voor je dromen te gaan?: Ik heb ecommerce gedaan maar kan daar niet van leven \n\nAls je dit écht zou doorbreken… hoe zou je leven er dan uitzien?: Als eerste een huis kopen voor mijn moeder en ik en zoveel mogelijk door werken en sparen \n\nHoeveel tijd kun je de komende weken investeren om dit serieus aan te pakken?: 20 uur per week\n\nOp een schaal van 1 tot 10, hoe bereid ben je om in jezelf te investeren als je voelt dat onze coaching goed bij je past?\n: 10",
+      "bodyText": "Name: Dylan Autar\nEmail: dyla-autar@hotmail.com\nPhone: +31 6 40755132\nWhen: 2025-12-29T09:30:00.000000Z\nCloser: maurice@thewolfpackgroup.com\n\nWat is je telefoon nummer waar we je op kunnen bereiken? : +31 6 40755132\n\nWaar sta je nu op dit moment in je leven of carrière?: Werk voor mediamarkt als verkoper \n\nWat hoop je voor jezelf te creëren of te veranderen de komende 6-12 maanden?: Skill te leren waardoor ik waardevol wordt en geld kan verdienen om mijzelf en mijn moeder rust te geven \n\nWaarom is dat belangrijk voor je, juist nu?: Mijn moeder en ik wonen in het huis van een familie lid en dat wordt nu verkocht. De huizenmarkt is gestegen en ik moet nu kijken naar andere opties\n\nHeb je in het verleden al iets geprobeerd om dit op te lossen?: Ja, Meerdere dingen\n\nWat houdt je nu tegen om voor je dromen te gaan?: Ik heb ecommerce gedaan maar kan daar niet van leven \n\nAls je dit écht zou doorbreken… hoe zou je leven er dan uitzien?: Als eerste een huis kopen voor mijn moeder en ik en zoveel mogelijk door werken en sparen \n\nHoeveel tijd kun je de komende weken investeren om dit serieus aan te pakken?: 20 uur per week\n\nOp een schaal van 1 tot 10, hoe bereid ben je om in jezelf te investeren als je voelt dat onze coaching goed bij je past?\n: 10",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-02-24T08:48:48.112Z",
+      "contactId": "qP7WwLhrFKy1OzOJRXbw",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Jochem Schellings": [
+    {
+      "id": "ghl_DpAN9g6Yqv2ew0U8xX0g_0",
+      "body": "Name: Jochem Schellings\nEmail: jochem.s@outlook.com\nPhone: \nWhen: 2026-01-22T14:00:00.000000Z\nCloser: melvin@thewolfpackgroup.com",
+      "bodyText": "Name: Jochem Schellings\nEmail: jochem.s@outlook.com\nPhone: \nWhen: 2026-01-22T14:00:00.000000Z\nCloser: melvin@thewolfpackgroup.com",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-03-16T13:42:34.324Z",
+      "contactId": "eYSmVnMp5exnL1Adc2nj",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Dia Van Wuijckhuijse": [
+    {
+      "id": "ghl_hLB0zu3qcjsM249d9P24_1",
+      "body": "Name: Kevin van Wuijckhuijse\nEmail: kevingeffen@gmail.com\nPhone: +31 6 23321920\nWhen: 2025-12-22T15:00:00.000000Z\nCloser: maurice@thewolfpackgroup.com\n\nWat is je telefoon nummer waar we je op kunnen bereiken? : +31 6 23321920\n\nWaar sta je nu op dit moment in je leven of carrière?: Sinds begin 2024 begonnen als zelfstandige, als closer. De afgelopen 6 maanden niet kunnen werken en een intensief traject gedaan met chemotherapie vanwege een tumor op mijn lymfeklieren. Op dit moment klaar om weer gas te gaan geven. \n\nWat hoop je voor jezelf te creëren of te veranderen de komende 6-12 maanden?: Ik hoop een volgende stap te kunnen maken als closer. Mijn skills verder te ontwikkelen zodat ik mijn eerste 10k+ maanden kan gaan draaien. En samenwerken met een opdrachtgever die mij meer kan bieden dan 1-2 calls per week. \n\nWaarom is dat belangrijk voor je, juist nu?: De afgelopen 1,5 jaar samengewerkt met verschillende opdrachtgevers uit mijn eigen netwerk, maar de meeste hadden niet genoeg werk of een offer met een lage investering (1500 euro) en weinig calls (1-2 per week) waardoor mijn inkomsten vrij laag bleven.\n\nHeb je in het verleden al iets geprobeerd om dit op te lossen?: Ja, Meerdere dingen\n\nWat houdt je nu tegen om voor je dromen te gaan?: Op dit moment niks, de afgelopen 6 maanden mijn gezondheid. \n\nAls je dit écht zou doorbreken… hoe zou je leven er dan uitzien?: Een inkomen van rond de 10k per maand, 2-3 keer per jaar op vakantie of een aantal maanden wonen en werken in het buitenland, ik heb een leuke auto kunnen kopen en minder stress dat er te weinig cash binnen komt. \n\nHoeveel tijd kun je de komende weken investeren om dit serieus aan te pakken?: Fulltime 40+ uren per week. \n\nOp een schaal van 1 tot 10, hoe bereid ben je om in jezelf te investeren als je voelt dat onze coaching goed bij je past?\n: 10",
+      "bodyText": "Name: Kevin van Wuijckhuijse\nEmail: kevingeffen@gmail.com\nPhone: +31 6 23321920\nWhen: 2025-12-22T15:00:00.000000Z\nCloser: maurice@thewolfpackgroup.com\n\nWat is je telefoon nummer waar we je op kunnen bereiken? : +31 6 23321920\n\nWaar sta je nu op dit moment in je leven of carrière?: Sinds begin 2024 begonnen als zelfstandige, als closer. De afgelopen 6 maanden niet kunnen werken en een intensief traject gedaan met chemotherapie vanwege een tumor op mijn lymfeklieren. Op dit moment klaar om weer gas te gaan geven. \n\nWat hoop je voor jezelf te creëren of te veranderen de komende 6-12 maanden?: Ik hoop een volgende stap te kunnen maken als closer. Mijn skills verder te ontwikkelen zodat ik mijn eerste 10k+ maanden kan gaan draaien. En samenwerken met een opdrachtgever die mij meer kan bieden dan 1-2 calls per week. \n\nWaarom is dat belangrijk voor je, juist nu?: De afgelopen 1,5 jaar samengewerkt met verschillende opdrachtgevers uit mijn eigen netwerk, maar de meeste hadden niet genoeg werk of een offer met een lage investering (1500 euro) en weinig calls (1-2 per week) waardoor mijn inkomsten vrij laag bleven.\n\nHeb je in het verleden al iets geprobeerd om dit op te lossen?: Ja, Meerdere dingen\n\nWat houdt je nu tegen om voor je dromen te gaan?: Op dit moment niks, de afgelopen 6 maanden mijn gezondheid. \n\nAls je dit écht zou doorbreken… hoe zou je leven er dan uitzien?: Een inkomen van rond de 10k per maand, 2-3 keer per jaar op vakantie of een aantal maanden wonen en werken in het buitenland, ik heb een leuke auto kunnen kopen en minder stress dat er te weinig cash binnen komt. \n\nHoeveel tijd kun je de komende weken investeren om dit serieus aan te pakken?: Fulltime 40+ uren per week. \n\nOp een schaal van 1 tot 10, hoe bereid ben je om in jezelf te investeren als je voelt dat onze coaching goed bij je past?\n: 10",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-03-09T11:28:02.858Z",
+      "contactId": "GcCWarsKQy9tNAL7BGuM",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Frank Verduijn": [
+    {
+      "id": "ghl_67fds1F7WWcuhii1qgGA_1",
+      "body": "Name: Frank Verduyn\nEmail: frankverduyn@live.nl\nPhone: +31 6 55974239\nWhen: 2025-12-20T13:00:00.000000Z\nCloser: matthijs@thewolfpackgroup.com\n\nTelefoonnummer: +31 6 55974239\n\n: \n\n: \n\n: \n\n: \n\n: \n\n: \n\n: \n\n: ",
+      "bodyText": "Name: Frank Verduyn\nEmail: frankverduyn@live.nl\nPhone: +31 6 55974239\nWhen: 2025-12-20T13:00:00.000000Z\nCloser: matthijs@thewolfpackgroup.com\n\nTelefoonnummer: +31 6 55974239\n\n: \n\n: \n\n: \n\n: \n\n: \n\n: \n\n: \n\n: ",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-03-17T12:34:17.532Z",
+      "contactId": "EqUS3z8YP0EWdkE27aQ2",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Yaser Daass": [
+    {
+      "id": "ghl_hucOpylqaSko4uJrBBmg_1",
+      "body": "Where are you currently at in your life or career?: Bachelor, but don’t want to commit to corporate office\nWhat do you hope to create or change for yourself in the next 6–12 months: Learn the skill of closing, selling and presenting myself\nWhy is that important for you, especially right now?: I believe this is the next step in part of the big picture.\nHave you tried anything in the past to fix this?: One attempt\nWhat’s holding you back from going after your dreams right now?: Finance and daring to go thru embarassement and the cringe phase\nIf you were really able to break through this… what would your life look like?: I would grow into the person I have always wanted to be.\nHow much time can you invest over the next few weeks to take this seriously?: I work over the weekends, afternoon evenings. I would be able to do fulltime next to my job to get it\nOn a scale from 1 to 10, how ready are you to invest in yourself if you feel our coaching is the right fit?: 100\nIf this truly feels like exactly what you need to break through… what kind of investment would feel realistic for you?: €2,000 – €3,000",
+      "bodyText": "Where are you currently at in your life or career?: Bachelor, but don’t want to commit to corporate office\nWhat do you hope to create or change for yourself in the next 6–12 months: Learn the skill of closing, selling and presenting myself\nWhy is that important for you, especially right now?: I believe this is the next step in part of the big picture.\nHave you tried anything in the past to fix this?: One attempt\nWhat’s holding you back from going after your dreams right now?: Finance and daring to go thru embarassement and the cringe phase\nIf you were really able to break through this… what would your life look like?: I would grow into the person I have always wanted to be.\nHow much time can you invest over the next few weeks to take this seriously?: I work over the weekends, afternoon evenings. I would be able to do fulltime next to my job to get it\nOn a scale from 1 to 10, how ready are you to invest in yourself if you feel our coaching is the right fit?: 100\nIf this truly feels like exactly what you need to break through… what kind of investment would feel realistic for you?: €2,000 – €3,000",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-03-19T16:56:44.858Z",
+      "contactId": "caSp38aKgumP9WLWakr2",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    },
+    {
+      "id": "ghl_hucOpylqaSko4uJrBBmg_2",
+      "body": "Learn the skill of closing, selling and presenting myself ",
+      "bodyText": "Learn the skill of closing, selling and presenting myself ",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-03-19T16:56:44.858Z",
+      "contactId": "caSp38aKgumP9WLWakr2",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Coco Latumahina": [
+    {
+      "id": "ghl_AeEUSE85umL1aB5hLIUi_1",
+      "body": "What is your Instagram handle? \ncoco.latumahina\nWhere are you currently at in your life or career? \nI'm building a high-end activewear brand called KUAT. While also working as a fitness instructor and occasionally taking on dance projects, as I'm a professional dancer as well. I've built a strong creative and personal foundation but now I'm ready to scale my business and bring more structure and financial stability into my life while keeping my passion and creativity alive.\nWhat do you hope to create or change for yourself in the next 6–12 months? \nLearn how to sell in a way that feels aligned with who I am. Not pushy or forced but genuine and empowering. Goal is to build a solid foundation for growth where I can combine passion/creativity/business mindset to create real results and long-term stability.\nWhy is that important for you, especially right now? \nI know I can achieve more. I want to build real financial growth with the right structure, mindset and confidence in sales!!\nHave you tried anything in the past to fix this? \nOne attempt\nWhat’s holding you back from going after your dreams right now? \nMainly structure and clarity. I often juggle many creative ideas but lack of a step-by-step plan and support system to stay consistent and focused on business growth.\nIf you were really able to break through this… what would your life look like? \nI'd have a thriving online business with steady income from my activewear, the freedom to work from anywhere and a balanced lifestyle where I can go to the gym/chill enjoy time with my loved ones, etc.\nHow much time can you invest over the next few weeks to take this seriously? \nat least a few hours a day\nOn a scale from 1 to 10, how ready are you to invest in yourself if you feel our coaching is the right fit? \n9\nIf this truly feels like exactly what you need to break through… what kind of investment would feel realistic for you? \n€0 – €1,000\n€1,000 – €2,000",
+      "bodyText": "What is your Instagram handle? \ncoco.latumahina\nWhere are you currently at in your life or career? \nI'm building a high-end activewear brand called KUAT. While also working as a fitness instructor and occasionally taking on dance projects, as I'm a professional dancer as well. I've built a strong creative and personal foundation but now I'm ready to scale my business and bring more structure and financial stability into my life while keeping my passion and creativity alive.\nWhat do you hope to create or change for yourself in the next 6–12 months? \nLearn how to sell in a way that feels aligned with who I am. Not pushy or forced but genuine and empowering. Goal is to build a solid foundation for growth where I can combine passion/creativity/business mindset to create real results and long-term stability.\nWhy is that important for you, especially right now? \nI know I can achieve more. I want to build real financial growth with the right structure, mindset and confidence in sales!!\nHave you tried anything in the past to fix this? \nOne attempt\nWhat’s holding you back from going after your dreams right now? \nMainly structure and clarity. I often juggle many creative ideas but lack of a step-by-step plan and support system to stay consistent and focused on business growth.\nIf you were really able to break through this… what would your life look like? \nI'd have a thriving online business with steady income from my activewear, the freedom to work from anywhere and a balanced lifestyle where I can go to the gym/chill enjoy time with my loved ones, etc.\nHow much time can you invest over the next few weeks to take this seriously? \nat least a few hours a day\nOn a scale from 1 to 10, how ready are you to invest in yourself if you feel our coaching is the right fit? \n9\nIf this truly feels like exactly what you need to break through… what kind of investment would feel realistic for you? \n€0 – €1,000\n€1,000 – €2,000",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-02-26T17:33:25.098Z",
+      "contactId": "rmEhYK4BJjBL3hYO8BVa",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    },
+    {
+      "id": "ghl_AeEUSE85umL1aB5hLIUi_2",
+      "body": "i'm building a high-end activewear brand called KUAT. While also working as a fitness instructor and occasionally taking on dance projects, as i'm a professional dancer as well. I've built a strong creative and personal foundation but now i'm ready to scale my business and bring more structure and financial stability into my life while keeping my passion and creativity alive",
+      "bodyText": "i'm building a high-end activewear brand called KUAT. While also working as a fitness instructor and occasionally taking on dance projects, as i'm a professional dancer as well. I've built a strong creative and personal foundation but now i'm ready to scale my business and bring more structure and financial stability into my life while keeping my passion and creativity alive",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-02-26T17:33:25.098Z",
+      "contactId": "rmEhYK4BJjBL3hYO8BVa",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Imran Aslam": [
+    {
+      "id": "ghl_yt7fGpEWF0EMNfdaEl8j_1",
+      "body": "Wat is je telefoon nummer waar we je op kunnen bereiken? \n+31 6 41103404\nWaar sta je nu op dit moment in je leven of carrière? \nBusiness unit manager bij een comsultancy bedrijf en star partner en aandelenpakket binnen de unit 25%\nWat hoop je voor jezelf te creëren of te veranderen de komende 6-12 maanden? \nFinancieel vrijheid zodat ik nederland kan verlaten\nWaarom is dat belangrijk voor je, juist nu? \nZie mezelf nier levenlang voor een baas werken\nHeb je in het verleden al iets geprobeerd om dit op te lossen? \nJa, Meerdere dingen\nWat houdt je nu tegen om voor je dromen te gaan? \nVaste lasten/kosten\nAls je dit écht zou doorbreken… hoe zou je leven er dan uitzien? \nVrijheid\nHoeveel tijd kun je de komende weken investeren om dit serieus aan te pakken? \nGenoeg\nOp een schaal van 1 tot 10, hoe bereid ben je om in jezelf te investeren als je voelt dat onze coaching goed bij je past? \n8-10, op aandragen van lotfi kom ik in contact\nAls je zou voelen dat dit precies is wat je nodig hebt om echt door te breken… wat voor investering zou dan realistisch voor je zijn? \n€5000 - €7500",
+      "bodyText": "Wat is je telefoon nummer waar we je op kunnen bereiken? \n+31 6 41103404\nWaar sta je nu op dit moment in je leven of carrière? \nBusiness unit manager bij een comsultancy bedrijf en star partner en aandelenpakket binnen de unit 25%\nWat hoop je voor jezelf te creëren of te veranderen de komende 6-12 maanden? \nFinancieel vrijheid zodat ik nederland kan verlaten\nWaarom is dat belangrijk voor je, juist nu? \nZie mezelf nier levenlang voor een baas werken\nHeb je in het verleden al iets geprobeerd om dit op te lossen? \nJa, Meerdere dingen\nWat houdt je nu tegen om voor je dromen te gaan? \nVaste lasten/kosten\nAls je dit écht zou doorbreken… hoe zou je leven er dan uitzien? \nVrijheid\nHoeveel tijd kun je de komende weken investeren om dit serieus aan te pakken? \nGenoeg\nOp een schaal van 1 tot 10, hoe bereid ben je om in jezelf te investeren als je voelt dat onze coaching goed bij je past? \n8-10, op aandragen van lotfi kom ik in contact\nAls je zou voelen dat dit precies is wat je nodig hebt om echt door te breken… wat voor investering zou dan realistisch voor je zijn? \n€5000 - €7500",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-01-12T16:45:33.664Z",
+      "contactId": "BgyLrrEh7mohM9qTr9yq",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    },
+    {
+      "id": "ghl_yt7fGpEWF0EMNfdaEl8j_2",
+      "body": "Business unit manager bij een comsultancy bedrijf en star partner en aandelenpakket binnen de unit 25%",
+      "bodyText": "Business unit manager bij een comsultancy bedrijf en star partner en aandelenpakket binnen de unit 25%",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-01-12T16:45:33.664Z",
+      "contactId": "BgyLrrEh7mohM9qTr9yq",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Jeffrey Schoonenberg": [
+    {
+      "id": "ghl_S8tMrx65OH4OnH84YrF2_5",
+      "body": "**Vraag 1:** Wat is jouw huidige situatie?  \n**Antwoord:** Ik ben helemaal nieuw in sales  \n\n**Vraag 2:** Wat is jouw huidige situatie? (other choice)  \n**Antwoord:** Ik heb een bedrijf maar wil dingen anders doen.  \n\n**Vraag 3:** Waar loop jij op dit moment tegenaan in je leven?  \n**Antwoord:**  \n\n**Vraag 4:** Waar loop jij op dit moment tegenaan in je leven? (other choice)  \n**Antwoord:** Ik geloof dat ik kwaliteiten heb in de sales en wil die gaan gebruiken. Wij wonen veel in het buitenland dus wil kijken of ik meer flexibel kan worden met mijn werk.  \n\n**Vraag 5:** Stel je zou leren closen op topniveau. Wat zou dat voor je veranderen?  \n**Antwoord:** Dat zal voor mij en mijn gezin een hoop meer vrijheid geven.  \n\n**Vraag 6:** Wat heb je hiervoor al geprobeerd?  \n**Antwoord:** Nog niets  \n\n**Vraag 7:** Wat heb je hiervoor al geprobeerd? (other choice)  \n**Antwoord:**  \n\n**Vraag 8:** Hoeveel uur per week zou je hierin kunnen investeren?  \n**Antwoord:** Meer dan 10 uur  \n\n**Vraag 9:** Als je vandaag zou investeren in jezelf om dit probleem écht op te lossen en €5-€10K+ extra te kunnen gaan verdienen per maand. Welk budget zou je daarvoor beschikbaar hebben?  \n**Antwoord:** €1.500 - €2.500  \n\n**Vraag 10:** Op een schaal van 1 tot 10. Hoe serieus ben je om dit nu aan te pakken?  \n**Antwoord:** 8  \n\n**Vraag 11:** Als dit het juiste traject blijkt te zijn, ben je dan bereid om actie te nemen?  \n**Antwoord:** Misschien, afhankelijk van de aanpak  \n\n**Vraag 12:** Wat is je instagram handle?  \n**Antwoord:** Geen  \n\n**Vraag 13:** First name  \n**Antwoord:** Jeffrey  \n\n**Vraag 14:** Last name  \n**Antwoord:** Schoonenberg  \n\n**Vraag 15:** Phone number  \n**Antwoord:** +31620386469  \n\n**Vraag 16:** Email  \n**Antwoord:** schoonenbergbouwservice@gmail.com  \n\n**Vraag 17:** var_score  \n**Antwoord:** 0",
+      "bodyText": "**Vraag 1:** Wat is jouw huidige situatie?  \n**Antwoord:** Ik ben helemaal nieuw in sales  \n\n**Vraag 2:** Wat is jouw huidige situatie? (other choice)  \n**Antwoord:** Ik heb een bedrijf maar wil dingen anders doen.  \n\n**Vraag 3:** Waar loop jij op dit moment tegenaan in je leven?  \n**Antwoord:**  \n\n**Vraag 4:** Waar loop jij op dit moment tegenaan in je leven? (other choice)  \n**Antwoord:** Ik geloof dat ik kwaliteiten heb in de sales en wil die gaan gebruiken. Wij wonen veel in het buitenland dus wil kijken of ik meer flexibel kan worden met mijn werk.  \n\n**Vraag 5:** Stel je zou leren closen op topniveau. Wat zou dat voor je veranderen?  \n**Antwoord:** Dat zal voor mij en mijn gezin een hoop meer vrijheid geven.  \n\n**Vraag 6:** Wat heb je hiervoor al geprobeerd?  \n**Antwoord:** Nog niets  \n\n**Vraag 7:** Wat heb je hiervoor al geprobeerd? (other choice)  \n**Antwoord:**  \n\n**Vraag 8:** Hoeveel uur per week zou je hierin kunnen investeren?  \n**Antwoord:** Meer dan 10 uur  \n\n**Vraag 9:** Als je vandaag zou investeren in jezelf om dit probleem écht op te lossen en €5-€10K+ extra te kunnen gaan verdienen per maand. Welk budget zou je daarvoor beschikbaar hebben?  \n**Antwoord:** €1.500 - €2.500  \n\n**Vraag 10:** Op een schaal van 1 tot 10. Hoe serieus ben je om dit nu aan te pakken?  \n**Antwoord:** 8  \n\n**Vraag 11:** Als dit het juiste traject blijkt te zijn, ben je dan bereid om actie te nemen?  \n**Antwoord:** Misschien, afhankelijk van de aanpak  \n\n**Vraag 12:** Wat is je instagram handle?  \n**Antwoord:** Geen  \n\n**Vraag 13:** First name  \n**Antwoord:** Jeffrey  \n\n**Vraag 14:** Last name  \n**Antwoord:** Schoonenberg  \n\n**Vraag 15:** Phone number  \n**Antwoord:** +31620386469  \n\n**Vraag 16:** Email  \n**Antwoord:** schoonenbergbouwservice@gmail.com  \n\n**Vraag 17:** var_score  \n**Antwoord:** 0",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-02-24T09:53:48.151Z",
+      "contactId": "i1Qs5SdvHviCyqM18W4q",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Teun Bijnsdorp": [
+    {
+      "id": "ghl_hkz6MA8Xmb1gQlHI1fua_2",
+      "body": "### Wat is jouw huidige situatie?\n- \n### Wat is jouw huidige situatie? (other choice)\n- Ik ben 1 jaartje account manager geweest. Wel nieuw in closen\n\n### Waar loop jij op dit moment tegenaan in je leven?\n- Ik ervaar te weinig financiële vrijheid\n\n### Waar loop jij op dit moment tegenaan in je leven? (other choice)\n- \n\n### Stel je zou leren closen op topniveau. Wat zou dat voor je veranderen?\n- Cashflow voor mijn huidige brand + investeringsmogelijkheden\n\n### Wat heb je hiervoor al geprobeerd?\n- Nog niets\n\n### Wat heb je hiervoor al geprobeerd? (other choice)\n- \n\n### Hoeveel uur per week zou je hierin kunnen investeren?\n- 5-10 uur\n\n### Als je vandaag zou investeren in jezelf om dit probleem écht op te lossen en €5-€10K+ extra te kunnen gaan verdienen per maand. Welk budget zou je daarvoor beschikbaar hebben?\n- €2.500 - €4.000\n\n### Op een schaal van 1 tot 10. Hoe serieus ben je om dit nu aan te pakken?\n- 9\n\n### Als dit het juiste traject blijkt te zijn, ben je dan bereid om actie te nemen?\n- Misschien, afhankelijk van de aanpak\n\n### Wat is je instagram handle?\n- teunbijnsdorp_\n\n### First name\n- Teun\n\n### Last name\n- Bijnsdorp\n\n### Phone number\n- +31630048328\n\n### Email\n- teunbijnsdorp2001@gmail.com\n\n### var_score\n- 0",
+      "bodyText": "### Wat is jouw huidige situatie?\n- \n### Wat is jouw huidige situatie? (other choice)\n- Ik ben 1 jaartje account manager geweest. Wel nieuw in closen\n\n### Waar loop jij op dit moment tegenaan in je leven?\n- Ik ervaar te weinig financiële vrijheid\n\n### Waar loop jij op dit moment tegenaan in je leven? (other choice)\n- \n\n### Stel je zou leren closen op topniveau. Wat zou dat voor je veranderen?\n- Cashflow voor mijn huidige brand + investeringsmogelijkheden\n\n### Wat heb je hiervoor al geprobeerd?\n- Nog niets\n\n### Wat heb je hiervoor al geprobeerd? (other choice)\n- \n\n### Hoeveel uur per week zou je hierin kunnen investeren?\n- 5-10 uur\n\n### Als je vandaag zou investeren in jezelf om dit probleem écht op te lossen en €5-€10K+ extra te kunnen gaan verdienen per maand. Welk budget zou je daarvoor beschikbaar hebben?\n- €2.500 - €4.000\n\n### Op een schaal van 1 tot 10. Hoe serieus ben je om dit nu aan te pakken?\n- 9\n\n### Als dit het juiste traject blijkt te zijn, ben je dan bereid om actie te nemen?\n- Misschien, afhankelijk van de aanpak\n\n### Wat is je instagram handle?\n- teunbijnsdorp_\n\n### First name\n- Teun\n\n### Last name\n- Bijnsdorp\n\n### Phone number\n- +31630048328\n\n### Email\n- teunbijnsdorp2001@gmail.com\n\n### var_score\n- 0",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-03-19T16:56:25.698Z",
+      "contactId": "4Dz322kmPrKd9sXjJqO2",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Esther Van Antwerp": [
+    {
+      "id": "ghl_2KXDj4Lohf5zGxQLz9oh_1",
+      "body": "9-5 job , mama of 2 , 18+ years in the army ready to just retire ",
+      "bodyText": "9-5 job , mama of 2 , 18+ years in the army ready to just retire ",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-01-14T06:29:42.754Z",
+      "contactId": "940vPj6cirwnCyPRZ8PT",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Haron Zarouala": [
+    {
+      "id": "ghl_l64BtnyD2tH9KMFudiqo_2",
+      "body": "Op dit moment verdien ik net genoeg om vrij te zijn maar ik wil verder groeien op werkgebied, kennis en skills. Doe nog ouderwets straatwerven, heb een prima zomerbaan en heb wat kleine online qua instagram beheer, mijn eigen account en affiliate marketing",
+      "bodyText": "Op dit moment verdien ik net genoeg om vrij te zijn maar ik wil verder groeien op werkgebied, kennis en skills. Doe nog ouderwets straatwerven, heb een prima zomerbaan en heb wat kleine online qua instagram beheer, mijn eigen account en affiliate marketing",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-03-09T11:31:43.399Z",
+      "contactId": "cPkefYOSYtrKXxsiOiL4",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Joey Heck": [
+    {
+      "id": "ghl_SFYLDn4qoLPg0aSvdXQ1_2",
+      "body": "Ik bevind me op een punt in mijn leven waar discipline niet langer een keuze is, maar een identiteit. Wat ooit begon als trainen voor kracht en focus, is uitgegroeid tot een manier van leven waarin ik dagelijks werk aan fysieke kracht, mentale rust en volledige controle onder druk.\n\nMet een achtergrond in Muay Thai, krachttraining en persoonsbeveiliging heb ik geleerd dat echte kracht niet alleen zit in fysieke dominantie, maar in kalmte, bewustzijn en strategie. In mijn werk als clubbeveiliger combineer ik die elementen. ik reageer niet op situaties, ik beheer ze.\n\nIk heb mijn opleiding tot persoonsbeveiliger afgerond en bevind me nu in het tweede jaar van mijn groeiplan, waarin ik mezelf verder ontwikkel richting high-level beveiliging en tactische specialisatie. Naast het fysieke werk train ik dagelijks mijn onderbewustzijn: ademhaling, visualisatie en mentale herprogrammering helpen me om gefocust, alert en mentaal onbreekbaar te blijven.",
+      "bodyText": "Ik bevind me op een punt in mijn leven waar discipline niet langer een keuze is, maar een identiteit. Wat ooit begon als trainen voor kracht en focus, is uitgegroeid tot een manier van leven waarin ik dagelijks werk aan fysieke kracht, mentale rust en volledige controle onder druk.\n\nMet een achtergrond in Muay Thai, krachttraining en persoonsbeveiliging heb ik geleerd dat echte kracht niet alleen zit in fysieke dominantie, maar in kalmte, bewustzijn en strategie. In mijn werk als clubbeveiliger combineer ik die elementen. ik reageer niet op situaties, ik beheer ze.\n\nIk heb mijn opleiding tot persoonsbeveiliger afgerond en bevind me nu in het tweede jaar van mijn groeiplan, waarin ik mezelf verder ontwikkel richting high-level beveiliging en tactische specialisatie. Naast het fysieke werk train ik dagelijks mijn onderbewustzijn: ademhaling, visualisatie en mentale herprogrammering helpen me om gefocust, alert en mentaal onbreekbaar te blijven.",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-03-16T07:15:14.689Z",
+      "contactId": "m5haeeHKwrlqP4BFyWRC",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Musa": [
+    {
+      "id": "ghl_QEyT9naAHeJR6yDwkp5r_2",
+      "body": "### Wat is jouw huidige situatie?\n\nIk ben helemaal nieuw in sales\n\n### Wat is jouw huidige situatie? (other choice)\n\n\n\n### Waar loop jij op dit moment tegenaan in je leven?\n\nIk werk hard, maar het levert me niet het leven op dat ik wil\n\n### Waar loop jij op dit moment tegenaan in je leven? (other choice)\n\n\n\n### Stel je zou leren closen op topniveau. Wat zou dat voor je veranderen? \n\nUltieme vrijheid. Beloond worden voor mijn input. Dé skill hebben die ik altijd nodig ga hebben.\n\n### Wat heb je hiervoor al geprobeerd?\n\nGratis YouTube/video’s gekeken\n\n### Wat heb je hiervoor al geprobeerd? (other choice)\n\n\n\n### Hoeveel uur per week zou je hierin kunnen investeren?\n\nMeer dan 10 uur\n\n### Als je vandaag zou investeren in jezelf om dit probleem écht op te lossen en €5-€10K+ extra te kunnen gaan verdienen per maand. Welk budget zou je daarvoor beschikbaar hebben?\n\n€2.500 - €4.000\n\n### Op een schaal van 1 tot 10. Hoe serieus ben je om dit nu aan te pakken?\n\n10\n\n### Als dit het juiste traject blijkt te zijn, ben je dan bereid om actie te nemen?\n\nJa, ik ben klaar om te starten\n\n### Wat is je instagram handle?\n\nTherealmoziz\n\n### First name\n\nMusa\n\n### Last name\n\nCetinkaya\n\n### Phone number\n\n+32483334472\n\n### Email\n\ncetinkaya_musa@hotmail.com\n\n### var_score\n\n0",
+      "bodyText": "### Wat is jouw huidige situatie?\n\nIk ben helemaal nieuw in sales\n\n### Wat is jouw huidige situatie? (other choice)\n\n\n\n### Waar loop jij op dit moment tegenaan in je leven?\n\nIk werk hard, maar het levert me niet het leven op dat ik wil\n\n### Waar loop jij op dit moment tegenaan in je leven? (other choice)\n\n\n\n### Stel je zou leren closen op topniveau. Wat zou dat voor je veranderen? \n\nUltieme vrijheid. Beloond worden voor mijn input. Dé skill hebben die ik altijd nodig ga hebben.\n\n### Wat heb je hiervoor al geprobeerd?\n\nGratis YouTube/video’s gekeken\n\n### Wat heb je hiervoor al geprobeerd? (other choice)\n\n\n\n### Hoeveel uur per week zou je hierin kunnen investeren?\n\nMeer dan 10 uur\n\n### Als je vandaag zou investeren in jezelf om dit probleem écht op te lossen en €5-€10K+ extra te kunnen gaan verdienen per maand. Welk budget zou je daarvoor beschikbaar hebben?\n\n€2.500 - €4.000\n\n### Op een schaal van 1 tot 10. Hoe serieus ben je om dit nu aan te pakken?\n\n10\n\n### Als dit het juiste traject blijkt te zijn, ben je dan bereid om actie te nemen?\n\nJa, ik ben klaar om te starten\n\n### Wat is je instagram handle?\n\nTherealmoziz\n\n### First name\n\nMusa\n\n### Last name\n\nCetinkaya\n\n### Phone number\n\n+32483334472\n\n### Email\n\ncetinkaya_musa@hotmail.com\n\n### var_score\n\n0",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-02-26T14:16:52.128Z",
+      "contactId": "lsRTDEzOOV3Wcl0IuByT",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Quint Van Beek": [
+    {
+      "id": "ghl_VPcehehwUC8L3rYeqnEU_1",
+      "body": "Ik werk nu D2D sales en ben daar wel goed in en merk dat ik toe ben aan een nieuwe stap",
+      "bodyText": "Ik werk nu D2D sales en ben daar wel goed in en merk dat ik toe ben aan een nieuwe stap",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2025-12-17T12:07:33.072Z",
+      "contactId": "YcUorsKsKYNXom63wPQB",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Luuk Warnas": [
+    {
+      "id": "ghl_gegK7MhJ85EhNi4i8hD0_2",
+      "body": "### Wat is jouw huidige situatie?\n\nMijn huidige situatie is dat ik al behoorlijk wat ervaring heb in verschillende ondernemingen, maar nu op zoek ben naar een nieuwe richting. Ik had ooit een snackbar, maar die is uiteindelijk niet geslaagd. Vervolgens heb ik van alles geprobeerd in de online wereld: affiliate marketing, dropshipping, YouTube-automatisering en Instagram themepages. Met die themepages heb ik zelf ook wat sales gedaan en daar best wat mee verdiend, maar ik dacht dat het gras elders groener was, dus ben ik verder gaan zoeken.  Nu heb ik een marketingbedrijf met één grote klant, maar die klant gaat een andere richting op, waardoor ik opnieuw iets nieuws nodig heb. Sales is altijd iets geweest wat me aansprak en wat ik \"echt\" leuk en interessant vond. Ik wil nu graag wat meer stabiliteit en een mentor die me van A tot Z kan begeleiden om weer een sterke basis in sales op te bouwen.  Bovendien wil ik de beste worden en echt kunnen groeien zonder een plafond op mijn potentieel of inkomen. Ik denk graag groot en dat is altijd mijn insteek geweest. Daarom zoek ik nu een traject waarin ik onbeperkt kan groeien in sales.\n\n### Waar loop jij op dit moment tegenaan in je leven?\n\nIk voel dat ik niet het maximale uit mezelf haal\n\n### Stel je zou leren closen op topniveau. Wat zou dat voor je veranderen? \n\nAls ik zou leren closen op topniveau, zou dat mijn leven volledig veranderen. Het grootste verschil zit voor mij in het besef dat ik, met de juiste begeleiding, 100% verantwoordelijk ben voor mijn eigen succes. Geen excuses meer. Als ik de stappen volg en er alles in steek, dan ligt het resultaat volledig in mijn eigen handen. Dat betekent financiële vrijheid, persoonlijke groei en de mogelijkheid om mijn leven precies zo in te richten als ik wil. Het zou niet alleen mijn situatie veranderen, maar ook mijn toekomst, mijn mindset en de standaard die ik voor mezelf stel.\n\n### Wat heb je hiervoor al geprobeerd?\n\nAl beantwoord (1)\n\n### Hoeveel uur per week zou je hierin kunnen investeren?\n\nMeer dan 10 uur\n\n### Als je vandaag zou investeren in jezelf om dit probleem écht op te lossen en €5-€10K+ extra te kunnen gaan verdienen per maand. Welk budget zou je daarvoor beschikbaar hebben?\n\n€1.500 - €2.500\n\n### Op een schaal van 1 tot 10. Hoe serieus ben je om dit nu aan te pakken?\n\n10\n\n### Als dit het juiste traject blijkt te zijn, ben je dan bereid om actie te nemen?\n\nJa, ik ben klaar om te starten\n\n### Wat is je instagram handle?\n\n@ lw9.8\n\n### First name\n\nLuuk \n\n### Last name\n\nWarnas \n\n### Phone number\n\n+48780008500\n\n### Email\n\nluukwarnas8@gmail.com\n\n### var_score\n\n0",
+      "bodyText": "### Wat is jouw huidige situatie?\n\nMijn huidige situatie is dat ik al behoorlijk wat ervaring heb in verschillende ondernemingen, maar nu op zoek ben naar een nieuwe richting. Ik had ooit een snackbar, maar die is uiteindelijk niet geslaagd. Vervolgens heb ik van alles geprobeerd in de online wereld: affiliate marketing, dropshipping, YouTube-automatisering en Instagram themepages. Met die themepages heb ik zelf ook wat sales gedaan en daar best wat mee verdiend, maar ik dacht dat het gras elders groener was, dus ben ik verder gaan zoeken.  Nu heb ik een marketingbedrijf met één grote klant, maar die klant gaat een andere richting op, waardoor ik opnieuw iets nieuws nodig heb. Sales is altijd iets geweest wat me aansprak en wat ik \"echt\" leuk en interessant vond. Ik wil nu graag wat meer stabiliteit en een mentor die me van A tot Z kan begeleiden om weer een sterke basis in sales op te bouwen.  Bovendien wil ik de beste worden en echt kunnen groeien zonder een plafond op mijn potentieel of inkomen. Ik denk graag groot en dat is altijd mijn insteek geweest. Daarom zoek ik nu een traject waarin ik onbeperkt kan groeien in sales.\n\n### Waar loop jij op dit moment tegenaan in je leven?\n\nIk voel dat ik niet het maximale uit mezelf haal\n\n### Stel je zou leren closen op topniveau. Wat zou dat voor je veranderen? \n\nAls ik zou leren closen op topniveau, zou dat mijn leven volledig veranderen. Het grootste verschil zit voor mij in het besef dat ik, met de juiste begeleiding, 100% verantwoordelijk ben voor mijn eigen succes. Geen excuses meer. Als ik de stappen volg en er alles in steek, dan ligt het resultaat volledig in mijn eigen handen. Dat betekent financiële vrijheid, persoonlijke groei en de mogelijkheid om mijn leven precies zo in te richten als ik wil. Het zou niet alleen mijn situatie veranderen, maar ook mijn toekomst, mijn mindset en de standaard die ik voor mezelf stel.\n\n### Wat heb je hiervoor al geprobeerd?\n\nAl beantwoord (1)\n\n### Hoeveel uur per week zou je hierin kunnen investeren?\n\nMeer dan 10 uur\n\n### Als je vandaag zou investeren in jezelf om dit probleem écht op te lossen en €5-€10K+ extra te kunnen gaan verdienen per maand. Welk budget zou je daarvoor beschikbaar hebben?\n\n€1.500 - €2.500\n\n### Op een schaal van 1 tot 10. Hoe serieus ben je om dit nu aan te pakken?\n\n10\n\n### Als dit het juiste traject blijkt te zijn, ben je dan bereid om actie te nemen?\n\nJa, ik ben klaar om te starten\n\n### Wat is je instagram handle?\n\n@ lw9.8\n\n### First name\n\nLuuk \n\n### Last name\n\nWarnas \n\n### Phone number\n\n+48780008500\n\n### Email\n\nluukwarnas8@gmail.com\n\n### var_score\n\n0",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2025-12-17T12:07:34.168Z",
+      "contactId": "LfttZGiAODa3bOfmzS9i",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Jeroen Ramakers": [
+    {
+      "id": "ghl_kIoOQuYekaLNSki090Tt_0",
+      "body": "Ik heb altijd een baan gehad. Mijn huidige baan stopt per 1 oktober. Heb wel een hbo afgerond.",
+      "bodyText": "Ik heb altijd een baan gehad. Mijn huidige baan stopt per 1 oktober. Heb wel een hbo afgerond.",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2026-03-08T15:15:06.534Z",
+      "contactId": "RxkgL2OOPudRVJXG0KsI",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ],
+  "Matthias Vandermaes": [
+    {
+      "id": "ghl_l2jBYCUUHSDtYsvDSOvf_1",
+      "body": "Eigen verantwoordelijkheid, meer voldoening en werkplezier + loon naar werken.",
+      "bodyText": "Eigen verantwoordelijkheid, meer voldoening en werkplezier + loon naar werken.",
+      "userId": "GHL_SYNC",
+      "dateAdded": "2025-11-03T14:30:53.475Z",
+      "contactId": "MiIas3MP7qoujIe8Jwjh",
+      "title": "GoHighLevel Notes",
+      "color": "blue"
+    }
+  ]
+,
+  "Isabella Nicholson": [
+    {
+        "id": "3hVdBZEuzLNriK6GV23p",
+        "body": "inmiddels 2 calls gedaan met isabelle en ze is weer helemaal tevreden over de coaching, 1e call was vooral even bijpraten en kennismaken.\n\n2e call vandaag gehad over haar offer waar ze manager is en hoe ze funnels kan optimaliseren en haar closers kan leiden. daarna aantal scenarios erbij gepakt waar ze tegenaan liep. ze is heel blij met de nieuwe inzichten en we gaan volgende keer haar call reviewen en ze stuurt me wat calls door en haar script etc voor een audit\n\nhttps://fathom.video/share/XDkTtUEUyx-wh2NoqyAqE_yRsiZm8BJW",
+        "bodyText": "inmiddels 2 calls gedaan met isabelle en ze is weer helemaal tevreden over de coaching, 1e call was vooral even bijpraten en kennismaken.\n\n2e call vandaag gehad over haar offer waar ze manager is en hoe ze funnels kan optimaliseren en haar closers kan leiden. daarna aantal scenarios erbij gepakt waar ze tegenaan liep. ze is heel blij met de nieuwe inzichten en we gaan volgende keer haar call reviewen en ze stuurt me wat calls door en haar script etc voor een audit\n\nhttps://fathom.video/share/XDkTtUEUyx-wh2NoqyAqE_yRsiZm8BJW",
+        "userId": "QVT1WQoi42eQHNevpiRL",
+        "dateAdded": "2026-03-19T19:11:30.471Z",
+        "title": "Coaching Call - 19 maart 2026",
+        "color": "yellow"
+    },
+    {
+        "id": "FU2u0LJKyT4EkdQvZKjZ",
+        "body": "https://fathom.video/share/cehouUjrxcpiY1Dhr33743x1uDYQyjM1",
+        "bodyText": "https://fathom.video/share/cehouUjrxcpiY1Dhr33743x1uDYQyjM1",
+        "dateAdded": "2026-02-16T12:24:17.844Z",
+        "title": "Coaching Call - 16 februari 2026",
+        "color": "blue"
+    },
+    {
+        "id": "keqXivqyThYtrWSEnGhr",
+        "body": "Isabella (last coaching call) – Next Steps\n1. Objection Handling Focus (IDIC Framework)\n• Watch Paolo's IDIC Framework video (±35 minutes)\n• Watch it slowly and intentionally\nTake clear notes on:\n1. Identify (what's really coming up)\n2. Diffuse (remove emotional tension)\n3. Isolate (is it truly about money or something else?)\n4. Close (guide them to their own decision)\nDeliverable:\n• Record a Loom video where you explain the IDIC framework in your own words\n\nCall link -> https://fathom.video/share/hg2Tex_d7-x1BDEW-wCDCz5w3PFxiHxk",
+        "bodyText": "Isabella (last coaching call) – Next Steps\n1. Objection Handling Focus (IDIC Framework)\n• Watch Paolo's IDIC Framework video (±35 minutes)\n• Watch it slowly and intentionally\nTake clear notes on:\n1. Identify (what's really coming up)\n2. Diffuse (remove emotional tension)\n3. Isolate (is it truly about money or something else?)\n4. Close (guide them to their own decision)\nDeliverable:\n• Record a Loom video where you explain the IDIC framework in your own words\n\nCall link -> https://fathom.video/share/hg2Tex_d7-x1BDEW-wCDCz5w3PFxiHxk",
+        "dateAdded": "2026-01-06T08:20:43.760Z",
+        "title": "IDIC Framework Opdracht",
+        "color": "green"
+    }
+  ]
+};

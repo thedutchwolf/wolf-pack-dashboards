@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐺 Wolf Pack Executive Command Center</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .dashboard {
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        .header {
+            background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-bottom: 3px solid #ff6b35;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .wolf-text {
+            color: #ff6b35;
+            text-shadow: 0 0 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .header-subtitle {
+            color: #cccccc;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .week-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 8px;
+            border: 1px solid #ff6b35;
+        }
+
+        .controls {
+            padding: 2rem;
+            background: #1e1e1e;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .control-btn {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(45deg, #ff6b35, #ff8555);
+            border: none;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .control-btn:hover {
+            background: linear-gradient(45deg, #e55a2b, #ff6b35);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+        }
+
+        .executives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .executive-card {
+            background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid #333;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .executive-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b35, #00d4aa);
+        }
+
+        .executive-card:hover {
+            transform: translateY(-4px);
+            border-color: #ff6b35;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .executive-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .executive-info h3 {
+            color: #ff6b35;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .executive-role {
+            color: #cccccc;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .executive-status {
+            font-size: 1.1rem;
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .status-excellent { 
+            color: #00d4aa; 
+            background: rgba(0, 212, 170, 0.1);
+            border: 1px solid #00d4aa;
+        }
+        .status-good { 
+            color: #ffaa00; 
+            background: rgba(255, 170, 0, 0.1);
+            border: 1px solid #ffaa00;
+        }
+        .status-needs-attention { 
+            color: #ff4444; 
+            background: rgba(255, 68, 68, 0.1);
+            border: 1px solid #ff4444;
+        }
+
+        .kpis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+
+        .kpi-item {
+            background: #2a2a2a;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid #333;
+            transition: all 0.2s ease;
+        }
+
+        .kpi-item:hover {
+            border-color: #ff6b35;
+            transform: scale(1.02);
+        }
+
+        .kpi-circle {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            border: 6px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .circle-excellent {
+            border-color: #00d4aa;
+            box-shadow: 0 0 15px rgba(0, 212, 170, 0.3);
+        }
+
+        .circle-good {
+            border-color: #ffaa00;
+            box-shadow: 0 0 15px rgba(255, 170, 0, 0.3);
+        }
+
+        .circle-needs-attention {
+            border-color: #ff4444;
+            box-shadow: 0 0 15px rgba(255, 68, 68, 0.3);
+        }
+
+        .circle-value {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        .kpi-name {
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .kpi-details {
+            font-size: 0.7rem;
+            color: #999;
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .kpi-input {
+            width: 100%;
+            padding: 0.5rem;
+            background: #333;
+            border: 1px solid #555;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        .kpi-input:focus {
+            outline: none;
+            border-color: #ff6b35;
+            box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2);
+        }
+
+        .update-btn {
+            padding: 0.5rem;
+            background: #ff6b35;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .update-btn:hover {
+            background: #e55a2b;
+            transform: scale(1.05);
+        }
+
+        .company-overview {
+            background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
+            margin: 2rem;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #333;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .company-overview h2 {
+            color: #ff6b35;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .overview-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            background: #2a2a2a;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #ccc;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .executives-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            
+            .kpis-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            
+            .header {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <header class="header">
+            <h1><span class="wolf-text">🐺 WOLF PACK</span> EXECUTIVE COMMAND CENTER</h1>
+            <div class="header-subtitle">Real-time Executive Performance Monitoring</div>
+            
+            <div class="week-info">
+                <strong>Week 11 • 10 Maart 2026</strong>
+            </div>
+        </header>
+
+        <div class="controls">
+            <button class="control-btn" onclick="bulkEntry()">📊 BULK DATA ENTRY</button>
+            <button class="control-btn" onclick="exportData()">📥 EXPORT DATA</button>
+            <button class="control-btn" onclick="resetWeek()">🔄 RESET WEEK</button>
+        </div>
+
+        <div class="company-overview">
+            <h2>🏆 Wolf Pack Command Overview</h2>
+            <div class="overview-stats">
+                <div class="stat-item">
+                    <div class="stat-value status-good" id="healthScore">65%</div>
+                    <div class="stat-label">Company Health Score</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value status-excellent" id="excellentExecs">4</div>
+                    <div class="stat-label">Executives Presteren</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value status-excellent" id="excellentKPIs">18</div>
+                    <div class="stat-label">KPIs Boven Target</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value status-needs-attention" id="redKPIs">8</div>
+                    <div class="stat-label">KPIs Aandacht Nodig</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="executives-grid">
+            <!-- Melvin -->
+            <div class="executive-card" data-exec="melvin">
+                <div class="executive-header">
+                    <div class="executive-info">
+                        <h3>Melvin Lassooy</h3>
+                        <div class="executive-role">CEO</div>
+                    </div>
+                    <div class="executive-status" id="melvin-status">🟢 CRUSHING IT</div>
+                </div>
+                <div class="kpis-grid">
+                    <div class="kpi-item" data-kpi="melvin-reels">
+                        <div class="kpi-circle circle-excellent" id="melvin-reels-circle">
+                            <div class="circle-value" id="melvin-reels-value">95%</div>
+                        </div>
+                        <div class="kpi-name">Post 3 reels per dag</div>
+                        <div class="kpi-details">Target: 21 reels/week</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="melvin-reels-input" placeholder="Actueel aantal" data-target="21">
+                            <button class="update-btn" onclick="updateKPI('melvin', 'reels')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item" data-kpi="melvin-followers">
+                        <div class="kpi-circle circle-excellent" id="melvin-followers-circle">
+                            <div class="circle-value" id="melvin-followers-value">120%</div>
+                        </div>
+                        <div class="kpi-name">1000 nieuwe volgers</div>
+                        <div class="kpi-details">Target: 1000 volgers</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="melvin-followers-input" placeholder="Actueel aantal" data-target="1000">
+                            <button class="update-btn" onclick="updateKPI('melvin', 'followers')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item" data-kpi="melvin-check">
+                        <div class="kpi-circle circle-excellent" id="melvin-check-circle">
+                            <div class="circle-value" id="melvin-check-value">100%</div>
+                        </div>
+                        <div class="kpi-name">Executive KPI Check</div>
+                        <div class="kpi-details">Target: 1 check/week</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="melvin-check-input" placeholder="Gedaan (0 of 1)" data-target="1" min="0" max="1">
+                            <button class="update-btn" onclick="updateKPI('melvin', 'check')">UPDATE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maurice -->
+            <div class="executive-card" data-exec="maurice">
+                <div class="executive-header">
+                    <div class="executive-info">
+                        <h3>Maurice Visser</h3>
+                        <div class="executive-role">Sales Manager</div>
+                    </div>
+                    <div class="executive-status" id="maurice-status">🟠 ON TRACK</div>
+                </div>
+                <div class="kpis-grid">
+                    <div class="kpi-item" data-kpi="maurice-closing">
+                        <div class="kpi-circle circle-good" id="maurice-closing-circle">
+                            <div class="circle-value" id="maurice-closing-value">90%</div>
+                        </div>
+                        <div class="kpi-name">Team Closing Rate</div>
+                        <div class="kpi-details">Target: 20%</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="maurice-closing-input" placeholder="Percentage" data-target="20" step="0.1">
+                            <button class="update-btn" onclick="updateKPI('maurice', 'closing')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item" data-kpi="maurice-cash">
+                        <div class="kpi-circle circle-excellent" id="maurice-cash-circle">
+                            <div class="circle-value" id="maurice-cash-value">115%</div>
+                        </div>
+                        <div class="kpi-name">Cash per call</div>
+                        <div class="kpi-details">Target: €750</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="maurice-cash-input" placeholder="Euro bedrag" data-target="750">
+                            <button class="update-btn" onclick="updateKPI('maurice', 'cash')">UPDATE</button>
+                        </div>
+                    </div>
+                    <div class="kpi-item" data-kpi="maurice-check">
+                        <div class="kpi-circle circle-excellent" id="maurice-check-circle">
+                            <div class="circle-value" id="maurice-check-value">100%</div>
+                        </div>
+                        <div class="kpi-name">Executive Check</div>
+                        <div class="kpi-details">Target: 1 weekly</div>
+                        <div class="kpi-input-group">
+                            <input type="number" class="kpi-input" id="maurice-check-input" placeholder="Gedaan (0 of 1)" data-target="1" min="0" max="1">
+                            <button class="update-btn" onclick="updateKPI('maurice', 'check')">UPDATE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more executives here with similar structure -->
+        </div>
+    </div>
+
+    <script>
+        // KPI Update Function
+        function updateKPI(exec, kpi) {
+            const inputId = `${exec}-${kpi}-input`;
+            const circleId = `${exec}-${kpi}-circle`;
+            const valueId = `${exec}-${kpi}-value`;
+            
+            const inputElement = document.getElementById(inputId);
+            const circleElement = document.getElementById(circleId);
+            const valueElement = document.getElementById(valueId);
+            
+            if (!inputElement || !circleElement || !valueElement) {
+                console.error('Elements not found:', {inputId, circleId, valueId});
+                return;
+            }
+            
+            const actual = parseFloat(inputElement.value) || 0;
+            const target = parseFloat(inputElement.dataset.target) || 1;
+            const percentage = (actual / target) * 100;
+            
+            // Update percentage display
+            valueElement.textContent = `${Math.round(percentage)}%`;
+            
+            // Update circle color based on percentage
+            circleElement.classList.remove('circle-excellent', 'circle-good', 'circle-needs-attention');
+            
+            if (percentage >= 110) {
+                circleElement.classList.add('circle-excellent');
+            } else if (percentage >= 90) {
+                circleElement.classList.add('circle-good');
+            } else {
+                circleElement.classList.add('circle-needs-attention');
+            }
+            
+            // Update executive status
+            updateExecutiveStatus(exec);
+            
+            // Show success message
+            alert(`✅ KPI Updated: ${actual} / ${target} = ${Math.round(percentage)}%`);
+        }
+        
+        function updateExecutiveStatus(exec) {
+            const statusElement = document.getElementById(`${exec}-status`);
+            const execCard = document.querySelector(`[data-exec="${exec}"]`);
+            
+            if (!execCard || !statusElement) return;
+            
+            const kpiItems = execCard.querySelectorAll('.kpi-item');
+            let excellentCount = 0;
+            let needsAttentionCount = 0;
+            let totalCount = kpiItems.length;
+            
+            kpiItems.forEach(item => {
+                const circle = item.querySelector('.kpi-circle');
+                if (circle.classList.contains('circle-excellent')) excellentCount++;
+                if (circle.classList.contains('circle-needs-attention')) needsAttentionCount++;
+            });
+            
+            statusElement.classList.remove('status-excellent', 'status-good', 'status-needs-attention');
+            
+            if (excellentCount >= totalCount * 0.7) {
+                statusElement.textContent = '🟢 CRUSHING IT';
+                statusElement.classList.add('status-excellent');
+            } else if (needsAttentionCount >= totalCount * 0.3) {
+                statusElement.textContent = '🔴 NEEDS FOCUS';
+                statusElement.classList.add('status-needs-attention');
+            } else {
+                statusElement.textContent = '🟠 ON TRACK';
+                statusElement.classList.add('status-good');
+            }
+        }
+        
+        function bulkEntry() {
+            alert('📊 Bulk Entry: Gebruik de UPDATE buttons bij elke KPI voor nu. Bulk functie komt later!');
+        }
+        
+        function exportData() {
+            let data = 'Wolf Pack KPI Export - Week 11\n\n';
+            
+            const executives = document.querySelectorAll('.executive-card');
+            executives.forEach(exec => {
+                const name = exec.querySelector('h3').textContent;
+                const role = exec.querySelector('.executive-role').textContent;
+                const status = exec.querySelector('.executive-status').textContent;
+                
+                data += `${name} (${role}) - ${status}\n`;
+                
+                const kpis = exec.querySelectorAll('.kpi-item');
+                kpis.forEach(kpi => {
+                    const kpiName = kpi.querySelector('.kpi-name').textContent;
+                    const percentage = kpi.querySelector('.circle-value').textContent;
+                    data += `  - ${kpiName}: ${percentage}\n`;
+                });
+                data += '\n';
+            });
+            
+            // Create and download file
+            const blob = new Blob([data], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'wolfpack-kpi-export.txt';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+        
+        function resetWeek() {
+            if (confirm('🔄 Alle KPI data resetten voor nieuwe week? Deze actie kan niet ongedaan gemaakt worden.')) {
+                const inputs = document.querySelectorAll('.kpi-input');
+                inputs.forEach(input => {
+                    input.value = '';
+                });
+                
+                // Reset all circles to default
+                const circles = document.querySelectorAll('.kpi-circle');
+                circles.forEach(circle => {
+                    circle.classList.remove('circle-excellent', 'circle-good', 'circle-needs-attention');
+                    circle.classList.add('circle-needs-attention');
+                    const valueElement = circle.querySelector('.circle-value');
+                    if (valueElement) valueElement.textContent = '0%';
+                });
+                
+                alert('✅ Week data gereset! Klaar voor nieuwe week tracking.');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Dropdown</title>
+    <style>
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+
+        .proposition-popup {
+            background: #1A1A1B;
+            border: 2px solid #FDB80A;
+            border-radius: 10px;
+            padding: 30px;
+            width: 400px;
+            color: white;
+        }
+
+        .popup-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #FDB80A;
+        }
+
+        .popup-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #444;
+            background: #2A2A2B;
+            color: white;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .popup-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .popup-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .popup-btn.secondary {
+            background: #444;
+            color: white;
+        }
+
+        .popup-btn.primary {
+            background: #FDB80A;
+            color: black;
+        }
+    </style>
+</head>
+<body style="background: #0E0E0F; color: white; padding: 50px;">
+    <h1>🧪 Test Wolf Pack Dropdown</h1>
+    <button onclick="showTestDropdown()" style="padding: 15px 30px; background: #FDB80A; color: black; border: none; border-radius: 6px; font-size: 16px; cursor: pointer;">
+        Test Dropdown
+    </button>
+
+    <script>
+        const adminClients = [
+            "Abundance Academy",
+            "Agency UAE", 
+            "Agenty Society",
+            "Anders Ecommerce",
+            "Barakah Arbitrage",
+            "Ecom Motors",
+            "Entreproneur",
+            "Eskool",
+            "IBA Coaching",
+            "Jando",
+            "Jisk Hoogeboom",
+            "Joshua Kaats",
+            "No Sheeps Acedemy",
+            "Now I am Billionaire",
+            "Power AI",
+            "Social Recruitment Academy",
+            "The Founderdownload",
+            "Valori International",
+            "Wealthkings",
+            "the Wolf Pack Group"
+        ];
+
+        function showTestDropdown() {
+            // Create overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'popup-overlay';
+            
+            // Create popup
+            const popup = document.createElement('div');
+            popup.className = 'proposition-popup';
+            
+            // Generate dropdown options
+            const dropdownOptions = adminClients.map(client => 
+                `<option value="${client}">${client}</option>`
+            ).join('');
+            
+            popup.innerHTML = `
+                <div class="popup-title">🏢 Opdrachtgever Test</div>
+                <select class="popup-input" id="testDropdown">
+                    <option value="">Selecteer opdrachtgever...</option>
+                    ${dropdownOptions}
+                </select>
+                <div class="popup-buttons">
+                    <button class="popup-btn secondary" onclick="cancelTest()">Cancel</button>
+                    <button class="popup-btn primary" onclick="confirmTest()">Opslaan</button>
+                </div>
+            `;
+            
+            document.body.appendChild(overlay);
+            document.body.appendChild(popup);
+            
+            // Focus dropdown
+            setTimeout(() => {
+                document.getElementById('testDropdown').focus();
+            }, 100);
+        }
+        
+        function cancelTest() {
+            const overlay = document.querySelector('.popup-overlay');
+            if (overlay) {
+                document.body.removeChild(overlay);
+            }
+        }
+        
+        function confirmTest() {
+            const value = document.getElementById('testDropdown').value;
+            if (!value) {
+                alert('Selecteer een opdrachtgever!');
+                return;
+            }
+            
+            alert(`Geselecteerd: ${value}`);
+            cancelTest();
+        }
+    </script>
+</body>
+</html>

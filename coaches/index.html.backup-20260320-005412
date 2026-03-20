@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👨‍🏫 Coaches Dashboard - Wolf Pack</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #fff;
+            padding: 0;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #FDB80A;
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            z-index: 1000;
+        }
+
+        .back-link:hover {
+            background: #FFD700;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 80px auto 40px;
+            padding: 0 20px;
+        }
+
+        .coach-section {
+            background: #111;
+            border: 2px solid #FDB80A;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .coach-header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            padding: 30px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #FDB80A;
+        }
+
+        .coach-info h2 {
+            font-size: 32px;
+            color: #FDB80A;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .coach-role {
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .status-badge {
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-badge.needs-focus {
+            background: #dc2626;
+            color: white;
+        }
+
+        .status-badge.on-track {
+            background: #eab308;
+            color: #000;
+        }
+
+        .status-badge.healthy {
+            background: #22c55e;
+            color: #000;
+        }
+
+        .status-badge.legendary {
+            background: linear-gradient(135deg, #FDB80A, #FFD700);
+            color: #000;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0;
+            background: #000;
+        }
+
+        .metric-card {
+            background: #0a0a0a;
+            border-right: 1px solid #222;
+            padding: 40px 20px;
+            text-align: center;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .metric-card:last-child {
+            border-right: none;
+        }
+
+        .progress-circle {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 25px;
+            position: relative;
+        }
+
+        .progress-circle svg {
+            transform: rotate(-90deg);
+            width: 100%;
+            height: 100%;
+        }
+
+        .progress-circle circle {
+            fill: none;
+            stroke-width: 10;
+        }
+
+        .progress-bg {
+            stroke: #1a1a1a;
+        }
+
+        .progress-fill {
+            stroke: #22c55e;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 0.8s ease;
+        }
+
+        .progress-fill.red {
+            stroke: #dc2626;
+        }
+
+        .progress-fill.yellow {
+            stroke: #eab308;
+        }
+
+        .progress-value {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .metric-name {
+            font-size: 15px;
+            color: #fff;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .metric-target {
+            font-size: 13px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        @media (max-width: 1200px) {
+            .metrics-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="back-link">⬅️ Control Room</a>
+
+    <div class="container">
+        <!-- Lorenzo - Head of Delivery -->
+        <div class="coach-section">
+            <div class="coach-header">
+                <div class="coach-info">
+                    <h2>Lorenzo</h2>
+                    <div class="coach-role">HEAD OF DELIVERY</div>
+                </div>
+                <div class="status-badge legendary">
+                    🌟 LEGENDARY
+                </div>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="0"></circle>
+                        </svg>
+                        <div class="progress-value">120%</div>
+                    </div>
+                    <div class="metric-name">Student Satisfaction</div>
+                    <div class="metric-target">Target: 4.5/5</div>
+                </div>
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="0"></circle>
+                        </svg>
+                        <div class="progress-value">110%</div>
+                    </div>
+                    <div class="metric-name">Graduation Rate</div>
+                    <div class="metric-target">Target: 80%</div>
+                </div>
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="0"></circle>
+                        </svg>
+                        <div class="progress-value">105%</div>
+                    </div>
+                    <div class="metric-name">Wolf Revenue</div>
+                    <div class="metric-target">Target: €80,000</div>
+                </div>
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="0"></circle>
+                        </svg>
+                        <div class="progress-value">100%</div>
+                    </div>
+                    <div class="metric-name">Placement Rate</div>
+                    <div class="metric-target">Target: 70%</div>
+                </div>
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="0"></circle>
+                        </svg>
+                        <div class="progress-value">95%</div>
+                    </div>
+                    <div class="metric-name">Time to First Deal</div>
+                    <div class="metric-target">Target: 30 days</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dilano -->
+        <div class="coach-section">
+            <div class="coach-header">
+                <div class="coach-info">
+                    <h2>Dilano</h2>
+                    <div class="coach-role">COACH</div>
+                </div>
+                <div class="status-badge needs-focus">
+                    🔴 NEEDS FOCUS
+                </div>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="0"></circle>
+                        </svg>
+                        <div class="progress-value">105%</div>
+                    </div>
+                    <div class="metric-name">Student Satisfaction</div>
+                    <div class="metric-target">Target: 4.5/5</div>
+                </div>
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill red" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="339.292"></circle>
+                        </svg>
+                        <div class="progress-value">0%</div>
+                    </div>
+                    <div class="metric-name">Graduation Rate</div>
+                    <div class="metric-target">Target: 80%</div>
+                </div>
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill red" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="339.292"></circle>
+                        </svg>
+                        <div class="progress-value">0%</div>
+                    </div>
+                    <div class="metric-name">Wolf Revenue</div>
+                    <div class="metric-target">Target: €50,000</div>
+                </div>
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill red" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="339.292"></circle>
+                        </svg>
+                        <div class="progress-value">0%</div>
+                    </div>
+                    <div class="metric-name">Placement Rate</div>
+                    <div class="metric-target">Target: 70%</div>
+                </div>
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill red" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="339.292"></circle>
+                        </svg>
+                        <div class="progress-value">0%</div>
+                    </div>
+                    <div class="metric-name">Time to First Deal</div>
+                    <div class="metric-target">Target: 30 days</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Eray -->
+        <div class="coach-section">
+            <div class="coach-header">
+                <div class="coach-info">
+                    <h2>Eray</h2>
+                    <div class="coach-role">COACH</div>
+                </div>
+                <div class="status-badge needs-focus">
+                    🔴 NEEDS FOCUS
+                </div>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="0"></circle>
+                        </svg>
+                        <div class="progress-value">107%</div>
+                    </div>
+                    <div class="metric-name">Student Satisfaction</div>
+                    <div class="metric-target">Target: 4.5/5</div>
+                </div>
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill red" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="339.292"></circle>
+                        </svg>
+                        <div class="progress-value">0%</div>
+                    </div>
+                    <div class="metric-name">Graduation Rate</div>
+                    <div class="metric-target">Target: 80%</div>
+                </div>
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill red" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="339.292"></circle>
+                        </svg>
+                        <div class="progress-value">0%</div>
+                    </div>
+                    <div class="metric-name">Wolf Revenue</div>
+                    <div class="metric-target">Target: €50,000</div>
+                </div>
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill red" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="339.292"></circle>
+                        </svg>
+                        <div class="progress-value">0%</div>
+                    </div>
+                    <div class="metric-name">Placement Rate</div>
+                    <div class="metric-target">Target: 70%</div>
+                </div>
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill red" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="339.292"></circle>
+                        </svg>
+                        <div class="progress-value">0%</div>
+                    </div>
+                    <div class="metric-name">Time to First Deal</div>
+                    <div class="metric-target">Target: 30 days</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Maurice -->
+        <div class="coach-section">
+            <div class="coach-header">
+                <div class="coach-info">
+                    <h2>Maurice</h2>
+                    <div class="coach-role">COACH</div>
+                </div>
+                <div class="status-badge needs-focus">
+                    🔴 NEEDS FOCUS
+                </div>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="0"></circle>
+                        </svg>
+                        <div class="progress-value">102%</div>
+                    </div>
+                    <div class="metric-name">Student Satisfaction</div>
+                    <div class="metric-target">Target: 4.5/5</div>
+                </div>
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill red" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="339.292"></circle>
+                        </svg>
+                        <div class="progress-value">0%</div>
+                    </div>
+                    <div class="metric-name">Graduation Rate</div>
+                    <div class="metric-target">Target: 80%</div>
+                </div>
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill red" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="339.292"></circle>
+                        </svg>
+                        <div class="progress-value">0%</div>
+                    </div>
+                    <div class="metric-name">Wolf Revenue</div>
+                    <div class="metric-target">Target: €60,000</div>
+                </div>
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill red" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="339.292"></circle>
+                        </svg>
+                        <div class="progress-value">0%</div>
+                    </div>
+                    <div class="metric-name">Placement Rate</div>
+                    <div class="metric-target">Target: 70%</div>
+                </div>
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill red" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="339.292"></circle>
+                        </svg>
+                        <div class="progress-value">0%</div>
+                    </div>
+                    <div class="metric-name">Time to First Deal</div>
+                    <div class="metric-target">Target: 30 days</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nabil -->
+        <div class="coach-section">
+            <div class="coach-header">
+                <div class="coach-info">
+                    <h2>Nabil</h2>
+                    <div class="coach-role">COACH</div>
+                </div>
+                <div class="status-badge needs-focus">
+                    🔴 NEEDS FOCUS
+                </div>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill yellow" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="34"></circle>
+                        </svg>
+                        <div class="progress-value">90%</div>
+                    </div>
+                    <div class="metric-name">Student Satisfaction</div>
+                    <div class="metric-target">Target: 4.5/5</div>
+                </div>
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill red" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="339.292"></circle>
+                        </svg>
+                        <div class="progress-value">0%</div>
+                    </div>
+                    <div class="metric-name">Graduation Rate</div>
+                    <div class="metric-target">Target: 80%</div>
+                </div>
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill red" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="339.292"></circle>
+                        </svg>
+                        <div class="progress-value">0%</div>
+                    </div>
+                    <div class="metric-name">Wolf Revenue</div>
+                    <div class="metric-target">Target: €60,000</div>
+                </div>
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill red" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="339.292"></circle>
+                        </svg>
+                        <div class="progress-value">0%</div>
+                    </div>
+                    <div class="metric-name">Placement Rate</div>
+                    <div class="metric-target">Target: 70%</div>
+                </div>
+                <div class="metric-card">
+                    <div class="progress-circle">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="progress-bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress-fill red" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="339.292"></circle>
+                        </svg>
+                        <div class="progress-value">0%</div>
+                    </div>
+                    <div class="metric-name">Time to First Deal</div>
+                    <div class="metric-target">Target: 30 days</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

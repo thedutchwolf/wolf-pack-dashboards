@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐺 Wolf Pack Executive Command Center</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .dashboard {
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        .header {
+            background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 100%);
+            border-bottom: 3px solid #ff6b35;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .wolf-text {
+            color: #ff6b35;
+            text-shadow: 0 0 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .header-subtitle {
+            color: #cccccc;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .week-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 8px;
+            border: 1px solid #ff6b35;
+        }
+
+        .controls {
+            padding: 2rem;
+            background: #1e1e1e;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .control-btn {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(45deg, #ff6b35, #ff8555);
+            border: none;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .control-btn:hover {
+            background: linear-gradient(45deg, #e55a2b, #ff6b35);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+        }
+
+        .executives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .executive-card {
+            background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid #333;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .executive-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b35, #00d4aa);
+        }
+
+        .executive-card:hover {
+            transform: translateY(-4px);
+            border-color: #ff6b35;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .executive-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .executive-info h3 {
+            color: #ff6b35;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .executive-role {
+            color: #cccccc;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .executive-status {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .status-excellent { color: #00d4aa; }
+        .status-good { color: #ffaa00; }
+        .status-needs-attention { color: #ff4444; }
+
+        .kpis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+
+        .kpi-item {
+            background: #2a2a2a;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid #333;
+            transition: all 0.2s ease;
+        }
+
+        .kpi-item:hover {
+            border-color: #ff6b35;
+            transform: scale(1.02);
+        }
+
+        .kpi-circle {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            border: 6px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .circle-excellent {
+            border-color: #00d4aa;
+            box-shadow: 0 0 15px rgba(0, 212, 170, 0.3);
+        }
+
+        .circle-good {
+            border-color: #ffaa00;
+            box-shadow: 0 0 15px rgba(255, 170, 0, 0.3);
+        }
+
+        .circle-needs-attention {
+            border-color: #ff4444;
+            box-shadow: 0 0 15px rgba(255, 68, 68, 0.3);
+        }
+
+        .circle-value {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        .kpi-name {
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .kpi-details {
+            font-size: 0.7rem;
+            color: #999;
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-input {
+            width: 100%;
+            padding: 0.5rem;
+            background: #333;
+            border: 1px solid #555;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        .kpi-input:focus {
+            outline: none;
+            border-color: #ff6b35;
+            box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2);
+        }
+
+        .company-overview {
+            background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
+            margin: 2rem;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #333;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .company-overview h2 {
+            color: #ff6b35;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .overview-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            background: #2a2a2a;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #ccc;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .instructions {
+            background: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 12px;
+            margin: 2rem;
+            padding: 2rem;
+        }
+
+        .instructions h2 {
+            color: #ff6b35;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .instructions ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .instructions li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .instructions li::before {
+            content: '🐺';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        @media (max-width: 768px) {
+            .executives-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            
+            .kpis-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            
+            .header {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <header class="header">
+            <h1><span class="wolf-text">🐺 WOLF PACK</span> EXECUTIVE COMMAND CENTER</h1>
+            <div class="header-subtitle">Real-time Executive Performance Monitoring</div>
+            
+            <div class="week-info">
+                <strong>Week 11 • 10 Maart 2026</strong>
+            </div>
+        </header>
+
+        <div class="controls">
+            <button class="control-btn" onclick="enterData()">📊 DATA INVOEREN</button>
+            <button class="control-btn" onclick="exportData()">📥 WEEK DATA EXPORT</button>
+            <button class="control-btn" onclick="resetWeek()">🔄 WEEK RESET</button>
+        </div>
+
+        <div class="company-overview">
+            <h2>🏆 Wolf Pack Command Overview</h2>
+            <div class="overview-stats">
+                <div class="stat-item">
+                    <div class="stat-value status-good">65%</div>
+                    <div class="stat-label">Company Health Score</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value status-excellent">4</div>
+                    <div class="stat-label">Executives Presteren</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value status-excellent">18</div>
+                    <div class="stat-label">KPIs Boven Target</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value status-needs-attention">8</div>
+                    <div class="stat-label">KPIs Aandacht Nodig</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="executives-grid">
+            <!-- Melvin -->
+            <div class="executive-card">
+                <div class="executive-header">
+                    <div class="executive-info">
+                        <h3>Melvin Lassooy</h3>
+                        <div class="executive-role">CEO</div>
+                    </div>
+                    <div class="executive-status status-excellent">🟢 CRUSHING IT</div>
+                </div>
+                <div class="kpis-grid">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-excellent">
+                            <div class="circle-value">95%</div>
+                        </div>
+                        <div class="kpi-name">Post 3 reels per dag</div>
+                        <div class="kpi-details">Target: 21 reels/week</div>
+                        <input type="number" class="kpi-input" placeholder="Actueel" value="20">
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-excellent">
+                            <div class="circle-value">120%</div>
+                        </div>
+                        <div class="kpi-name">1000 nieuwe volgers</div>
+                        <div class="kpi-details">Target: 1000 volgers</div>
+                        <input type="number" class="kpi-input" placeholder="Actueel" value="1200">
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-excellent">
+                            <div class="circle-value">100%</div>
+                        </div>
+                        <div class="kpi-name">Executive KPI Check</div>
+                        <div class="kpi-details">Target: 1 check/week</div>
+                        <input type="number" class="kpi-input" placeholder="Actueel" value="1">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maurice -->
+            <div class="executive-card">
+                <div class="executive-header">
+                    <div class="executive-info">
+                        <h3>Maurice Visser</h3>
+                        <div class="executive-role">Sales Manager</div>
+                    </div>
+                    <div class="executive-status status-good">🟠 ON TRACK</div>
+                </div>
+                <div class="kpis-grid">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-good">
+                            <div class="circle-value">90%</div>
+                        </div>
+                        <div class="kpi-name">Team Closing Rate</div>
+                        <div class="kpi-details">Target: 20%</div>
+                        <input type="number" class="kpi-input" placeholder="Actueel" value="18">
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-excellent">
+                            <div class="circle-value">115%</div>
+                        </div>
+                        <div class="kpi-name">Cash per call</div>
+                        <div class="kpi-details">Target: €750</div>
+                        <input type="number" class="kpi-input" placeholder="Actueel" value="863">
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-excellent">
+                            <div class="circle-value">100%</div>
+                        </div>
+                        <div class="kpi-name">Executive Check</div>
+                        <div class="kpi-details">Target: 1 weekly</div>
+                        <input type="number" class="kpi-input" placeholder="Actueel" value="1">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thierry -->
+            <div class="executive-card">
+                <div class="executive-header">
+                    <div class="executive-info">
+                        <h3>Thierry Mulder</h3>
+                        <div class="executive-role">Setter Manager</div>
+                    </div>
+                    <div class="executive-status status-needs-attention">🔴 NEEDS FOCUS</div>
+                </div>
+                <div class="kpis-grid">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention">
+                            <div class="circle-value">73%</div>
+                        </div>
+                        <div class="kpi-name">Followers naar calls</div>
+                        <div class="kpi-details">Target: 15%</div>
+                        <input type="number" class="kpi-input" placeholder="Actueel" value="11">
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-good">
+                            <div class="circle-value">95%</div>
+                        </div>
+                        <div class="kpi-name">Show up rate</div>
+                        <div class="kpi-details">Target: 70%</div>
+                        <input type="number" class="kpi-input" placeholder="Actueel" value="67">
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention">
+                            <div class="circle-value">86%</div>
+                        </div>
+                        <div class="kpi-name">Follow-ups</div>
+                        <div class="kpi-details">Target: 700/week</div>
+                        <input type="number" class="kpi-input" placeholder="Actueel" value="600">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lorenzo -->
+            <div class="executive-card">
+                <div class="executive-header">
+                    <div class="executive-info">
+                        <h3>Lorenzo Kleijn</h3>
+                        <div class="executive-role">Head of Delivery</div>
+                    </div>
+                    <div class="executive-status status-excellent">🟢 CRUSHING IT</div>
+                </div>
+                <div class="kpis-grid">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-excellent">
+                            <div class="circle-value">100%</div>
+                        </div>
+                        <div class="kpi-name">Coaching Reviews</div>
+                        <div class="kpi-details">Target: 7 dagen</div>
+                        <input type="number" class="kpi-input" placeholder="Actueel" value="7">
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-excellent">
+                            <div class="circle-value">129%</div>
+                        </div>
+                        <div class="kpi-name">Trustpilot Reviews</div>
+                        <div class="kpi-details">Target: 7/week</div>
+                        <input type="number" class="kpi-input" placeholder="Actueel" value="9">
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-excellent">
+                            <div class="circle-value">111%</div>
+                        </div>
+                        <div class="kpi-name">Review Score</div>
+                        <div class="kpi-details">Target: 4.5 sterren</div>
+                        <input type="number" class="kpi-input" placeholder="Actueel" value="4.7">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Novum Media -->
+            <div class="executive-card">
+                <div class="executive-header">
+                    <div class="executive-info">
+                        <h3>NOVUM MEDIA</h3>
+                        <div class="executive-role">Consultant</div>
+                    </div>
+                    <div class="executive-status status-good">🟠 ON TRACK</div>
+                </div>
+                <div class="kpis-grid">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-good">
+                            <div class="circle-value">90%</div>
+                        </div>
+                        <div class="kpi-name">Close Rate</div>
+                        <div class="kpi-details">Target: 20%</div>
+                        <input type="number" class="kpi-input" placeholder="Actueel" value="18">
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-excellent">
+                            <div class="circle-value">120%</div>
+                        </div>
+                        <div class="kpi-name">Cost per Call</div>
+                        <div class="kpi-details">Target: €100</div>
+                        <input type="number" class="kpi-input" placeholder="Actueel" value="83">
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-good">
+                            <div class="circle-value">94%</div>
+                        </div>
+                        <div class="kpi-name">Show-up Rate</div>
+                        <div class="kpi-details">Target: 70%</div>
+                        <input type="number" class="kpi-input" placeholder="Actueel" value="66">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nance -->
+            <div class="executive-card">
+                <div class="executive-header">
+                    <div class="executive-info">
+                        <h3>Nance van der Lem</h3>
+                        <div class="executive-role">Personal Assistant</div>
+                    </div>
+                    <div class="executive-status status-excellent">🟢 CRUSHING IT</div>
+                </div>
+                <div class="kpis-grid">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-excellent">
+                            <div class="circle-value">100%</div>
+                        </div>
+                        <div class="kpi-name">Financial Update</div>
+                        <div class="kpi-details">Target: 1 weekly</div>
+                        <input type="number" class="kpi-input" placeholder="Actueel" value="1">
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-excellent">
+                            <div class="circle-value">100%</div>
+                        </div>
+                        <div class="kpi-name">Response Time</div>
+                        <div class="kpi-details">Target: <1 uur</div>
+                        <input type="number" class="kpi-input" placeholder="Actueel (minuten)" value="45">
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-excellent">
+                            <div class="circle-value">100%</div>
+                        </div>
+                        <div class="kpi-name">Project Mgmt</div>
+                        <div class="kpi-details">Target: 1 weekly</div>
+                        <input type="number" class="kpi-input" placeholder="Actueel" value="1">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brent/Vincent -->
+            <div class="executive-card">
+                <div class="executive-header">
+                    <div class="executive-info">
+                        <h3>Brent/Vincent</h3>
+                        <div class="executive-role">Creative Directors</div>
+                    </div>
+                    <div class="executive-status status-needs-attention">🔴 NEEDS FOCUS</div>
+                </div>
+                <div class="kpis-grid">
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention">
+                            <div class="circle-value">75%</div>
+                        </div>
+                        <div class="kpi-name">Follower Growth</div>
+                        <div class="kpi-details">Target: 1000/week</div>
+                        <input type="number" class="kpi-input" placeholder="Actueel" value="750">
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-good">
+                            <div class="circle-value">95%</div>
+                        </div>
+                        <div class="kpi-name">Daily Reels</div>
+                        <div class="kpi-details">Target: 21/week</div>
+                        <input type="number" class="kpi-input" placeholder="Actueel" value="20">
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-circle circle-needs-attention">
+                            <div class="circle-value">0%</div>
+                        </div>
+                        <div class="kpi-name">YouTube Video</div>
+                        <div class="kpi-details">Target: 1/week</div>
+                        <input type="number" class="kpi-input" placeholder="Actueel" value="0">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h2>🎯 Command Center Instructies</h2>
+            <ul>
+                <li><strong>Kleuren Systeem:</strong> 🟢 Groen (≥110% target) • 🟠 Oranje (90-109% target) • 🔴 Rood (<90% target)</li>
+                <li><strong>Data Invoer:</strong> Vul actuele cijfers in de input velden onder elke cirkel</li>
+                <li><strong>Maandag Routine:</strong> Check Company Health Score → Scan executive status → Identificeer rode KPIs</li>
+                <li><strong>Weekly Reset:</strong> Gebruik "WEEK RESET" elke maandag voor nieuwe week tracking</li>
+                <li><strong>Export:</strong> Download week data voor stakeholder rapporten</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function enterData() {
+            alert('📊 Data invoer functie - Vul de cijfers in de input velden in!');
+        }
+
+        function exportData() {
+            alert('📥 Week data export functie - Functionaliteit komt binnenkort!');
+        }
+
+        function resetWeek() {
+            if (confirm('🔄 Alle KPI data resetten voor nieuwe week? Deze actie kan niet ongedaan gemaakt worden.')) {
+                // Clear all inputs
+                const inputs = document.querySelectorAll('.kpi-input');
+                inputs.forEach(input => input.value = '');
+                alert('✅ Week data gereset! Klaar voor nieuwe week tracking.');
+            }
+        }
+
+        // Update circles based on input
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('.kpi-input');
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    // This is where you'd update the circle colors based on actual vs target
+                    console.log('KPI updated:', this.value);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

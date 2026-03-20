@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐺 Wolf Pack - Redirecting...</title>
+    <meta http-equiv="refresh" content="0; url=/controlroom/">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0E0E0F;
+            color: #E3E1DE;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .message {
+            text-align: center;
+        }
+        .logo {
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: pulse 1s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        h1 {
+            color: #FDB80A;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <div class="logo">🐺</div>
+        <h1>Redirecting to Control Room...</h1>
+        <p>If not redirected, <a href="/controlroom/" style="color: #FDB80A;">click here</a></p>
+    </div>
+    <script>
+        window.location.href = '/controlroom/';
+    </script>
+</body>
+</html>
