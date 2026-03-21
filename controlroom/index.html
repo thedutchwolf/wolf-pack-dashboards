@@ -168,16 +168,7 @@
             color: #FDB80A;
         }
 
-        /* Password protection cursor styling */
-        .dashboard-card[onclick] {
-            cursor: pointer;
-        }
 
-        .dashboard-card[onclick]:hover {
-            transform: translateY(-12px);
-            border-color: #FDB80A;
-            box-shadow: 0 20px 60px rgba(253, 184, 10, 0.4);
-        }
 
         @media (max-width: 768px) {
             .dashboard-grid {
@@ -208,7 +199,7 @@
 
         <div class="dashboard-grid">
             <!-- Company KPI Dashboard -->
-            <a href="#" class="dashboard-card" onclick="return checkPassword('companykpi', '123456', '/companykpi/')">
+            <a href="/companykpi/" class="dashboard-card">
                 <span class="dashboard-icon">📊</span>
                 <div class="dashboard-title">Company KPI</div>
                 <div class="dashboard-description">
@@ -218,7 +209,7 @@
             </a>
 
             <!-- Coaching Pipeline -->
-            <a href="#" class="dashboard-card" onclick="return checkPassword('coaching', 'Wolf123', '/pipeline/')">
+            <a href="/pipeline/" class="dashboard-card">
                 <span class="dashboard-icon">📈</span>
                 <div class="dashboard-title">Coaching Pipeline</div>
                 <div class="dashboard-description">
@@ -257,25 +248,10 @@
     </div>
 
     <script>
-        // Password protection function
-        function checkPassword(dashboardName, correctPassword, redirectUrl) {
-            event.preventDefault(); // Prevent default link behavior
-            
-            const userPassword = prompt(`🔒 Voer wachtwoord in voor ${dashboardName === 'companykpi' ? 'Company KPI' : 'Coaching Pipeline'}:`);
-            
-            if (userPassword === correctPassword) {
-                window.location.href = redirectUrl;
-            } else if (userPassword !== null) {
-                alert('❌ Onjuist wachtwoord. Toegang geweigerd.');
-            }
-            // If user cancels (userPassword === null), do nothing
-            return false;
-        }
-
-        // Keyboard shortcuts for quick navigation (updated with password protection)
+        // Keyboard shortcuts for quick navigation
         document.addEventListener('keydown', (e) => {
-            if (e.key === '1') checkPassword('companykpi', '123456', '/companykpi/');
-            if (e.key === '2') checkPassword('coaching', 'Wolf123', '/pipeline/');
+            if (e.key === '1') window.location.href = '/companykpi/';
+            if (e.key === '2') window.location.href = '/pipeline/';
             if (e.key === '3') window.location.href = '/coaches/';
             if (e.key === '4') window.open('https://dashboard.thewolfpackgroup.com/admin/dashboard', '_blank');
         });

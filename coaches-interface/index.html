@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐺 Wolf Pack - Coaches Interface</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0E0E0F;
+            color: #E3E1DE;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #1A1A1B;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+            border: 2px solid #FDB80A;
+        }
+
+        .header h1 {
+            color: #FDB80A;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .live-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #00c851;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #00c851;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .coach-selector {
+            background-color: #1A1A1B;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #333;
+        }
+
+        .coach-selector label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #FDB80A;
+        }
+
+        .coach-dropdown {
+            width: 100%;
+            padding: 15px;
+            background-color: #2A2A2B;
+            border: 2px solid #FDB80A;
+            border-radius: 8px;
+            color: #E3E1DE;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .coach-dropdown:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 10px rgba(253, 184, 10, 0.3);
+        }
+
+        .students-container {
+            background-color: #1A1A1B;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #333;
+        }
+
+        .students-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #FDB80A;
+        }
+
+        .students-title {
+            color: #FDB80A;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .students-count {
+            background-color: #FDB80A;
+            color: #000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .student-card {
+            background-color: #2A2A2B;
+            border: 1px solid #444;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .student-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(253, 184, 10, 0.2);
+            border-color: #FDB80A;
+        }
+
+        .student-name {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #E3E1DE;
+        }
+
+        .student-stage {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        /* Stage colors */
+        .stage-new { background: #666; color: #fff; }
+        .stage-onboarding { background: #007cff; color: #fff; }
+        .stage-stap1 { background: #ff7700; color: #fff; }
+        .stage-stap2 { background: #ff7700; color: #fff; }
+        .stage-stap3 { background: #ff7700; color: #fff; }
+        .stage-stap4 { background: #ff7700; color: #fff; }
+        .stage-stap5 { background: #ff7700; color: #fff; }
+        .stage-stap6 { background: #ff7700; color: #fff; }
+        .stage-red { background: #ff4444; color: #fff; }
+        .stage-yellow { background: #ffcc00; color: #000; }
+        .stage-graduated { background: #00c851; color: #fff; }
+        .stage-active { background: #FDB80A; color: #000; }
+        .stage-signed { background: #007cff; color: #fff; }
+        .stage-hungry { background: #ff7700; color: #fff; }
+        .stage-hold { background: #888; color: #fff; }
+
+        .student-controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .stage-dropdown {
+            flex: 1;
+            min-width: 200px;
+            padding: 10px;
+            background-color: #333;
+            border: 1px solid #555;
+            border-radius: 6px;
+            color: #E3E1DE;
+            font-size: 14px;
+        }
+
+        .stage-dropdown:focus {
+            outline: none;
+            border-color: #FDB80A;
+        }
+
+        .add-session-btn {
+            background-color: #FDB80A;
+            color: #000;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .add-session-btn:hover {
+            background-color: #FFD700;
+            transform: translateY(-1px);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+        }
+
+        .empty-state h3 {
+            margin-bottom: 10px;
+            color: #FDB80A;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #FDB80A;
+            font-size: 18px;
+        }
+
+        /* Session Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal {
+            background-color: #1A1A1B;
+            border: 2px solid #FDB80A;
+            border-radius: 12px;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal h3 {
+            color: #FDB80A;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #E3E1DE;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: #2A2A2B;
+            border: 1px solid #555;
+            border-radius: 6px;
+            color: #E3E1DE;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #FDB80A;
+            box-shadow: 0 0 5px rgba(253, 184, 10, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background-color: #FDB80A;
+            color: #000;
+        }
+
+        .btn-secondary {
+            background-color: #666;
+            color: #fff;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #00c851;
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            z-index: 1001;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.error {
+            background: #ff4444;
+        }
+
+        .last-update {
+            text-align: center;
+            margin-top: 20px;
+            color: #888;
+            font-size: 12px;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .student-controls {
+                flex-direction: column;
+            }
+            
+            .stage-dropdown {
+                min-width: auto;
+            }
+            
+            .modal {
+                width: 95%;
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🐺 Wolf Pack - Coaches Interface</h1>
+        <div class="live-indicator">
+            <div class="live-dot"></div>
+            LIVE
+        </div>
+    </div>
+
+    <div class="coach-selector">
+        <label for="coachSelect">Selecteer je naam:</label>
+        <select id="coachSelect" class="coach-dropdown">
+            <option value="">-- Kies een coach --</option>
+            <option value="Maurice">Maurice</option>
+            <option value="Eray">Eray</option>
+            <option value="Nabil">Nabil</option>
+            <option value="Dilano">Dilano</option>
+            <option value="Melvin">Melvin</option>
+        </select>
+    </div>
+
+    <div class="students-container">
+        <div class="students-header">
+            <div class="students-title">Jouw Studenten</div>
+            <div class="students-count" id="studentsCount">0 studenten</div>
+        </div>
+        
+        <div id="studentsContent">
+            <div class="empty-state">
+                <h3>Selecteer een coach</h3>
+                <p>Kies je naam hierboven om je studenten te bekijken</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="last-update" id="lastUpdate">
+        Laatste update: --:--
+    </div>
+
+    <!-- Session Modal -->
+    <div class="modal-overlay" id="sessionModal">
+        <div class="modal">
+            <h3>📝 Nieuwe Sessie Toevoegen</h3>
+            <form id="sessionForm">
+                <div class="form-group">
+                    <label for="sessionDate">Datum:</label>
+                    <input type="date" id="sessionDate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="sessionNotes">Sessie notities:</label>
+                    <textarea id="sessionNotes" placeholder="Wat is er besproken in deze sessie?"></textarea>
+                </div>
+                
+                <div class="modal-buttons">
+                    <button type="button" class="btn btn-secondary" onclick="closeSessionModal()">Annuleren</button>
+                    <button type="submit" class="btn btn-primary">Sessie Opslaan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Airtable configuration
+        const AIRTABLE_TOKEN = 'patgj5c0XFB8kEmu7.86405981a4f0fece4f8005ccfb766df980004bbc030bac0c90e221cc6f97fc68';
+        const AIRTABLE_BASE = 'appFR2ovH2m5XN6I3';
+        const AIRTABLE_TABLE = 'Coaching Pipeline';
+
+        // Stage definitions with their display names and CSS classes
+        const STAGES = {
+            'New Unassigned Wolf': { display: 'New Wolf', class: 'stage-new' },
+            'Onboarding Fase': { display: 'Onboarding', class: 'stage-onboarding' },
+            'STAP 1 - Your Roadmap': { display: 'STAP 1', class: 'stage-stap1' },
+            'STAP 2 - Sales Fundamentals': { display: 'STAP 2', class: 'stage-stap2' },
+            'STAP 3 - Roleplay': { display: 'STAP 3', class: 'stage-stap3' },
+            'STAP 4 - Objection Mastery': { display: 'STAP 4', class: 'stage-stap4' },
+            'STAP 5 - Perfection': { display: 'STAP 5', class: 'stage-stap5' },
+            'STAP 6 - Examination': { display: 'STAP 6', class: 'stage-stap6' },
+            'Red Group': { display: 'Red Group', class: 'stage-red' },
+            'Yellow Group': { display: 'Yellow Group', class: 'stage-yellow' },
+            'Graduated - Green Group': { display: 'Graduated', class: 'stage-graduated' },
+            'Active Closer': { display: 'Active Closer', class: 'stage-active' },
+            'Signed Closer': { display: 'Signed Closer', class: 'stage-signed' },
+            'Hungry Wolf': { display: 'Hungry Wolf', class: 'stage-hungry' },
+            'ON HOLD': { display: 'ON HOLD', class: 'stage-hold' }
+        };
+
+        let currentCoach = '';
+        let currentStudents = [];
+        let currentSessionStudent = null;
+        let autoRefreshInterval = null;
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Coaches Interface starting...');
+            
+            // Set today's date in session modal
+            document.getElementById('sessionDate').value = new Date().toISOString().split('T')[0];
+            
+            // Setup event listeners
+            document.getElementById('coachSelect').addEventListener('change', onCoachSelected);
+            document.getElementById('sessionForm').addEventListener('submit', onSessionSubmit);
+            
+            console.log('✅ Coaches Interface initialized');
+        });
+
+        // Handle coach selection
+        async function onCoachSelected() {
+            const coachSelect = document.getElementById('coachSelect');
+            currentCoach = coachSelect.value;
+            
+            if (!currentCoach) {
+                showEmptyState('Selecteer een coach', 'Kies je naam hierboven om je studenten te bekijken');
+                updateStudentCount(0);
+                stopAutoRefresh();
+                return;
+            }
+
+            console.log(`👨‍🏫 Coach selected: ${currentCoach}`);
+            await loadStudentsForCoach(currentCoach);
+            startAutoRefresh();
+        }
+
+        // Load students for selected coach
+        async function loadStudentsForCoach(coachName) {
+            showLoading();
+            
+            try {
+                console.log(`📡 Loading students for coach: ${coachName}`);
+                
+                const url = `https://api.airtable.com/v0/${AIRTABLE_BASE}/${encodeURIComponent(AIRTABLE_TABLE)}?filterByFormula=AND({Coach}="${coachName}", NOT({Pipeline Stage}="DELETED"))`;
+                
+                const response = await fetch(url, {
+                    headers: {
+                        'Authorization': `Bearer ${AIRTABLE_TOKEN}`
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Airtable API error: ${response.status}`);
+                }
+
+                const data = await response.json();
+                currentStudents = data.records.map(record => ({
+                    id: record.id,
+                    name: record.fields['Student Name'] || 'Unnamed Student',
+                    stage: record.fields['Pipeline Stage'] || 'New Unassigned Wolf',
+                    notes: record.fields['Notes'] || '',
+                    coach: record.fields['Coach'] || ''
+                }));
+
+                console.log(`📊 Found ${currentStudents.length} students for ${coachName}`);
+                renderStudents(currentStudents);
+                updateLastUpdate();
+                
+            } catch (error) {
+                console.error('❌ Error loading students:', error);
+                showError('Kon studenten niet laden. Probeer het opnieuw.');
+            }
+        }
+
+        // Render students
+        function renderStudents(students) {
+            const container = document.getElementById('studentsContent');
+            updateStudentCount(students.length);
+            
+            if (students.length === 0) {
+                showEmptyState('Geen studenten gevonden', `Je hebt momenteel geen toegewezen studenten`);
+                return;
+            }
+
+            container.innerHTML = students.map(student => `
+                <div class="student-card">
+                    <div class="student-name">${student.name}</div>
+                    <div class="student-stage ${getStageClass(student.stage)}">
+                        ${getStageDisplay(student.stage)}
+                    </div>
+                    <div class="student-controls">
+                        <select class="stage-dropdown" onchange="changeStudentStage('${student.id}', this.value)">
+                            ${Object.keys(STAGES).map(stage => 
+                                `<option value="${stage}" ${stage === student.stage ? 'selected' : ''}>
+                                    ${STAGES[stage].display}
+                                </option>`
+                            ).join('')}
+                        </select>
+                        <button class="add-session-btn" onclick="openSessionModal('${student.id}', '${student.name}')">
+                            Sessie toevoegen
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Get stage display name
+        function getStageDisplay(stage) {
+            return STAGES[stage] ? STAGES[stage].display : stage;
+        }
+
+        // Get stage CSS class
+        function getStageClass(stage) {
+            return STAGES[stage] ? STAGES[stage].class : 'stage-new';
+        }
+
+        // Change student stage
+        async function changeStudentStage(studentId, newStage) {
+            try {
+                console.log(`🔄 Changing stage for student ID ${studentId} to ${newStage}`);
+                
+                const response = await fetch(`https://api.airtable.com/v0/${AIRTABLE_BASE}/${encodeURIComponent(AIRTABLE_TABLE)}/${studentId}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Authorization': `Bearer ${AIRTABLE_TOKEN}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        fields: {
+                            'Pipeline Stage': newStage
+                        }
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Failed to update stage: ${response.status}`);
+                }
+
+                // Update local data
+                const student = currentStudents.find(s => s.id === studentId);
+                if (student) {
+                    student.stage = newStage;
+                    renderStudents(currentStudents);
+                }
+
+                showNotification(`✅ Stage bijgewerkt naar ${getStageDisplay(newStage)}`);
+                
+            } catch (error) {
+                console.error('❌ Error updating stage:', error);
+                showError('Kon stage niet bijwerken. Probeer het opnieuw.');
+                
+                // Reset dropdown to original value
+                setTimeout(() => loadStudentsForCoach(currentCoach), 500);
+            }
+        }
+
+        // Open session modal
+        function openSessionModal(studentId, studentName) {
+            currentSessionStudent = { id: studentId, name: studentName };
+            document.querySelector('#sessionModal h3').textContent = `📝 Nieuwe Sessie - ${studentName}`;
+            document.getElementById('sessionModal').style.display = 'flex';
+            
+            // Focus on notes field
+            setTimeout(() => {
+                document.getElementById('sessionNotes').focus();
+            }, 100);
+        }
+
+        // Close session modal
+        function closeSessionModal() {
+            document.getElementById('sessionModal').style.display = 'none';
+            document.getElementById('sessionForm').reset();
+            document.getElementById('sessionDate').value = new Date().toISOString().split('T')[0];
+            currentSessionStudent = null;
+        }
+
+        // Handle session form submit
+        async function onSessionSubmit(event) {
+            event.preventDefault();
+            
+            if (!currentSessionStudent) return;
+            
+            const date = document.getElementById('sessionDate').value;
+            const notes = document.getElementById('sessionNotes').value.trim();
+            
+            if (!date || !notes) {
+                showError('Vul alle velden in');
+                return;
+            }
+
+            try {
+                console.log(`📝 Adding session for ${currentSessionStudent.name}`);
+                
+                // Get current notes from student
+                const student = currentStudents.find(s => s.id === currentSessionStudent.id);
+                const currentNotes = student ? student.notes : '';
+                
+                // Format new session entry
+                const sessionEntry = `\n--- Sessie ${date} ---\n${notes}\n`;
+                const updatedNotes = currentNotes + sessionEntry;
+                
+                // Update in Airtable
+                const response = await fetch(`https://api.airtable.com/v0/${AIRTABLE_BASE}/${encodeURIComponent(AIRTABLE_TABLE)}/${currentSessionStudent.id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Authorization': `Bearer ${AIRTABLE_TOKEN}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        fields: {
+                            'Notes': updatedNotes
+                        }
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Failed to save session: ${response.status}`);
+                }
+
+                // Update local data
+                if (student) {
+                    student.notes = updatedNotes;
+                }
+
+                showNotification(`✅ Sessie opgeslagen voor ${currentSessionStudent.name}`);
+                closeSessionModal();
+                
+            } catch (error) {
+                console.error('❌ Error saving session:', error);
+                showError('Kon sessie niet opslaan. Probeer het opnieuw.');
+            }
+        }
+
+        // Show loading state
+        function showLoading() {
+            document.getElementById('studentsContent').innerHTML = `
+                <div class="loading">
+                    🔄 Studenten laden...
+                </div>
+            `;
+        }
+
+        // Show empty state
+        function showEmptyState(title, message) {
+            document.getElementById('studentsContent').innerHTML = `
+                <div class="empty-state">
+                    <h3>${title}</h3>
+                    <p>${message}</p>
+                </div>
+            `;
+        }
+
+        // Update student count
+        function updateStudentCount(count) {
+            document.getElementById('studentsCount').textContent = `${count} student${count !== 1 ? 'en' : ''}`;
+        }
+
+        // Show notification
+        function showNotification(message, isError = false) {
+            const notification = document.createElement('div');
+            notification.className = `notification ${isError ? 'error' : ''}`;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Show notification
+            setTimeout(() => notification.classList.add('show'), 100);
+            
+            // Hide and remove notification
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        // Show error notification
+        function showError(message) {
+            showNotification(message, true);
+        }
+
+        // Update last update time
+        function updateLastUpdate() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('nl-NL', { 
+                hour: '2-digit', 
+                minute: '2-digit' 
+            });
+            document.getElementById('lastUpdate').textContent = `Laatste update: ${timeString}`;
+        }
+
+        // Auto refresh functionality
+        function startAutoRefresh() {
+            stopAutoRefresh(); // Clear any existing interval
+            
+            autoRefreshInterval = setInterval(async () => {
+                if (currentCoach) {
+                    console.log('🔄 Auto-refreshing students...');
+                    await loadStudentsForCoach(currentCoach);
+                }
+            }, 30000); // 30 seconds
+            
+            console.log('⏰ Auto-refresh started (elke 30 seconden)');
+        }
+
+        function stopAutoRefresh() {
+            if (autoRefreshInterval) {
+                clearInterval(autoRefreshInterval);
+                autoRefreshInterval = null;
+                console.log('⏹️ Auto-refresh gestopt');
+            }
+        }
+
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', stopAutoRefresh);
+    </script>
+</body>
+</html>

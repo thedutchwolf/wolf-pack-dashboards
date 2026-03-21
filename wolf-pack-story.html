@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wolf Pack Recruitment Story</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 1080px;
+            height: 1920px;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Wolf background pattern */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.03) 0%, transparent 70%);
+            z-index: 1;
+        }
+
+        .content {
+            z-index: 2;
+            padding: 80px 60px;
+            max-width: 900px;
+        }
+
+        .wolf-emoji {
+            font-size: 120px;
+            margin-bottom: 40px;
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.3));
+        }
+
+        .title {
+            font-size: 72px;
+            font-weight: 900;
+            color: #FFD700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 60px;
+            text-shadow: 
+                0 0 10px rgba(255, 215, 0, 0.5),
+                0 0 20px rgba(255, 215, 0, 0.3),
+                2px 2px 4px rgba(0, 0, 0, 0.8);
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: 48px;
+            color: #FFFFFF;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            line-height: 1.2;
+        }
+
+        .requirement {
+            font-size: 56px;
+            color: #FFD700;
+            font-weight: 900;
+            margin: 40px 0;
+            text-transform: uppercase;
+            text-shadow: 
+                0 0 15px rgba(255, 215, 0, 0.6),
+                2px 2px 6px rgba(0, 0, 0, 0.9);
+            letter-spacing: 2px;
+        }
+
+        .cta {
+            font-size: 42px;
+            color: #FFFFFF;
+            font-weight: 600;
+            margin-top: 60px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            line-height: 1.3;
+        }
+
+        .highlight {
+            color: #FFD700;
+            font-weight: 900;
+            text-shadow: 
+                0 0 10px rgba(255, 215, 0, 0.5),
+                0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .urgent {
+            background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 52px;
+            font-weight: 900;
+            margin-top: 50px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8));
+        }
+
+        /* Decorative elements */
+        .corner-accent {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 4px solid #FFD700;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .corner-accent.top-left {
+            top: -100px;
+            left: -100px;
+        }
+
+        .corner-accent.bottom-right {
+            bottom: -100px;
+            right: -100px;
+        }
+
+        .glow-line {
+            width: 80%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #FFD700, transparent);
+            margin: 40px auto;
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="corner-accent top-left"></div>
+    <div class="corner-accent bottom-right"></div>
+    
+    <div class="content">
+        <div class="wolf-emoji">🐺</div>
+        
+        <div class="title">
+            WOLF PACK<br>
+            RECRUITMENT
+        </div>
+        
+        <div class="subtitle">
+            Op zoek naar een<br>
+            <span class="highlight">TOP TIER</span><br>
+            Opdrachtgever
+        </div>
+        
+        <div class="glow-line"></div>
+        
+        <div class="requirement">
+            300K+ Cash<br>
+            Collected
+        </div>
+        
+        <div class="glow-line"></div>
+        
+        <div class="subtitle">
+            Zoeken een<br>
+            <span class="highlight">SET MANAGER</span>
+        </div>
+        
+        <div class="cta">
+            Ben jij <span class="highlight">SETTER</span> of<br>
+            <span class="highlight">SET MANAGER?</span>
+        </div>
+        
+        <div class="urgent">
+            MELD JE NU!
+        </div>
+    </div>
+</body>
+</html>

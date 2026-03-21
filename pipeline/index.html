@@ -879,6 +879,54 @@
             color: white;
         }
 
+        /* Hungry Wolf drop zone */
+        .hungry-drop-zone {
+            background-color: #2A2A2B;
+            border: 2px dashed #FF6B00;
+            border-radius: 8px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hungry-drop-zone:hover,
+        .hungry-drop-zone.drag-over {
+            background-color: #FF6B00;
+            border-style: solid;
+            transform: scale(1.05);
+        }
+
+        .hungry-drop-zone.drag-over .trash-text {
+            color: white;
+        }
+
+        /* ON HOLD drop zone */
+        .onhold-drop-zone {
+            background-color: #2A2A2B;
+            border: 2px dashed #888888;
+            border-radius: 8px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .onhold-drop-zone:hover,
+        .onhold-drop-zone.drag-over {
+            background-color: #666666;
+            border-style: solid;
+            transform: scale(1.05);
+        }
+
+        .onhold-drop-zone.drag-over .trash-text {
+            color: white;
+        }
+
         /* View deleted button */
         .view-deleted-btn {
             background-color: #2A2A2B;
@@ -934,6 +982,18 @@
                 <span class="trash-icon">🗑️</span>
                 <span class="trash-text">Prullenbak</span>
             </div>
+
+            <!-- Hungry Wolf drop zone -->
+            <div class="hungry-drop-zone" id="hungryDropZone" ondragover="allowDropHungry(event)" ondrop="dropOnHungry(event)" ondragleave="hungryLeave(event)" onclick="showHungryWolfView()" style="cursor: pointer;">
+                <span class="trash-icon">🐺</span>
+                <span class="trash-text">Hungry Wolf</span>
+            </div>
+
+            <!-- ON HOLD drop zone -->
+            <div class="onhold-drop-zone" id="onholdDropZone" ondragover="allowDropOnHold(event)" ondrop="dropOnHold(event)" ondragleave="onholdLeave(event)" onclick="showOnHoldView()" style="cursor: pointer;">
+                <span class="trash-icon">⏸️</span>
+                <span class="trash-text">ON HOLD</span>
+            </div>
             
             <!-- Sync & Special stage buttons -->
             <button class="view-deleted-btn" onclick="manualSync()" style="background: #28a745; margin-right: 10px;">
@@ -945,13 +1005,7 @@
             <button class="view-deleted-btn" onclick="completeMigration()" style="background: #9b59b6; margin-right: 10px;">
                 🔧 Complete Migration
             </button>
-            <button class="view-deleted-btn" onclick="showHungryWolfView()">
-                🐺 Hungry Wolf
-            </button>
-            
-            <button class="view-deleted-btn" onclick="showOnHoldView()">
-                ⏸️ ON HOLD
-            </button>
+
             
             <button class="view-deleted-btn" onclick="enableSharedCoaching()" style="background: #27ae60; margin-left: 10px;">
                 🤝 Enable Shared Coaching
@@ -1145,23 +1199,32 @@
         // Sync stage change to Airtable
         async function syncStageToAirtable(studentName, newStage) {
             try {
-                // Find the record ID for this student
-                const searchUrl = `https://api.airtable.com/v0/${AIRTABLE_BASE}/${encodeURIComponent(AIRTABLE_TABLE)}?filterByFormula={Student Name}="${studentName}"`;
+                let recordId = null;
                 
-                const searchResponse = await fetch(searchUrl, {
-                    headers: {
-                        'Authorization': `Bearer ${AIRTABLE_TOKEN}`
+                // Try to get airtableId from stored student info first
+                const studentInfo = JSON.parse(localStorage.getItem('studentInfo') || '{}');
+                if (studentInfo[studentName] && studentInfo[studentName].airtableId) {
+                    recordId = studentInfo[studentName].airtableId;
+                    console.log(`Using cached airtableId: ${recordId}`);
+                } else {
+                    // Fallback to search query
+                    const searchUrl = `https://api.airtable.com/v0/${AIRTABLE_BASE}/${encodeURIComponent(AIRTABLE_TABLE)}?filterByFormula={Student Name}="${studentName}"`;
+                    
+                    const searchResponse = await fetch(searchUrl, {
+                        headers: {
+                            'Authorization': `Bearer ${AIRTABLE_TOKEN}`
+                        }
+                    });
+                    
+                    const searchData = await searchResponse.json();
+                    
+                    if (!searchData.records || searchData.records.length === 0) {
+                        console.log('Student not found in Airtable, skipping stage sync:', studentName);
+                        return false;
                     }
-                });
-                
-                const searchData = await searchResponse.json();
-                
-                if (!searchData.records || searchData.records.length === 0) {
-                    console.log('Student not found in Airtable, skipping stage sync:', studentName);
-                    return false;
+                    
+                    recordId = searchData.records[0].id;
                 }
-                
-                const recordId = searchData.records[0].id;
                 
                 // Update Pipeline Stage field in Airtable
                 const updateUrl = `https://api.airtable.com/v0/${AIRTABLE_BASE}/${encodeURIComponent(AIRTABLE_TABLE)}/${recordId}`;
@@ -7013,12 +7076,89 @@
 
         function dropOnTrash(event) {
             event.preventDefault();
-            event.stopPropagation(); // Prevent click event from firing
+            event.stopPropagation();
             document.getElementById('trashZone').classList.remove('drag-over');
-            
             if (draggedStudent) {
                 openDeleteModal(draggedStudent);
             }
+        }
+
+        // Hungry Wolf drop zone
+        function allowDropHungry(event) {
+            event.preventDefault();
+            document.getElementById('hungryDropZone').classList.add('drag-over');
+        }
+
+        function hungryLeave(event) {
+            document.getElementById('hungryDropZone').classList.remove('drag-over');
+        }
+
+        async function dropOnHungry(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            document.getElementById('hungryDropZone').classList.remove('drag-over');
+            if (draggedStudent) {
+                await moveStudentToStage(draggedStudent, 'Hungry Wolf');
+            }
+        }
+
+        // ON HOLD drop zone
+        function allowDropOnHold(event) {
+            event.preventDefault();
+            document.getElementById('onholdDropZone').classList.add('drag-over');
+        }
+
+        function onholdLeave(event) {
+            document.getElementById('onholdDropZone').classList.remove('drag-over');
+        }
+
+        async function dropOnHold(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            document.getElementById('onholdDropZone').classList.remove('drag-over');
+            if (draggedStudent) {
+                await moveStudentToStage(draggedStudent, 'ON HOLD');
+            }
+        }
+
+        // Move student to a specific stage (by name string from dataset)
+        async function moveStudentToStage(studentName, targetStage) {
+            // Find student across all stages
+            let student = null;
+            let fromStage = null;
+
+            for (const stage of Object.keys(studentData)) {
+                const found = studentData[stage].find(s => s.name === studentName || s.id === studentName);
+                if (found) {
+                    student = found;
+                    fromStage = stage;
+                    break;
+                }
+            }
+
+            if (!student) return;
+            if (fromStage === targetStage) return;
+
+            // Remove from current stage
+            studentData[fromStage] = studentData[fromStage].filter(s => s !== student);
+
+            // Add to target stage
+            if (!studentData[targetStage]) studentData[targetStage] = [];
+            student.stage = targetStage;
+            student.currentStage = targetStage;
+            studentData[targetStage].push(student);
+
+            // Save & re-render
+            localStorage.setItem('studentData', JSON.stringify(studentData));
+            
+            // Sync stage change to Airtable
+            await syncStageToAirtable(student.name || studentName, targetStage);
+            
+            renderBoard();
+
+            // Show confirmation
+            const stageName = targetStage === 'Hungry Wolf' ? '🐺 Hungry Wolf' : '⏸️ ON HOLD';
+            showSyncNotification(`✅ ${student.name} verplaatst naar ${stageName}`);
         }
 
         // Update card creation to include drag events
@@ -7044,9 +7184,7 @@
             'Yellow Group',
             'Graduated - Green Group',
             'Active Closer',
-            'Signed Closer',
-            'Hungry Wolf',
-            'ON HOLD'
+            'Signed Closer'
         ];
 
         // Initial student data
@@ -7915,9 +8053,7 @@
                     saveData();
 
                     // Sync stage change to Airtable
-                    syncStageToAirtable(studentName, newStage).catch(err => {
-                        console.error('Failed to sync stage to Airtable:', err);
-                    });
+                    await syncStageToAirtable(studentName, newStage);
 
                     // Re-render the board
                     renderBoard();
@@ -8163,8 +8299,8 @@
 
         // Start auto-sync
         function startAutoSync() {
-            console.log('🚀 Auto-sync started (elke 5 seconden)');
-            autoSyncInterval = setInterval(autoSyncWithAirtable, 5000);
+            console.log('🚀 Auto-sync started (elke 15 seconden)');
+            autoSyncInterval = setInterval(autoSyncWithAirtable, 15000);
         }
 
         // Manual sync function
@@ -8266,6 +8402,9 @@
                     freshStudentData[stage] = [];
                 });
                 
+                // Store complete student info with airtableId
+                const studentInfo = {};
+                
                 // Add students to their stages
                 data.records.forEach(record => {
                     const name = record.fields['Student Name'];
@@ -8273,16 +8412,32 @@
                     
                     if (name && !stage.startsWith('DELETED') && freshStudentData[stage]) {
                         freshStudentData[stage].push(name);
-                        console.log(`➕ ${name} → ${stage}`);
+                        
+                        // Store complete student info
+                        studentInfo[name] = {
+                            airtableId: record.id,
+                            stage: stage,
+                            coach: record.fields['Coach'] || '',
+                            notes: record.fields['Notes'] || '',
+                            companyName: record.fields['Company Name'] || '',
+                            client: record.fields['Client'] || record.fields['Opdrachtgever'] || '',
+                            email: record.fields['Email'] || '',
+                            startDate: record.fields['Start Date'] || ''
+                        };
+                        
+                        console.log(`➕ ${name} → ${stage} (ID: ${record.id})`);
                     }
                 });
                 
                 // Update global studentData
                 studentData = freshStudentData;
                 
+                // Store student info separately
+                localStorage.setItem('studentInfo', JSON.stringify(studentInfo));
+                
                 // Save to localStorage
                 localStorage.setItem('wolfPackPipeline', JSON.stringify(studentData));
-                console.log('💾 Fresh Airtable data loaded!');
+                console.log('💾 Fresh Airtable data loaded with full info!');
                 
             } catch (error) {
                 console.error('❌ Failed to load from Airtable:', error);
