@@ -7123,42 +7123,77 @@
 
         // Move student to a specific stage (by name string from dataset)
         async function moveStudentToStage(studentName, targetStage) {
-            // Find student across all stages
-            let student = null;
-            let fromStage = null;
-
-            for (const stage of Object.keys(studentData)) {
-                const found = studentData[stage].find(s => s.name === studentName || s.id === studentName);
-                if (found) {
-                    student = found;
-                    fromStage = stage;
-                    break;
-                }
+            // CRITICAL: Stop auto-sync during move operation
+            const wasAutoSyncRunning = autoSyncInterval !== null;
+            if (wasAutoSyncRunning) {
+                stopAutoSync();
+                console.log('⏸️ Paused auto-sync for move operation');
             }
 
-            if (!student) return;
-            if (fromStage === targetStage) return;
+            try {
+                // Find student across all stages
+                let student = null;
+                let fromStage = null;
 
-            // Remove from current stage
-            studentData[fromStage] = studentData[fromStage].filter(s => s !== student);
+                for (const stage of Object.keys(studentData)) {
+                    const found = studentData[stage].find(s => s.name === studentName || s.id === studentName);
+                    if (found) {
+                        student = found;
+                        fromStage = stage;
+                        break;
+                    }
+                }
 
-            // Add to target stage
-            if (!studentData[targetStage]) studentData[targetStage] = [];
-            student.stage = targetStage;
-            student.currentStage = targetStage;
-            studentData[targetStage].push(student);
+                if (!student) {
+                    console.error('Student not found:', studentName);
+                    return;
+                }
+                if (fromStage === targetStage) return;
 
-            // Save & re-render
-            localStorage.setItem('studentData', JSON.stringify(studentData));
-            
-            // Sync stage change to Airtable
-            await syncStageToAirtable(student.name || studentName, targetStage);
-            
-            renderBoard();
+                console.log(`🐺 Moving ${student.name} from "${fromStage}" to "${targetStage}"`);
 
-            // Show confirmation
-            const stageName = targetStage === 'Hungry Wolf' ? '🐺 Hungry Wolf' : '⏸️ ON HOLD';
-            showSyncNotification(`✅ ${student.name} verplaatst naar ${stageName}`);
+                // FIRST: Sync stage change to Airtable before local changes
+                await syncStageToAirtable(student.name || studentName, targetStage);
+                console.log(`✅ Synced ${student.name} to Airtable: ${targetStage}`);
+
+                // THEN: Update local data  
+                // Remove from current stage
+                studentData[fromStage] = studentData[fromStage].filter(s => s !== student);
+
+                // Add to target stage
+                if (!studentData[targetStage]) studentData[targetStage] = [];
+                student.stage = targetStage;
+                student.currentStage = targetStage;
+                studentData[targetStage].push(student);
+
+                // Remove the student card from DOM
+                const studentCard = document.querySelector(`[data-student="${studentName}"]`);
+                if (studentCard) {
+                    studentCard.remove();
+                    console.log(`✅ Removed student card for ${studentName} from DOM`);
+                }
+
+                // Save locally
+                localStorage.setItem('studentData', JSON.stringify(studentData));
+                
+                // Force complete re-render
+                renderBoard();
+                updateColumnCounts();
+
+                // Show confirmation
+                const stageName = targetStage === 'Hungry Wolf' ? '🐺 Hungry Wolf' : 
+                                 targetStage === 'ON HOLD' ? '⏸️ ON HOLD' : targetStage;
+                showSyncNotification(`✅ ${student.name} verplaatst naar ${stageName}`);
+
+            } finally {
+                // ALWAYS restart auto-sync after 3 seconds delay
+                if (wasAutoSyncRunning) {
+                    setTimeout(() => {
+                        startAutoSync();
+                        console.log('▶️ Auto-sync resumed after move operation');
+                    }, 3000);
+                }
+            }
         }
 
         // Update card creation to include drag events
@@ -8078,6 +8113,33 @@
                 const countElement = column.querySelector('.column-count');
                 countElement.textContent = `${count} students`;
             });
+            
+            // Update special buttons for ON HOLD and Hungry Wolf
+            updateSpecialButtonCounts();
+        }
+        
+        // Update counts on ON HOLD and Hungry Wolf buttons
+        function updateSpecialButtonCounts() {
+            const onHoldCount = studentData['ON HOLD'] ? studentData['ON HOLD'].length : 0;
+            const hungryCount = studentData['Hungry Wolf'] ? studentData['Hungry Wolf'].length : 0;
+            
+            // Update ON HOLD zone
+            const onHoldZone = document.getElementById('onholdDropZone');
+            if (onHoldZone) {
+                const textSpan = onHoldZone.querySelector('.trash-text');
+                if (textSpan) {
+                    textSpan.textContent = `ON HOLD (${onHoldCount})`;
+                }
+            }
+            
+            // Update Hungry Wolf zone
+            const hungryZone = document.getElementById('hungryDropZone');
+            if (hungryZone) {
+                const textSpan = hungryZone.querySelector('.trash-text');
+                if (textSpan) {
+                    textSpan.textContent = `Hungry Wolf (${hungryCount})`;
+                }
+            }
         }
 
         // Function to filter students
@@ -8105,7 +8167,12 @@
             const container = document.getElementById('kanbanContainer');
             container.innerHTML = '';
 
-            stages.forEach(stageName => {
+            // Filter out ON HOLD and Hungry Wolf from main pipeline view
+            const visibleStages = stages.filter(stage => 
+                stage !== 'ON HOLD' && stage !== 'Hungry Wolf'
+            );
+
+            visibleStages.forEach(stageName => {
                 container.appendChild(createColumn(stageName));
             });
 
@@ -8123,6 +8190,7 @@
             await loadFromAirtable();
             
             renderBoard();
+            updateSpecialButtonCounts();
 
             // Set up event listeners
             document.getElementById('searchInput').addEventListener('input', filterStudents);
