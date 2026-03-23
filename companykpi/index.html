@@ -1461,7 +1461,9 @@
             const selector = document.getElementById('weekSelector');
             currentWeek = selector.value;
             console.log('Loading week:', currentWeek);
-            loadKPIData(currentWeek);
+            
+            // Load from Airtable for selected week
+            loadKPIDataFromAirtable(currentWeek);
         }
 
         // Live Airtable KPI Integration  
@@ -1472,13 +1474,13 @@
             coachTableId: 'Coaching%20Pipeline'
         };
 
-        // Save KPI data DIRECTLY to Airtable (permanent storage)
-        async function saveKPIToAirtable(executive, kpiName, actual, target, category = 'General') {
+        // Save KPI data to new Airtable structure 
+        async function saveKPIToAirtable(executive, kpiName, actual, target, week = currentWeek) {
             try {
                 const percentage = target > 0 ? Math.round((actual / target) * 100) : 0;
                 
-                // Check if record exists
-                const existingRecords = await fetch(`https://api.airtable.com/v0/${AIRTABLE_CONFIG.baseId}/tblh0VgDtWzprdKNu?filterByFormula=AND({Executive}='${executive}',{KPI_Name}='${kpiName}')`, {
+                // Find the record for this executive and week
+                const existingRecords = await fetch(`https://api.airtable.com/v0/${AIRTABLE_CONFIG.baseId}/tblh0VgDtWzprdKNu?filterByFormula=AND({Executive}='${executive}',{Week}='${week}')`, {
                     headers: {
                         'Authorization': `Bearer ${AIRTABLE_CONFIG.token}`
                     }
@@ -1487,53 +1489,50 @@
                 const existing = await existingRecords.json();
                 
                 if (existing.records && existing.records.length > 0) {
-                    // Update existing record
-                    const recordId = existing.records[0].id;
-                    const updateResponse = await fetch(`https://api.airtable.com/v0/${AIRTABLE_CONFIG.baseId}/tblh0VgDtWzprdKNu/${recordId}`, {
-                        method: 'PATCH',
-                        headers: {
-                            'Authorization': `Bearer ${AIRTABLE_CONFIG.token}`,
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            fields: {
-                                Actual: actual,
-                                Target: target
-                            }
-                        })
-                    });
+                    const record = existing.records[0];
+                    const fields = record.fields;
                     
-                    console.log(`✅ KPI UPDATED in Airtable: ${executive} - ${kpiName}: ${actual}/${target} (${percentage}%)`);
-                } else {
-                    // Create new record
-                    const createResponse = await fetch(`https://api.airtable.com/v0/${AIRTABLE_CONFIG.baseId}/tblh0VgDtWzprdKNu`, {
-                        method: 'POST',
-                        headers: {
-                            'Authorization': `Bearer ${AIRTABLE_CONFIG.token}`,
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            records: [{
-                                fields: {
-                                    Executive: executive,
-                                    KPI_Name: kpiName,
-                                    Actual: actual,
-                                    Target: target
-                                }
-                            }]
-                        })
-                    });
+                    // Find which KPI number this is (KPI1, KPI2, etc.)
+                    let kpiNumber = null;
+                    for (let i = 1; i <= 5; i++) {
+                        if (fields[`KPI_Name${i}`] === kpiName) {
+                            kpiNumber = i;
+                            break;
+                        }
+                    }
                     
-                    console.log(`✅ NEW KPI CREATED in Airtable: ${executive} - ${kpiName}: ${actual}/${target} (${percentage}%)`);
+                    if (kpiNumber) {
+                        // Update the specific KPI actual value
+                        const updateData = {};
+                        updateData[`KPI${kpiNumber}_Actual`] = actual;
+                        
+                        const updateResponse = await fetch(`https://api.airtable.com/v0/${AIRTABLE_CONFIG.baseId}/tblh0VgDtWzprdKNu/${record.id}`, {
+                            method: 'PATCH',
+                            headers: {
+                                'Authorization': `Bearer ${AIRTABLE_CONFIG.token}`,
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                fields: updateData
+                            })
+                        });
+                        
+                        console.log(`✅ KPI UPDATED in Airtable: ${executive} - ${kpiName}: ${actual}/${target} (${percentage}%)`);
+                        
+                        // Immediately refresh dashboard
+                        await loadKPIDataFromAirtable(week);
+                        
+                        // Show success indicator
+                        showBackupStatus(true, 'KPI Saved to Airtable');
+                        
+                        return true;
+                    }
                 }
                 
-                // Immediately refresh from Airtable
-                await loadKPIDataFromAirtable();
+                console.log(`❌ Could not find KPI record for ${executive} - ${kpiName}`);
+                showBackupStatus(false, 'KPI Save Failed');
+                return false;
                 
-                // Show success indicator
-                showBackupStatus(true, 'Data Saved to Airtable');
-                
-                return true;
             } catch (error) {
                 console.error('❌ Error saving KPI to Airtable:', error);
                 showBackupStatus(false, 'Airtable Save Failed');
@@ -1541,10 +1540,11 @@
             }
         }
         
-        // Load KPI data directly from Airtable
-        async function loadKPIDataFromAirtable() {
+        // Load KPI data directly from Airtable with new structure
+        async function loadKPIDataFromAirtable(week = 'Week 10') {
             try {
-                const response = await fetch(`https://api.airtable.com/v0/${AIRTABLE_CONFIG.baseId}/tblh0VgDtWzprdKNu`, {
+                // Fetch data for specific week
+                const response = await fetch(`https://api.airtable.com/v0/${AIRTABLE_CONFIG.baseId}/tblh0VgDtWzprdKNu?filterByFormula=SEARCH('${week}',{Week})`, {
                     headers: {
                         'Authorization': `Bearer ${AIRTABLE_CONFIG.token}`
                     }
@@ -1552,36 +1552,146 @@
                 
                 const data = await response.json();
                 
-                // Convert to dashboard format
+                // Convert to dashboard format with new KPI structure
                 const kpiData = {};
+                let totalKPIs = 0;
+                let totalActual = 0;
+                let totalTarget = 0;
+                
                 data.records.forEach(record => {
-                    const { Executive, KPI_Name, Actual, Target } = record.fields;
-                    if (!kpiData[Executive]) {
-                        kpiData[Executive] = {};
+                    const fields = record.fields;
+                    const executive = fields.Executive;
+                    
+                    if (!kpiData[executive]) {
+                        kpiData[executive] = {};
                     }
                     
-                    const percentage = Target > 0 ? Math.round((Actual / Target) * 100) : 0;
-                    kpiData[Executive][KPI_Name] = {
-                        actual: Actual || 0,
-                        target: Target || 1,
-                        percentage: percentage,
-                        timestamp: Date.now()
-                    };
+                    // Process each KPI (KPI1 through KPI5)
+                    for (let i = 1; i <= 5; i++) {
+                        const kpiName = fields[`KPI_Name${i}`];
+                        const target = fields[`KPI${i}_Target`];
+                        const actual = fields[`KPI${i}_Actual`];
+                        
+                        if (kpiName && target !== undefined) {
+                            const percentage = target > 0 ? Math.round((actual / target) * 100) : 0;
+                            kpiData[executive][kpiName] = {
+                                actual: actual || 0,
+                                target: target || 1,
+                                percentage: percentage,
+                                timestamp: Date.now()
+                            };
+                            
+                            // Track totals for overall average
+                            totalKPIs++;
+                            totalActual += (actual || 0);
+                            totalTarget += (target || 1);
+                        }
+                    }
                 });
+                
+                // Calculate overall company average
+                const companyAverage = totalTarget > 0 ? Math.round((totalActual / totalTarget) * 100) : 0;
                 
                 // Update localStorage for faster access
                 localStorage.setItem('wolfPackKPIs', JSON.stringify(kpiData));
+                localStorage.setItem('wolfPackOverallAverage', companyAverage.toString());
                 
-                console.log('✅ KPI data loaded from Airtable:', Object.keys(kpiData).length, 'executives');
+                console.log(`✅ KPI data loaded from Airtable (${week}):`, Object.keys(kpiData).length, 'executives');
+                console.log(`📊 Overall Company Average: ${companyAverage}%`);
                 
-                // Update display
-                loadKPIData(currentWeek);
+                // Update dashboard display
+                updateDashboardDisplay(kpiData, companyAverage);
                 
-                return kpiData;
+                return { kpiData, companyAverage };
             } catch (error) {
                 console.error('❌ Error loading from Airtable:', error);
-                return {};
+                return { kpiData: {}, companyAverage: 0 };
             }
+        }
+        
+        // Update dashboard display with KPI data and overall average
+        function updateDashboardDisplay(kpiData, companyAverage) {
+            // Update company health score with overall average
+            const healthElement = document.querySelector('.health-score-value');
+            if (healthElement) {
+                healthElement.textContent = `${companyAverage}%`;
+                
+                // Update health status color based on average
+                const healthContainer = healthElement.closest('.health-score');
+                if (healthContainer) {
+                    healthContainer.className = companyAverage >= 80 ? 'health-score health-excellent' : 
+                                              companyAverage >= 60 ? 'health-score health-good' : 
+                                              'health-score health-attention';
+                }
+            }
+            
+            // Update individual executive displays
+            Object.keys(kpiData).forEach(executive => {
+                const execKPIs = kpiData[executive];
+                const execElement = document.querySelector(`[data-exec="${executive.toLowerCase().replace(/\s+/g, '-')}"]`);
+                
+                if (execElement) {
+                    // Calculate executive average
+                    const kpiValues = Object.values(execKPIs);
+                    const execAverage = kpiValues.length > 0 ? 
+                        Math.round(kpiValues.reduce((sum, kpi) => sum + kpi.percentage, 0) / kpiValues.length) : 0;
+                    
+                    // Update executive status
+                    const statusElement = execElement.querySelector('.member-status');
+                    if (statusElement) {
+                        statusElement.textContent = `${execAverage}%`;
+                        statusElement.className = execAverage >= 80 ? 'member-status status-excellent' : 
+                                                 execAverage >= 60 ? 'member-status status-good' : 
+                                                 'member-status status-attention';
+                    }
+                }
+            });
+            
+            // Update charts with new data
+            updateChartsWithLiveData(kpiData, companyAverage);
+        }
+        
+        // Enhanced charts update with overall average
+        function updateChartsWithLiveData(kpiData, companyAverage) {
+            // Update health chart with overall average
+            if (window.healthChart) {
+                window.healthChart.data.datasets[0].data = [companyAverage, 100 - companyAverage];
+                window.healthChart.update();
+            }
+            
+            // Calculate performance distribution
+            const executives = Object.keys(kpiData);
+            const executiveAverages = executives.map(exec => {
+                const kpis = Object.values(kpiData[exec]);
+                return kpis.length > 0 ? 
+                    Math.round(kpis.reduce((sum, kpi) => sum + kpi.percentage, 0) / kpis.length) : 0;
+            });
+            
+            // Update members chart with executive performance
+            if (window.membersChart) {
+                window.membersChart.data.labels = executives.slice(0, 5).map(name => name.split(' ')[0]); // First names only
+                window.membersChart.data.datasets[0].data = executiveAverages.slice(0, 5);
+                window.membersChart.update();
+            }
+            
+            // Update KPIs chart with performance distribution
+            if (window.kpisChart) {
+                const excellent = executiveAverages.filter(avg => avg >= 80).length;
+                const good = executiveAverages.filter(avg => avg >= 60 && avg < 80).length;
+                const attention = executives.length - excellent - good;
+                
+                window.kpisChart.data.datasets[0].data = [excellent, good, attention];
+                window.kpisChart.update();
+            }
+            
+            // Update attention chart with weekly trends (simulated for now)
+            if (window.attentionChart) {
+                const weeklyTrend = [companyAverage - 15, companyAverage - 8, companyAverage - 3, companyAverage];
+                window.attentionChart.data.datasets[0].data = weeklyTrend.map(v => Math.max(0, v));
+                window.attentionChart.update();
+            }
+            
+            console.log('📊 All charts updated with live Airtable data');
         }
 
         // Cloud backup via simple JSON API (prevents data loss)
@@ -1832,7 +1942,7 @@
         function startAutoRefresh() {
             autoRefreshInterval = setInterval(() => {
                 console.log('🔄 Auto-refreshing KPI data...');
-                fetchLiveKPIData();
+                loadKPIDataFromAirtable(currentWeek);
             }, 30000); // 30 seconds
         }
         
@@ -1878,8 +1988,8 @@
                 localStorage.setItem('wolfPackKPIs', JSON.stringify(defaultData));
             }
             
-            // Load live data from Airtable first
-            loadKPIDataFromAirtable().then(() => {
+            // Load live data from Airtable for current week
+            loadKPIDataFromAirtable(currentWeek).then(() => {
                 fetchLiveKPIData();
             });
         }
