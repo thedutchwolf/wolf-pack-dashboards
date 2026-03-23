@@ -237,6 +237,16 @@
                 </div>
                 <span class="dashboard-badge">Admin Portal</span>
             </a>
+
+            <!-- OpenClaw Control UI -->
+            <a href="http://127.0.0.1:18789/" target="_blank" class="dashboard-card">
+                <span class="dashboard-icon">🦞</span>
+                <div class="dashboard-title">OpenClaw Control</div>
+                <div class="dashboard-description">
+                    AI Gateway control panel: monitor channels, view logs, manage sessions, and control OpenClaw infrastructure.
+                </div>
+                <span class="dashboard-badge">System Control</span>
+            </a>
         </div>
 
         <div class="footer">
@@ -252,6 +262,9 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === '1') window.location.href = '/companykpi/';
             if (e.key === '2') window.location.href = '/pipeline/';
+            if (e.key === '3') window.location.href = '/coaches/';
+            if (e.key === '4') window.open('https://dashboard.thewolfpackgroup.com/admin/dashboard', '_blank');
+            if (e.key === '5') window.open('http://127.0.0.1:18789/', '_blank');
             if (e.key === '3') window.location.href = '/coaches/';
             if (e.key === '4') window.open('https://dashboard.thewolfpackgroup.com/admin/dashboard', '_blank');
         });
