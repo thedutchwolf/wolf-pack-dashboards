@@ -10,7 +10,10 @@
     "date-fns": "^2.29.3"
   },
   "scripts": {
-    "start": "python3 -m http.server 3001",
+    "start": "npx serve . -p $PORT",
     "build": "echo 'Static build - no compilation needed'"
+  },
+  "dependencies": {
+    "serve": "^14.2.0"
   }
 }
