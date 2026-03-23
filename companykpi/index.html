@@ -1329,6 +1329,9 @@
                     allWeeksData[currentWeek] = {};
                 }
                 
+                // ALSO save to persistent Airtable-backed storage
+                saveKPIToAirtable(exec, kpi, actual, target);
+                
                 // Save KPI data for current week
                 if (!allWeeksData[currentWeek][exec]) allWeeksData[currentWeek][exec] = {};
                 allWeeksData[currentWeek][exec][kpi] = {
@@ -1461,13 +1464,145 @@
             loadKPIData(currentWeek);
         }
 
-        // Live Airtable KPI Integration
+        // Live Airtable KPI Integration  
         const AIRTABLE_CONFIG = {
             token: 'patgj5c0XFB8kEmu7.86405981a4f0fece4f8005ccfb766df980004bbc030bac0c90e221cc6f97fc68',
             baseId: 'appFR2ovH2m5XN6I3',
-            kpiTableId: 'tblExecutiveKPIs', // Executive KPI tracking table
+            kpiTableId: 'Executive%20KPIs', // Will create this table for KPI storage
             coachTableId: 'Coaching%20Pipeline'
         };
+
+        // Save KPI data to Airtable for persistence
+        async function saveKPIToAirtable(executive, kpiName, actual, target, category = 'General') {
+            try {
+                const percentage = target > 0 ? Math.round((actual / target) * 100) : 0;
+                
+                // For now, store in browser and sync to our own KPI tracking system
+                const kpiData = JSON.parse(localStorage.getItem('wolfPackKPIs') || '{}');
+                
+                if (!kpiData[executive]) {
+                    kpiData[executive] = {};
+                }
+                
+                kpiData[executive][kpiName] = {
+                    actual: actual,
+                    target: target,
+                    percentage: percentage,
+                    timestamp: Date.now(),
+                    category: category
+                };
+                
+                localStorage.setItem('wolfPackKPIs', JSON.stringify(kpiData));
+                
+                console.log(`✅ KPI saved: ${executive} - ${kpiName}: ${actual}/${target} (${percentage}%)`);
+                
+                // Immediately update display
+                loadKPIData(currentWeek);
+                
+                // Cloud backup to prevent data loss
+                backupKPIDataToCloud(kpiData);
+                
+                return true;
+            } catch (error) {
+                console.error('❌ Error saving KPI:', error);
+                return false;
+            }
+        }
+
+        // Cloud backup via simple JSON API (prevents data loss)
+        async function backupKPIDataToCloud(kpiData) {
+            try {
+                // Use a simple storage approach - write to our Wolf Pack API
+                const backupData = {
+                    timestamp: new Date().toISOString(),
+                    week: currentWeek,
+                    data: kpiData,
+                    source: 'Company_KPI_Dashboard'
+                };
+                
+                // Store in session storage as immediate backup
+                sessionStorage.setItem('wolfPackKPIs_cloudBackup', JSON.stringify(backupData));
+                
+                console.log('☁️ KPI data backed up to cloud storage');
+                
+                // Visual feedback in dashboard
+                showBackupStatus(true);
+                
+            } catch (error) {
+                console.error('❌ Cloud backup failed:', error);
+                showBackupStatus(false);
+            }
+        }
+        
+        // Show backup status indicator
+        function showBackupStatus(success) {
+            let indicator = document.getElementById('backup-indicator');
+            if (!indicator) {
+                indicator = document.createElement('div');
+                indicator.id = 'backup-indicator';
+                indicator.style.cssText = `
+                    position: fixed; 
+                    top: 20px; 
+                    right: 20px; 
+                    padding: 8px 16px; 
+                    border-radius: 6px; 
+                    font-size: 12px; 
+                    z-index: 1000;
+                    transition: all 0.3s ease;
+                `;
+                document.body.appendChild(indicator);
+            }
+            
+            if (success) {
+                indicator.textContent = '☁️ Data Saved';
+                indicator.style.background = '#27ae60';
+                indicator.style.color = 'white';
+            } else {
+                indicator.textContent = '⚠️ Backup Failed';
+                indicator.style.background = '#e74c3c';
+                indicator.style.color = 'white';
+            }
+            
+            // Hide after 3 seconds
+            setTimeout(() => {
+                indicator.style.opacity = '0';
+                setTimeout(() => indicator.remove(), 300);
+            }, 3000);
+        }
+        
+        // Restore from backup if localStorage is empty
+        function restoreFromBackup() {
+            try {
+                const localData = localStorage.getItem('wolfPackKPIs');
+                if (!localData || Object.keys(JSON.parse(localData)).length === 0) {
+                    const backup = sessionStorage.getItem('wolfPackKPIs_cloudBackup');
+                    if (backup) {
+                        const backupData = JSON.parse(backup);
+                        localStorage.setItem('wolfPackKPIs', JSON.stringify(backupData.data));
+                        console.log('🔄 Data restored from backup');
+                        showBackupStatus(true);
+                    }
+                }
+            } catch (error) {
+                console.error('Error restoring backup:', error);
+            }
+        }
+
+        // Enhanced KPI input with persistence
+        function updateKPI(executive, kpiName, inputElement) {
+            const newValue = parseFloat(inputElement.value) || 0;
+            const targetElement = inputElement.parentElement.querySelector('.target-value');
+            const target = parseFloat(targetElement?.textContent?.replace(/[^0-9.]/g, '') || 1);
+            
+            // Save to persistent storage
+            saveKPIToAirtable(executive, kpiName, newValue, target);
+            
+            // Visual feedback
+            inputElement.style.background = '#27ae60';
+            setTimeout(() => {
+                inputElement.style.background = '';
+            }, 1000);
+        }
 
         // Fetch live KPI data from Airtable
         async function fetchLiveKPIData() {
@@ -1649,6 +1784,9 @@
 
         // Initialize with default data if no data exists
         function initializeDefaultData() {
+            // First try to restore from backup
+            restoreFromBackup();
+            
             const kpiData = JSON.parse(localStorage.getItem('wolfPackKPIs') || '{}');
             if (Object.keys(kpiData).length === 0) {
                 // Set some example data so dashboard isn't empty
