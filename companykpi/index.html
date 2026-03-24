@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🐺 Wolf Pack Executive Command Center</title>
+    <title>🐺 Wolf Pack Company KPI's</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * {
@@ -557,57 +557,15 @@
             font-size: 0.65rem;
         }
 
-        .kpi-input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-            margin-top: auto;
-        }
+        
 
-        .kpi-input {
-            width: 100%;
-            padding: 0.5rem;
-            background: #0E0E0F;
-            border: 1px solid #A29A65;
-            color: white;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            text-align: center;
-        }
+        
 
-        .kpis-5 .kpi-input {
-            padding: 0.4rem;
-            font-size: 0.7rem;
-        }
+        .kpis-5 
 
-        .kpi-input:focus {
-            outline: none;
-            border-color: #FDB80A;
-            box-shadow: 0 0 0 2px rgba(253, 184, 10, 0.2);
-        }
+        
 
-        .update-btn {
-            padding: 0.5rem;
-            background: #FDB80A;
-            border: none;
-            color: #0E0E0F;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.65rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            transition: all 0.2s ease;
-        }
 
-        .kpis-5 .update-btn {
-            padding: 0.4rem;
-            font-size: 0.6rem;
-        }
-
-        .update-btn:hover {
-            background: #E5A609;
-            transform: scale(1.05);
-        }
 
         /* Status color updates with Wolf Pack colors */
         .status-excellent .stat-value { color: #00d4aa; }
@@ -696,7 +654,7 @@
 
     <div class="dashboard">
         <header class="header">
-            <h1><span class="wolf-text">🐺 WOLF PACK</span> COMMAND CENTER</h1>
+            <h1><span class="wolf-text">🐺 WOLF PACK</span> COMPANY KPI'S</h1>
             
             <div class="week-info">
                 <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
@@ -807,10 +765,6 @@
                         </div>
                         <div class="kpi-name">Post 6 reels per dag</div>
                         <div class="kpi-details">Target: 42 reels/week</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="melvin-reels-input" placeholder="Aantal reels" data-target="42">
-                            <button class="update-btn" onclick="updateKPI('melvin', 'reels')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="melvin-check-circle">
@@ -818,10 +772,6 @@
                         </div>
                         <div class="kpi-name">Cash Collected</div>
                         <div class="kpi-details">Target: 25k/week</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="melvin-check-input" placeholder="Amount in €" data-target="25000">
-                            <button class="update-btn" onclick="updateKPI('melvin', 'check')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="melvin-margin-circle">
@@ -829,10 +779,6 @@
                         </div>
                         <div class="kpi-name">Net Profit Margin</div>
                         <div class="kpi-details">Target: 40%</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="melvin-margin-input" placeholder="%" data-target="40" step="0.1">
-                            <button class="update-btn" onclick="updateKPI('melvin', 'margin')">UPDATE</button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -853,10 +799,6 @@
                         </div>
                         <div class="kpi-name">Team Closing Rate</div>
                         <div class="kpi-details">Target: 20%</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="maurice-closing-input" placeholder="Percentage" data-target="20" step="0.1">
-                            <button class="update-btn" onclick="updateKPI('maurice', 'closing')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="maurice-cash-circle">
@@ -864,10 +806,6 @@
                         </div>
                         <div class="kpi-name">Cash per booked call</div>
                         <div class="kpi-details">Target: €750</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="maurice-cash-input" placeholder="Euro bedrag" data-target="750">
-                            <button class="update-btn" onclick="updateKPI('maurice', 'cash')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="maurice-showup-circle">
@@ -875,10 +813,6 @@
                         </div>
                         <div class="kpi-name">Show up rate</div>
                         <div class="kpi-details">Target: 70%</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="maurice-showup-input" placeholder="Percentage" data-target="70" step="0.1">
-                            <button class="update-btn" onclick="updateKPI('maurice', 'showup')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="maurice-eod-circle">
@@ -886,10 +820,6 @@
                         </div>
                         <div class="kpi-name">EOD/BOD</div>
                         <div class="kpi-details">Target: 14/week</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="maurice-eod-input" placeholder="Aantal" data-target="14">
-                            <button class="update-btn" onclick="updateKPI('maurice', 'eod')">UPDATE</button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -910,10 +840,6 @@
                         </div>
                         <div class="kpi-name">Conversie rate setters</div>
                         <div class="kpi-details">Target: 15%</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="thierry-conversion-input" placeholder="%" data-target="15" step="0.1">
-                            <button class="update-btn" onclick="updateKPI('thierry', 'conversion')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="thierry-closing-circle">
@@ -921,10 +847,6 @@
                         </div>
                         <div class="kpi-name">Show up rate</div>
                         <div class="kpi-details">Target: 70%</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="thierry-closing-input" placeholder="%" data-target="70" step="0.1">
-                            <button class="update-btn" onclick="updateKPI('thierry', 'closing')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="thierry-showup-circle">
@@ -932,10 +854,6 @@
                         </div>
                         <div class="kpi-name">Setter Closing rate</div>
                         <div class="kpi-details">Target: 70%</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="thierry-showup-input" placeholder="%" data-target="70" step="0.1">
-                            <button class="update-btn" onclick="updateKPI('thierry', 'showup')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="thierry-followups-circle">
@@ -943,10 +861,6 @@
                         </div>
                         <div class="kpi-name">Follow-ups</div>
                         <div class="kpi-details">Target: 700/week</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="thierry-followups-input" placeholder="Aantal" data-target="700">
-                            <button class="update-btn" onclick="updateKPI('thierry', 'followups')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="thierry-outbound-circle">
@@ -954,10 +868,6 @@
                         </div>
                         <div class="kpi-name">Outbound calls</div>
                         <div class="kpi-details">Target: 350/week</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="thierry-outbound-input" placeholder="Aantal" data-target="350">
-                            <button class="update-btn" onclick="updateKPI('thierry', 'outbound')">UPDATE</button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -978,10 +888,6 @@
                         </div>
                         <div class="kpi-name">Coaching Reviews</div>
                         <div class="kpi-details">Target: 7 dagen</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="lorenzo-coaching-input" placeholder="Dagen" data-target="7" max="7">
-                            <button class="update-btn" onclick="updateKPI('lorenzo', 'coaching')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="lorenzo-trustpilot-circle">
@@ -989,10 +895,6 @@
                         </div>
                         <div class="kpi-name">Trustpilot Reviews</div>
                         <div class="kpi-details">Target: 7/week</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="lorenzo-trustpilot-input" placeholder="Aantal" data-target="7">
-                            <button class="update-btn" onclick="updateKPI('lorenzo', 'trustpilot')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="lorenzo-score-circle">
@@ -1000,10 +902,6 @@
                         </div>
                         <div class="kpi-name">Review Score</div>
                         <div class="kpi-details">Target: 4.5 sterren</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="lorenzo-score-input" placeholder="Sterren" data-target="4.5" step="0.1" min="0" max="5">
-                            <button class="update-btn" onclick="updateKPI('lorenzo', 'score')">UPDATE</button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1024,10 +922,6 @@
                         </div>
                         <div class="kpi-name">Close Rate</div>
                         <div class="kpi-details">Target: 20%</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="novum-closerate-input" placeholder="%" data-target="20" step="0.1">
-                            <button class="update-btn" onclick="updateKPI('novum', 'closerate')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="novum-cost-circle">
@@ -1035,10 +929,6 @@
                         </div>
                         <div class="kpi-name">Cost per Call</div>
                         <div class="kpi-details">Target: €100 (lager=beter)</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="novum-cost-input" placeholder="Euro" data-target="100">
-                            <button class="update-btn" onclick="updateKPI('novum', 'cost')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="novum-showup-circle">
@@ -1046,10 +936,6 @@
                         </div>
                         <div class="kpi-name">Show-up Rate</div>
                         <div class="kpi-details">Target: 70%</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="novum-showup-input" placeholder="%" data-target="70" step="0.1">
-                            <button class="update-btn" onclick="updateKPI('novum', 'showup')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="novum-revenue-circle">
@@ -1057,10 +943,6 @@
                         </div>
                         <div class="kpi-name">Revenue per Lead</div>
                         <div class="kpi-details">Target: €500</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="novum-revenue-input" placeholder="Euro" data-target="500">
-                            <button class="update-btn" onclick="updateKPI('novum', 'revenue')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="novum-margin-circle">
@@ -1068,10 +950,6 @@
                         </div>
                         <div class="kpi-name">Net Profit Margin</div>
                         <div class="kpi-details">Target: 40%</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="novum-margin-input" placeholder="%" data-target="40" step="0.1">
-                            <button class="update-btn" onclick="updateKPI('novum', 'margin')">UPDATE</button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1092,10 +970,6 @@
                         </div>
                         <div class="kpi-name">Response Time</div>
                         <div class="kpi-details">Target: &lt;1 uur (60 min)</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="nance-response-input" placeholder="Minuten" data-target="60">
-                            <button class="update-btn" onclick="updateKPI('nance', 'response')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="nance-tasks-circle">
@@ -1103,10 +977,6 @@
                         </div>
                         <div class="kpi-name">Taken Afgerond</div>
                         <div class="kpi-details">Target: 95%/week</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="nance-tasks-input" placeholder="%" data-target="95" step="1" min="0" max="100">
-                            <button class="update-btn" onclick="updateKPI('nance', 'tasks')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="nance-deadlines-circle">
@@ -1114,10 +984,6 @@
                         </div>
                         <div class="kpi-name">Deadlines Gehaald</div>
                         <div class="kpi-details">Target: 100%</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="nance-deadlines-input" placeholder="%" data-target="100" step="1" min="0" max="100">
-                            <button class="update-btn" onclick="updateKPI('nance', 'deadlines')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="nance-report-circle">
@@ -1125,10 +991,6 @@
                         </div>
                         <div class="kpi-name">Rapportage op Tijd</div>
                         <div class="kpi-details">Target: 1/week</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="nance-report-input" placeholder="0 of 1" data-target="1" min="0" max="1">
-                            <button class="update-btn" onclick="updateKPI('nance', 'report')">UPDATE</button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1149,10 +1011,6 @@
                         </div>
                         <div class="kpi-name">Follower Growth</div>
                         <div class="kpi-details">Target: 1000/week</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="creative-growth-input" placeholder="Aantal" data-target="1000">
-                            <button class="update-btn" onclick="updateKPI('creative', 'growth')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="creative-reels-circle">
@@ -1160,10 +1018,6 @@
                         </div>
                         <div class="kpi-name">Daily Reels</div>
                         <div class="kpi-details">Target: 21/week</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="creative-reels-input" placeholder="Aantal" data-target="21">
-                            <button class="update-btn" onclick="updateKPI('creative', 'reels')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="creative-youtube-circle">
@@ -1171,10 +1025,6 @@
                         </div>
                         <div class="kpi-name">YouTube Video</div>
                         <div class="kpi-details">Target: 1/week</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="creative-youtube-input" placeholder="0 of 1" data-target="1" min="0" max="1">
-                            <button class="update-btn" onclick="updateKPI('creative', 'youtube')">UPDATE</button>
-                        </div>
                     </div>
 
                 </div>
@@ -1204,10 +1054,6 @@
                         </div>
                         <div class="kpi-name">Closing Rate</div>
                         <div class="kpi-details">Target: 20%</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="matthijs-closingrate-input" placeholder="Percentage" data-target="20" step="0.1">
-                            <button class="update-btn" onclick="updateKPI('matthijs', 'closingrate')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="matthijs-cashpercall-circle">
@@ -1215,10 +1061,6 @@
                         </div>
                         <div class="kpi-name">Cash per booked call</div>
                         <div class="kpi-details">Target: €750</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="matthijs-cashpercall-input" placeholder="Euro" data-target="750">
-                            <button class="update-btn" onclick="updateKPI('matthijs', 'cashpercall')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="matthijs-dailycalls-circle">
@@ -1226,10 +1068,6 @@
                         </div>
                         <div class="kpi-name">Daily Sales Calls</div>
                         <div class="kpi-details">Target: 35/week (5 daily)</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="matthijs-dailycalls-input" placeholder="Aantal calls" data-target="35">
-                            <button class="update-btn" onclick="updateKPI('matthijs', 'dailycalls')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="matthijs-followups-circle">
@@ -1237,10 +1075,6 @@
                         </div>
                         <div class="kpi-name">Follow-ups</div>
                         <div class="kpi-details">Target: 140/week (20 daily)</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="matthijs-followups-input" placeholder="Aantal" data-target="140">
-                            <button class="update-btn" onclick="updateKPI('matthijs', 'followups')">UPDATE</button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1261,10 +1095,6 @@
                         </div>
                         <div class="kpi-name">Conversie rate</div>
                         <div class="kpi-details">Target: 15%</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="zinah-conversion-input" placeholder="%" data-target="15" step="0.1">
-                            <button class="update-btn" onclick="updateKPI('zinah', 'conversion')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="zinah-closing-circle">
@@ -1272,10 +1102,6 @@
                         </div>
                         <div class="kpi-name">Show up rate</div>
                         <div class="kpi-details">Target: 70%</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="zinah-closing-input" placeholder="%" data-target="70" step="0.1">
-                            <button class="update-btn" onclick="updateKPI('zinah', 'closing')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="zinah-showup-circle">
@@ -1283,10 +1109,6 @@
                         </div>
                         <div class="kpi-name">Closing rate</div>
                         <div class="kpi-details">Target: 70%</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="zinah-showup-input" placeholder="%" data-target="70" step="0.1">
-                            <button class="update-btn" onclick="updateKPI('zinah', 'showup')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="zinah-followups-circle">
@@ -1294,10 +1116,6 @@
                         </div>
                         <div class="kpi-name">Follow-ups</div>
                         <div class="kpi-details">Target: 700/week</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="zinah-followups-input" placeholder="Aantal" data-target="700">
-                            <button class="update-btn" onclick="updateKPI('zinah', 'followups')">UPDATE</button>
-                        </div>
                     </div>
                     <div class="kpi-item">
                         <div class="kpi-circle circle-needs-attention" id="zinah-outbound-circle">
@@ -1305,10 +1123,6 @@
                         </div>
                         <div class="kpi-name">Outbound calls</div>
                         <div class="kpi-details">Target: 350/week</div>
-                        <div class="kpi-input-group">
-                            <input type="number" class="kpi-input" id="zinah-outbound-input" placeholder="Aantal" data-target="350">
-                            <button class="update-btn" onclick="updateKPI('zinah', 'outbound')">UPDATE</button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1774,20 +1588,6 @@
         }
 
         // Enhanced KPI input with persistence
-        function updateKPI(executive, kpiName, inputElement) {
-            const newValue = parseFloat(inputElement.value) || 0;
-            const targetElement = inputElement.parentElement.querySelector('.target-value');
-            const target = parseFloat(targetElement?.textContent?.replace(/[^0-9.]/g, '') || 1);
-            
-            // Save to persistent storage
-            saveKPIToAirtable(executive, kpiName, newValue, target);
-            
-            // Visual feedback
-            inputElement.style.background = '#27ae60';
-            setTimeout(() => {
-                inputElement.style.background = '';
-            }, 1000);
-        }
 
         // Fetch live KPI data from Airtable
         async function fetchLiveKPIData() {
@@ -2012,19 +1812,6 @@
             updateGrowthAnalysis();
         });
 
-        function updateKPI(exec, kpi) {
-            const inputId = `${exec}-${kpi}-input`;
-            const circleId = `${exec}-${kpi}-circle`;
-            const valueId = `${exec}-${kpi}-value`;
-            
-            const inputElement = document.getElementById(inputId);
-            const circleElement = document.getElementById(circleId);
-            const valueElement = document.getElementById(valueId);
-            
-            if (!inputElement || !circleElement || !valueElement) {
-                console.error('Elements not found:', {inputId, circleId, valueId});
-                return;
-            }
             
             const actual = parseFloat(inputElement.value) || 0;
             const target = parseFloat(inputElement.dataset.target) || 1;
